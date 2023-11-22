@@ -1,0 +1,38 @@
+-
+  const menuPopupList = [
+    {
+      name: 'Products',
+      href: '#',
+      goto: '.products',
+    },
+    {
+      name: 'Advantages',
+      href: '#',
+      goto: '.advantages',
+    },
+    {
+      name: 'About Overtech',
+      href: '#',
+      goto: '.about',
+    },
+    {
+      name: 'Contact Us',
+      href: '#',
+      goto: '.contacts',
+    },
+  ];
+
+.modal-menu__header
+  button.popup__close
+    img(src=require('@/assets/img/popup-close.svg'), alt='close')
+
+.modal-menu__main
+  nav.menu
+    ul.menu-list
+      each item in menuPopupList
+        li.menu-list__item
+          a.menu__link(
+            class=`${item.goto !== 'false' ? 'anchor' : ''}`,
+            href=`${item.href}`,
+            data-goto=`${item.goto}`
+          ) #{ item.name }

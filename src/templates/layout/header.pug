@@ -1,0 +1,28 @@
+header.header
+  ._container.header__container
+    .header__wrapper
+      .header__item
+        button.header-menu.popup-open(
+          data-popup='_popup-menu',
+          title='open menu'
+        )
+          span.header-menu__title menu
+
+          span.header-menu__burger.menu-burger
+
+      .header__item
+        a.custom-logo-link.header__logo(href='#') 
+          img.custom-logo(
+            src=require('@/assets/img/logo.svg'),
+            alt='logo',
+            draggable='false'
+          )
+
+      .header__item
+        a.header-call.contact-call.whatsapp(href='tel:+380662105690')
+          span.contact-call__label
+            img(src=require('@/assets/img/contacts/whatsapp.svg'), alt='call')
+
+          span.contact-call__text +38 066 210-56-90
+
+  include @/layout/popup.pug

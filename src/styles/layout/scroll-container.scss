@@ -1,0 +1,55 @@
+.scroll-container {
+  width: 100%;
+
+  @include non-mobile-device {
+    height: calc(var(--vh, 1vh) * 100);
+    overflow: hidden;
+  }
+  
+  //.scroll-container__wrapper 
+  &__wrapper {
+    width: 100%;
+
+    @include non-mobile-device {
+      height: 100%;
+      will-change: transform;
+    }
+
+    // display: flex;
+    // flex-direction: column;
+  }
+  
+  //.scroll-container__item 
+  &__item {
+    width: 100%;
+    
+    @include non-mobile-device {
+      height: 100%;
+
+      @include hide-scroll-bars;
+      display: flex;
+      flex-direction: column;
+    
+      overflow: auto;
+      max-height: calc(var(--vh, 1vh) * 100);
+
+      &.centered {
+        justify-content: center;
+        align-items: center;
+      }
+
+      &.progress {
+        pointer-events: none;
+      }
+    }
+
+    &:nth-child(odd) {
+      background-color: var(--color-black);
+    }
+
+    &:nth-child(even) {
+      color: var(--color-black);
+      background-color: var(--color-white);
+    }
+  }
+}
