@@ -1,5 +1,6 @@
 import debounce from '../config/debounce';
 import makeGlobalTimeline from './makeTimeline';
+import navigationInit from './navigationInit';
 import recalculateHeight, {
   changeInnerItemPosition
 } from './recalculateHeight';
@@ -32,6 +33,7 @@ const initScrollSections = () => {
       isCanScrollUp: false,
       isCanScrollDown: false,
       isCanScrolling: true,
+      isNavigationEvent: false,
       scrollingIndex: 0,
       timelines: [],
       duration: 600
@@ -49,6 +51,7 @@ const initScrollSections = () => {
     scrollbarFix(itemArray);
     changeInnerItemPosition(itemArray);
     scrollHandler(container, wrapper, itemArray, state);
+    navigationInit(container, wrapper, itemArray, state);
 
     window.addEventListener(
       'resize',

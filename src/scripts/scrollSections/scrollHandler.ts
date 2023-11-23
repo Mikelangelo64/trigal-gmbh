@@ -9,10 +9,6 @@ const itemInnerScroll = (item: HTMLElement, permissionProp: IState) => {
     return;
   }
 
-  // item.addEventListener('scroll', () => {
-  //   document.body.classList.add('scrollable');
-  // });
-
   item.addEventListener('wheel', () => {
     if (!item.classList.contains('active')) {
       permission.isCanScrollDown = false;
@@ -47,6 +43,7 @@ const scrollEvent = (
   itemArray: NodeListOf<HTMLElement>
 ) => {
   const state = stateProp;
+  state.isNavigationEvent = false;
 
   if (evt.deltaY < 0) {
     if (state.scrollingIndex !== 0 && state.isCanScrollUp) {
@@ -55,10 +52,8 @@ const scrollEvent = (
     }
   } else if (evt.deltaY > 0) {
     if (state.scrollingIndex < itemArray.length - 1 && state.isCanScrollDown) {
-      // console.log('working!!!!');
-
-      state.timelines[state.scrollingIndex].play();
       state.scrollingIndex += 1;
+      state.timelines[state.scrollingIndex - 1].play();
     }
   }
 
@@ -67,16 +62,6 @@ const scrollEvent = (
   } else {
     document.body.classList.remove('scrollable');
   }
-
-  // if (itemArray[state.scrollingIndex]) {
-  //   itemArray.forEach((item, index) => {
-  //     if (index === state.scrollingIndex) {
-  //       item.classList.add('active');
-  //     } else {
-  //       item.classList.remove('active');
-  //     }
-  //   });
-  // }
 };
 
 const scrollHandler = (
@@ -98,16 +83,65 @@ const scrollHandler = (
   });
 
   container.addEventListener('wheel', (evt) => {
+    // console.log('is nav', state.isNavigationEvent);
+
     if (state.isCanScrolling) {
+      state.timelines.forEach((timeline, index) => {
+        if (index === state.scrollingIndex) {
+          if (timeline.progress === 0) {
+            timeline.addCallback(
+              'start',
+              () => {
+                // console.log('start', index);
+                state.isCanScrolling = false;
+              },
+              { isOnce: true }
+            );
+
+            timeline.addCallback(
+              'end',
+              () => {
+                // console.log('end', index);
+                state.isCanScrolling = true;
+              },
+              { isOnce: true }
+            );
+          }
+          return;
+        }
+
+        if (index === state.scrollingIndex - 1) {
+          if (timeline.progress === 1) {
+            timeline.addCallback(
+              'start',
+              () => {
+                // console.log('start reverse', index);
+                state.isCanScrolling = true;
+              },
+              { isOnce: true }
+            );
+
+            timeline.addCallback(
+              'end',
+              () => {
+                // console.log('end reverse', index);
+                state.isCanScrolling = false;
+              },
+              { isOnce: true }
+            );
+          }
+        }
+      });
+
       scrollEvent(evt, state, itemArray);
 
-      setTimeout(() => {
-        state.isCanScrolling = true;
-      }, state.duration / 3);
+      // setTimeout(() => {
+      //   state.isCanScrolling = true;
+      // }, state.duration / 3);
     }
     // console.log(vevet.viewport.height);
 
-    state.isCanScrolling = false;
+    // state.isCanScrolling = false;
   });
 };
 
