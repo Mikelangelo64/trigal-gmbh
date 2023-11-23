@@ -159,32 +159,33 @@ const makeGlobalTimeline = ({
   itemArray.forEach((item, index) => {
     const timeline = new Timeline({
       duration: state.duration,
-      easing: [0.25, 0.1, 0.25, 1]
+      easing: [1.0, 1.0, 0.0, 0.0]
+      // easing: [0.25, 0.1, 0.25, 1]
     });
 
-    timeline.addCallback('progress', ({ easing, progress }) => {
-      if (state.isNavigationEvent) {
-        return;
-      }
+    timeline.addCallback('progress', ({ easing }) => {
+      // if (state.isNavigationEvent) {
+      //   return;
+      // }
 
-      item.classList.add('progress');
-      // console.log(index);
+      // item.classList.add('progress');
+      // console.log(index, progress);
 
-      if (itemArray[index + 1]) {
-        itemArray[index + 1].classList.add('progress');
-      } else {
-        itemArray[itemArray.length - 1].classList.add('progress');
-      }
+      // if (itemArray[index + 1]) {
+      //   // itemArray[index + 1].classList.add('progress');
+      // } else {
+      //   // itemArray[itemArray.length - 1].classList.add('progress');
+      // }
 
-      if (progress === 0 || progress === 1) {
-        item.classList.remove('progress');
+      // if (progress === 0 || progress === 1) {
+      //   item.classList.remove('progress');
 
-        if (itemArray[index + 1]) {
-          itemArray[index + 1].classList.remove('progress');
-        } else {
-          itemArray[itemArray.length - 1].classList.remove('progress');
-        }
-      }
+      //   if (itemArray[index + 1]) {
+      //     itemArray[index + 1].classList.remove('progress');
+      //   } else {
+      //     itemArray[itemArray.length - 1].classList.remove('progress');
+      //   }
+      // }
 
       wrapper.style.transform = `translateY(${
         -1 * (vevet.viewport.height * index + vevet.viewport.height * easing)

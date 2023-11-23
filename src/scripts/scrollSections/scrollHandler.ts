@@ -10,6 +10,12 @@ const itemInnerScroll = (item: HTMLElement, permissionProp: IState) => {
   }
 
   item.addEventListener('wheel', () => {
+    if (item.classList.contains('centered')) {
+      permission.isCanScrollDown = true;
+      permission.isCanScrollUp = true;
+      return;
+    }
+
     if (!item.classList.contains('active')) {
       permission.isCanScrollDown = false;
       permission.isCanScrollUp = false;
@@ -27,6 +33,8 @@ const itemInnerScroll = (item: HTMLElement, permissionProp: IState) => {
       return;
     }
     permission.isCanScrollDown = false;
+
+    // console.log(rect.top);
 
     if (rect.top >= 0) {
       permission.isCanScrollUp = true;
@@ -83,10 +91,13 @@ const scrollHandler = (
   });
 
   container.addEventListener('wheel', (evt) => {
-    // console.log('is nav', state.isNavigationEvent);
-
     if (state.isCanScrolling) {
       state.timelines.forEach((timeline, index) => {
+        if (state.isNavigationEvent) {
+          // console.log(state.scrollingIndex);
+          return;
+        }
+
         if (index === state.scrollingIndex) {
           if (timeline.progress === 0) {
             timeline.addCallback(

@@ -93,8 +93,9 @@
         pointer-events: none;
         background-color: var(--color-whatsapp);
       }
-
+      
       &.active {
+        pointer-events: none;
         background-color: var(--color-red);
       }
     }
