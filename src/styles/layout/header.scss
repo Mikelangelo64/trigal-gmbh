@@ -56,6 +56,18 @@
     align-items: center;
     color: inherit;
 
+    &.scroll-control {
+      @include mobile-device {
+        display: none;
+      }
+    }
+
+    &.popup-open {
+      @include non-mobile-device {
+        display: none;
+      }
+    }
+
     > * + * {
       @include viewport-tablet-min {
         margin-left: px-to-rem(10);

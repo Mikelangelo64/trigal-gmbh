@@ -1,7 +1,36 @@
+-
+  const menuPopupList = [
+    {
+      name: 'Products',
+      href: '#',
+      goto: '.products',
+    },
+    {
+      name: 'Advantages',
+      href: '#',
+      goto: '.advantages',
+    },
+    {
+      name: 'About Overtech',
+      href: '#',
+      goto: '.about',
+    },
+    {
+      name: 'Contact Us',
+      href: '#',
+      goto: '.contacts',
+    },
+  ];
+
 header.header
   ._container.header__container
     .header__wrapper
       .header__item
+        button.header-menu.scroll-control(data-section='menu')
+          span.header-menu__title menu
+
+          span.header-menu__burger.menu-burger
+
         button.header-menu.popup-open(
           data-popup='_popup-menu',
           title='open menu'

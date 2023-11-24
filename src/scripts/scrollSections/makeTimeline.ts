@@ -5,7 +5,7 @@ import { IState } from './types';
 interface IMakeTimeline {
   wrapperProp: HTMLElement;
   itemArray: NodeListOf<HTMLElement>;
-  state: IState;
+  stateProp: IState;
 }
 
 // const makeGlobalTimelineOld = ({
@@ -151,8 +151,9 @@ interface IMakeTimeline {
 const makeGlobalTimeline = ({
   wrapperProp,
   itemArray,
-  state
+  stateProp
 }: IMakeTimeline) => {
+  const state = stateProp;
   const wrapper = wrapperProp;
   const timelines: Timeline[] = [];
 
@@ -197,6 +198,9 @@ const makeGlobalTimeline = ({
         return;
       }
 
+      state.isCanScrollDown = false;
+      state.isCanScrollUp = false;
+
       if (timeline.isReversed) {
         item.classList.add('active');
       } else {
@@ -208,6 +212,9 @@ const makeGlobalTimeline = ({
       if (state.isNavigationEvent) {
         return;
       }
+
+      state.isCanScrollDown = false;
+      state.isCanScrollUp = false;
 
       if (timeline.isReversed) {
         itemArray.forEach((otherItem) => {

@@ -1,5 +1,5 @@
 import { Timeline } from 'vevet';
-import { IState } from './types';
+import { IAddNestedCallbacks, ICreateNestedTimelines, IState } from './types';
 
 const createDom = (
   container: HTMLElement,
@@ -10,6 +10,10 @@ const createDom = (
   wrapperDom.classList.add('scroll-container-navigation');
 
   itemArray.forEach((item) => {
+    if (item.classList.contains('special')) {
+      return;
+    }
+
     const button = document.createElement('button');
     button.classList.add('scroll-container-navigation__button');
 
@@ -24,71 +28,6 @@ const createDom = (
   container.appendChild(wrapperDom);
   return { wrapperDom, buttons };
 };
-
-// const buttonHandler = (
-//   evt: MouseEvent,
-//   index: number,
-//   stateProp: IState,
-//   length: number,
-//   wrapperProp: HTMLElement,
-//   itemArray: NodeListOf<HTMLElement>
-// ) => {
-//   evt.preventDefault();
-
-//   const wrapper = wrapperProp;
-//   const state = stateProp;
-
-//   const timelineNav = new Timeline({
-//     duration: 1000,
-//     easing: [0.25, 0.1, 0.25, 1],
-//     shouldDestroyOnEnd: true
-//   });
-
-//   const scopes = spreadScope(length, 0.0);
-
-//   const differ = index - state.scrollingIndex;
-//   const prevIndex = state.scrollingIndex;
-//   state.scrollingIndex = index;
-
-//   if (differ === 0) {
-//     return;
-//   }
-
-//   console.log(differ);
-
-//   timelineNav.addCallback('progress', ({ progress }) => {
-//     itemArray.forEach((item) => {
-//       item.classList.add('progress');
-//     });
-
-//     const value =
-//       -1 *
-//       (vevet.viewport.height * prevIndex +
-//         vevet.viewport.height * progress * differ);
-
-//     wrapper.style.transform = `translate(0, ${value}px)`;
-//   });
-
-//   timelineNav.addCallback('start', () => {
-//     itemArray[prevIndex].classList.remove('active');
-//   });
-
-//   timelineNav.addCallback('end', () => {
-//     itemArray.forEach((item) => {
-//       item.classList.remove('progress');
-//     });
-
-//     itemArray[state.scrollingIndex].classList.add('active');
-//   });
-
-//   timelineNav.play();
-
-//   // if (state.timelines[index - 1]) {
-//   //   state.timelines[index - 1].play();
-//   // } else {
-//   //   state.timelines[0].reverse();
-//   // }
-// };
 
 const globalTimelineHandler = (
   state: IState,
@@ -109,6 +48,7 @@ const globalTimelineHandler = (
 
     if (progress === 0 || progress === 1) {
       wrapper.classList.remove('progress');
+
       buttons.forEach((item) => {
         item.classList.remove('progress');
       });
@@ -137,8 +77,228 @@ const globalTimelineHandler = (
         otherItem.classList.remove('active');
       });
     } else {
-      buttons[state.scrollingIndex].classList.add('active');
+      // console.log(state.scrollingIndex);
+      buttons[state.scrollingIndex]?.classList.add('active');
     }
+  });
+};
+
+const createNestedTimelines = ({
+  isReversed,
+  state,
+  differ,
+  prevIndex,
+  indexBn,
+  nestdTmArray
+}: ICreateNestedTimelines) => {
+  state.timelines.forEach((timelineGlobalProp, indexTimeline) => {
+    const timelineGlobal = timelineGlobalProp;
+
+    const IsShouldReturn: boolean = isReversed
+      ? indexTimeline < indexBn || indexTimeline >= prevIndex
+      : indexTimeline < prevIndex || indexTimeline >= indexBn;
+
+    if (IsShouldReturn) {
+      return;
+    }
+
+    const nestedTm = new Timeline({
+      duration: state.duration / Math.abs(differ),
+      easing: [0.25, 0.1, 0.25, 1],
+      shouldDestroyOnEnd: true
+    });
+
+    nestedTm.addCallback('progress', ({ progress }) => {
+      if (isReversed) {
+        timelineGlobal.progress = 1 - progress;
+      } else {
+        timelineGlobal.progress = progress;
+      }
+    });
+
+    nestdTmArray.push(nestedTm);
+  });
+};
+
+const addNestedCallbacks = ({
+  itemArray,
+  buttons,
+  wrapperProp,
+  timeline,
+  stateProp,
+  prevIndex,
+  indexTm,
+  indexBn,
+  currentTimelineArray,
+  isSpecial = false
+}: IAddNestedCallbacks) => {
+  const state = stateProp;
+  const wrapper = wrapperProp;
+
+  const addClassSpecialButtons = (
+    section: HTMLElement,
+    className: string,
+    doing: 'add' | 'remove' | 'toggle'
+  ) => {
+    if (!section.classList.contains('special')) {
+      return;
+    }
+
+    const name = section.dataset.section;
+    if (!name || name === '') {
+      return;
+    }
+
+    const buttonSpecialArray = document.querySelectorAll<HTMLButtonElement>(
+      `.scroll-control[data-section="${name}"]`
+    );
+
+    buttonSpecialArray.forEach((specialButton) => {
+      if (doing === 'add') {
+        specialButton.classList.add(className);
+      } else if (doing === 'toggle') {
+        specialButton.classList.toggle(className);
+      } else {
+        specialButton.classList.remove(className);
+      }
+    });
+  };
+
+  if (indexTm === 0) {
+    const startHandler = () => {
+      state.isCanScrolling = false;
+
+      if (buttons[prevIndex]) {
+        buttons[prevIndex].classList.remove('active');
+      } else {
+        buttons
+          .find((item) => item.classList.contains('active'))
+          ?.classList.remove('active');
+      }
+
+      if (itemArray[prevIndex]) {
+        itemArray[prevIndex].classList.remove('active');
+      } else {
+        Array.from(itemArray)
+          .find((item) => item.classList.contains('active'))
+          ?.classList.remove('active');
+      }
+
+      // itemArray[prevIndex].classList.remove('active');
+
+      wrapper.classList.add('progress');
+
+      if (isSpecial) {
+        wrapper.classList.toggle('special');
+      } else {
+        wrapper.classList.remove('special');
+      }
+
+      buttons.forEach((item) => {
+        item.classList.add('progress');
+      });
+
+      itemArray.forEach((item) => {
+        item.classList.add('progress');
+
+        addClassSpecialButtons(item, 'progress', 'add');
+      });
+    };
+
+    if (isSpecial) {
+      const specialTimeline = new Timeline({
+        duration: state.duration / 3,
+        easing: [0.25, 0.1, 0.25, 1],
+        shouldDestroyOnEnd: true
+      });
+
+      specialTimeline.addCallback('progress', ({ progress }) => {
+        state.isCanScrolling = false;
+
+        wrapper.style.opacity = `${1 - progress}`;
+      });
+
+      specialTimeline.addCallback('start', () => {
+        startHandler();
+      });
+
+      specialTimeline.addCallback('end', () => {
+        // console.log('special!');
+
+        timeline.play();
+      });
+
+      specialTimeline.play();
+    } else {
+      timeline.addCallback('start', () => {
+        startHandler();
+      });
+
+      timeline.play();
+    }
+  }
+  // console.log(timeline);
+
+  if (!currentTimelineArray[indexTm + 1]) {
+    const endHandler = () => {
+      state.isCanScrolling = true;
+      state.isNavigationEvent = false;
+
+      if (buttons[indexBn]) {
+        buttons[indexBn].classList.add('active');
+      } else {
+        buttons[prevIndex]?.classList.add('active');
+      }
+
+      itemArray[indexBn].classList.add('active');
+
+      wrapper.classList.remove('progress');
+
+      buttons.forEach((item) => {
+        item.classList.remove('progress');
+      });
+
+      itemArray.forEach((item) => {
+        item.classList.remove('progress');
+
+        addClassSpecialButtons(item, 'progress', 'remove');
+
+        if (isSpecial) {
+          addClassSpecialButtons(item, 'active', 'toggle');
+        } else {
+          addClassSpecialButtons(item, 'active', 'remove');
+        }
+      });
+    };
+
+    const specialTimeline = new Timeline({
+      duration: state.duration,
+      easing: [0.25, 0.1, 0.25, 1],
+      shouldDestroyOnEnd: true
+    });
+
+    specialTimeline.addCallback('progress', ({ progress }) => {
+      wrapper.style.opacity = `${progress}`;
+    });
+
+    specialTimeline.addCallback('end', () => {
+      endHandler();
+    });
+
+    timeline.addCallback('end', () => {
+      if (isSpecial) {
+        specialTimeline.play();
+      } else {
+        endHandler();
+        specialTimeline.destroy();
+      }
+    });
+
+    return;
+  }
+
+  timeline.addCallback('end', () => {
+    currentTimelineArray[indexTm + 1].play();
   });
 };
 
@@ -163,6 +323,7 @@ const navigationInit = (
 
       const differ = index - state.scrollingIndex;
       const prevIndex = state.scrollingIndex;
+      state.previousIndex = prevIndex;
       state.scrollingIndex = index;
 
       if (differ === 0) {
@@ -170,349 +331,153 @@ const navigationInit = (
       }
 
       // const scopes = spreadScope(Math.abs(differ), 0.0);
-
       const nestdTmArray: Timeline[] = [];
 
+      createNestedTimelines({
+        isReversed: differ < 0,
+        state,
+        differ,
+        prevIndex,
+        indexBn: index,
+        nestdTmArray
+      });
+
       if (differ > 0) {
-        state.timelines.forEach((timelineGlobalProp, indexTimeline) => {
-          const timelineGlobal = timelineGlobalProp;
-
-          if (indexTimeline < prevIndex || indexTimeline >= index) {
-            return;
-          }
-
-          const nestedTm = new Timeline({
-            duration: state.duration / differ,
-            easing: [0.25, 0.1, 0.25, 1],
-            shouldDestroyOnEnd: true
-          });
-
-          nestedTm.addCallback('progress', ({ progress }) => {
-            timelineGlobal.progress = progress;
-          });
-
-          nestdTmArray.push(nestedTm);
-        });
-
         nestdTmArray.forEach((timeline, indexTm, array) => {
-          if (indexTm === 0) {
-            timeline.addCallback('start', () => {
-              state.isCanScrolling = false;
-
-              buttons[prevIndex].classList.remove('active');
-              itemArray[prevIndex].classList.remove('active');
-
-              wrapper.classList.add('progress');
-
-              buttons.forEach((item) => {
-                item.classList.add('progress');
-              });
-
-              itemArray.forEach((item) => {
-                item.classList.add('progress');
-              });
-            });
-
-            timeline.play();
-          }
-          // console.log(timeline);
-
-          if (!array[indexTm + 1]) {
-            timeline.addCallback('end', () => {
-              state.isCanScrolling = true;
-              state.isNavigationEvent = false;
-              buttons[index].classList.add('active');
-              itemArray[index].classList.add('active');
-
-              wrapper.classList.remove('progress');
-
-              buttons.forEach((item) => {
-                item.classList.remove('progress');
-              });
-
-              itemArray.forEach((item) => {
-                item.classList.remove('progress');
-              });
-            });
-
-            return;
-          }
-
-          timeline.addCallback('end', () => {
-            array[indexTm + 1].play();
+          addNestedCallbacks({
+            itemArray,
+            buttons,
+            wrapperProp,
+            timeline,
+            stateProp: state,
+            prevIndex,
+            indexTm,
+            indexBn: index,
+            currentTimelineArray: array
           });
         });
       } else {
-        state.timelines
-          // .slice()
-          // .reverse()
-          .forEach((timelineGlobalProp, indexTimeline) => {
-            const timelineGlobal = timelineGlobalProp;
-            if (indexTimeline < index || indexTimeline >= prevIndex) {
-              return;
-            }
-
-            const nestedTm = new Timeline({
-              duration: state.duration / Math.abs(differ),
-              easing: [0.25, 0.1, 0.25, 1],
-              shouldDestroyOnEnd: true
-            });
-
-            nestedTm.addCallback('progress', ({ progress }) => {
-              timelineGlobal.progress = 1 - progress;
-            });
-
-            nestdTmArray.push(nestedTm);
-          });
-
-        // console.log(nestdTmArray);
-
         nestdTmArray
           .slice()
           .reverse()
           .forEach((timeline, indexTm, array) => {
-            if (indexTm === 0) {
-              timeline.addCallback('start', () => {
-                state.isCanScrolling = false;
-
-                buttons[prevIndex].classList.remove('active');
-                itemArray[prevIndex].classList.remove('active');
-
-                wrapper.classList.add('progress');
-
-                buttons.forEach((item) => {
-                  item.classList.add('progress');
-                });
-                itemArray.forEach((item) => {
-                  item.classList.add('progress');
-                });
-              });
-
-              timeline.play();
-            }
-
-            if (!array[indexTm + 1]) {
-              timeline.addCallback('end', () => {
-                state.isCanScrolling = true;
-                state.isNavigationEvent = false;
-                buttons[index].classList.add('active');
-                itemArray[index].classList.add('active');
-
-                wrapper.classList.remove('progress');
-
-                buttons.forEach((item) => {
-                  item.classList.remove('progress');
-                });
-
-                itemArray.forEach((item) => {
-                  item.classList.remove('progress');
-                });
-              });
-
-              return;
-            }
-
-            timeline.addCallback('end', () => {
-              array[indexTm + 1].play();
+            addNestedCallbacks({
+              itemArray,
+              buttons,
+              wrapperProp,
+              timeline,
+              stateProp: state,
+              prevIndex,
+              indexTm,
+              indexBn: index,
+              currentTimelineArray: array
             });
           });
       }
-
-      // const timelineNav = new Timeline({
-      //   duration: 1000,
-      //   easing: [0.25, 0.1, 0.25, 1],
-      //   shouldDestroyOnEnd: true
-      // });
-
-      // const differ = index - state.scrollingIndex;
-      // const prevIndex = state.scrollingIndex;
-      // state.scrollingIndex = index;
-
-      // if (differ === 0) {
-      //   return;
-      // }
-
-      // const scopes = spreadScope(Math.abs(differ), 0.0);
-
-      // const nestdTmArray: BaseTimeline[] = [];
-
-      // state.timelines.forEach((timelineGlobal, indexTimeline) => {
-      //   if (indexTimeline < prevIndex || indexTimeline >= index) {
-      //     return;
-      //   }
-
-      //   const nestedTm = new BaseTimeline({
-      //     nestedScope: scopes[indexTimeline - prevIndex],
-      //     easing: [0.25, 0.1, 0.25, 1]
-      //   });
-
-      //   nestedTm.addCallback('progress', ({ progress }) => {
-      //     timelineGlobal.progress = progress;
-      //   });
-
-      //   timelineNav.addNestedTimeline(nestedTm);
-      // });
-
-      // timelineNav.play();
-      // *********
-
-      // timelineNav.addCallback('progress', ({ progress }) => {
-      //   itemArray.forEach((item) => {
-      //     item.classList.add('progress');
-      //   });
-      //   buttons.forEach((item) => {
-      //     item.classList.add('progress');
-      //   });
-
-      //   const value =
-      //     -1 *
-      //     (vevet.viewport.height * prevIndex +
-      //       vevet.viewport.height * progress * differ);
-
-      //   wrapper.style.transform = `translate(0, ${value}px)`;
-      // });
-
-      // timelineNav.addCallback('start', () => {
-      //   state.isCanScrolling = false;
-
-      //   wrapper.classList.add('progress');
-
-      //   itemArray[prevIndex].classList.remove('active');
-      //   buttons[prevIndex].classList.remove('active');
-      // });
-
-      // timelineNav.addCallback('end', () => {
-      //   state.isCanScrolling = true;
-
-      //   wrapper.classList.remove('progress');
-
-      //   itemArray.forEach((item) => {
-      //     item.classList.remove('progress');
-      //   });
-      //   buttons.forEach((item) => {
-      //     item.classList.remove('progress');
-      //   });
-
-      //   itemArray[state.scrollingIndex].classList.add('active');
-      //   buttons[state.scrollingIndex].classList.add('active');
-
-      //   if (differ > 0) {
-      //     state.timelines.forEach((timelineProp, indexTl) => {
-      //       const timeline = timelineProp;
-
-      //       if (indexTl < index) {
-      //         console.log(index, indexTl);
-
-      //         timeline.progress = 1;
-      //       }
-      //     });
-      //   }
-
-      //   if (differ < 0) {
-      //     state.timelines.forEach((timelineProp, indexTl) => {
-      //       const timeline = timelineProp;
-
-      //       if (indexTl > index) {
-      //         console.log(index, indexTl);
-      //         timeline.progress = 0;
-      //       }
-      //     });
-      //   }
-      // });
     });
-
-    // globalTimelineHandler(state, buttons, button, index, wrapper);
-
-    // button.addEventListener('click', (evt) => {
-    //   // buttonHandler(evt, index, state, buttons, wrapper, itemArray);
-
-    //   evt.preventDefault();
-    //   state.isNavigationEvent = true;
-
-    //   const timelineNav = new Timeline({
-    //     duration: 1000,
-    //     easing: [0.25, 0.1, 0.25, 1],
-    //     shouldDestroyOnEnd: true
-    //   });
-
-    //   // const scopes = spreadScope(buttons.length, 0.0);
-
-    //   const differ = index - state.scrollingIndex;
-    //   const prevIndex = state.scrollingIndex;
-    //   state.scrollingIndex = index;
-
-    //   if (differ === 0) {
-    //     return;
-    //   }
-
-    //   timelineNav.addCallback('progress', ({ progress }) => {
-    //     itemArray.forEach((item) => {
-    //       item.classList.add('progress');
-    //     });
-    //     buttons.forEach((item) => {
-    //       item.classList.add('progress');
-    //     });
-
-    //     const value =
-    //       -1 *
-    //       (vevet.viewport.height * prevIndex +
-    //         vevet.viewport.height * progress * differ);
-
-    //     wrapper.style.transform = `translate(0, ${value}px)`;
-    //   });
-
-    //   timelineNav.addCallback('start', () => {
-    //     state.isCanScrolling = false;
-
-    //     wrapper.classList.add('progress');
-
-    //     itemArray[prevIndex].classList.remove('active');
-    //     buttons[prevIndex].classList.remove('active');
-    //   });
-
-    //   timelineNav.addCallback('end', () => {
-    //     state.isCanScrolling = true;
-
-    //     wrapper.classList.remove('progress');
-
-    //     itemArray.forEach((item) => {
-    //       item.classList.remove('progress');
-    //     });
-    //     buttons.forEach((item) => {
-    //       item.classList.remove('progress');
-    //     });
-
-    //     itemArray[state.scrollingIndex].classList.add('active');
-    //     buttons[state.scrollingIndex].classList.add('active');
-
-    //     if (differ > 0) {
-    //       state.timelines.forEach((timelineProp, indexTl) => {
-    //         const timeline = timelineProp;
-
-    //         if (indexTl < index) {
-    //           console.log(index, indexTl);
-
-    //           timeline.progress = 1;
-    //         }
-    //       });
-    //     }
-
-    //     if (differ < 0) {
-    //       state.timelines.forEach((timelineProp, indexTl) => {
-    //         const timeline = timelineProp;
-
-    //         if (indexTl > index) {
-    //           console.log(index, indexTl);
-    //           timeline.progress = 0;
-    //         }
-    //       });
-    //     }
-    //   });
-
-    //   timelineNav.play();
-    // });
   });
   // console.log(wrapperNavigation, buttons, timelines);
+
+  const specialArray = Array.from(itemArray).filter((item) =>
+    item.classList.contains('special')
+  );
+
+  specialArray.forEach((section) => {
+    const name = section.dataset.section;
+    if (!name || name === '') {
+      return;
+    }
+
+    const buttonArray = document.querySelectorAll<HTMLButtonElement>(
+      `.scroll-control[data-section="${name}"]`
+    );
+
+    if (buttonArray.length === 0) {
+      return;
+    }
+
+    const indexGlobal = Array.from(itemArray).findIndex(
+      (item) => item === section
+    );
+
+    buttonArray.forEach((button) => {
+      button.addEventListener('click', (evt) => {
+        evt.preventDefault();
+        state.isNavigationEvent = true;
+        let isReverse = false;
+
+        let differ = indexGlobal - state.scrollingIndex;
+
+        const prevIndex = state.scrollingIndex;
+
+        if (prevIndex === indexGlobal) {
+          isReverse = true;
+        }
+
+        if (isReverse) {
+          state.scrollingIndex = state.previousIndex;
+          state.previousIndex = prevIndex;
+          differ = state.scrollingIndex - state.previousIndex;
+        } else {
+          state.previousIndex = prevIndex;
+          state.scrollingIndex = indexGlobal;
+        }
+        // console.log(prevIndex);
+
+        if (differ === 0) {
+          return;
+        }
+
+        const nestdTmArray: Timeline[] = [];
+
+        createNestedTimelines({
+          isReversed: differ < 0,
+          state,
+          differ,
+          prevIndex: state.previousIndex,
+          indexBn: state.scrollingIndex,
+          nestdTmArray
+        });
+
+        if (differ > 0) {
+          nestdTmArray.forEach((timeline, indexTm, array) => {
+            addNestedCallbacks({
+              itemArray,
+              buttons,
+              wrapperProp,
+              timeline,
+              stateProp: state,
+              prevIndex: state.previousIndex,
+              indexTm,
+              indexBn: state.scrollingIndex,
+              currentTimelineArray: array,
+              isSpecial: true
+            });
+          });
+        } else {
+          nestdTmArray
+            .slice()
+            .reverse()
+            .forEach((timeline, indexTm, array) => {
+              addNestedCallbacks({
+                itemArray,
+                buttons,
+                wrapperProp,
+                timeline,
+                stateProp: state,
+                prevIndex: state.previousIndex,
+                indexTm,
+                indexBn: state.scrollingIndex,
+                currentTimelineArray: array,
+                isSpecial: true
+              });
+            });
+        }
+
+        // console.log(state.scrollingIndex, indexGlobal);
+      });
+    });
+  });
 };
 
 export default navigationInit;

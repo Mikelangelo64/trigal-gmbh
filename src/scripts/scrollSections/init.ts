@@ -35,6 +35,7 @@ const initScrollSections = () => {
       isCanScrolling: true,
       isNavigationEvent: false,
       scrollingIndex: 0,
+      previousIndex: 0,
       timelines: [],
       duration: 600
     };
@@ -42,7 +43,7 @@ const initScrollSections = () => {
     const timelines = makeGlobalTimeline({
       wrapperProp: wrapper,
       itemArray,
-      state
+      stateProp: state
     });
 
     state.timelines = timelines;
@@ -52,6 +53,7 @@ const initScrollSections = () => {
     changeInnerItemPosition(itemArray);
     scrollHandler(container, wrapper, itemArray, state);
     navigationInit(container, wrapper, itemArray, state);
+    // specialScrollInit(container, wrapper, itemArray, state);
 
     window.addEventListener(
       'resize',

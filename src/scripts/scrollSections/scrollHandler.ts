@@ -10,10 +10,11 @@ const itemInnerScroll = (item: HTMLElement, permissionProp: IState) => {
   }
 
   item.addEventListener('wheel', () => {
+    // console.log(permission.isCanScrollDown, permission.isCanScrollUp);
+
     if (item.classList.contains('centered')) {
       permission.isCanScrollDown = true;
       permission.isCanScrollUp = true;
-      return;
     }
 
     if (!item.classList.contains('active')) {
@@ -55,11 +56,19 @@ const scrollEvent = (
 
   if (evt.deltaY < 0) {
     if (state.scrollingIndex !== 0 && state.isCanScrollUp) {
+      if (itemArray[state.scrollingIndex].classList.contains('special')) {
+        return;
+      }
+
       state.scrollingIndex -= 1;
       state.timelines[state.scrollingIndex].reverse();
     }
   } else if (evt.deltaY > 0) {
     if (state.scrollingIndex < itemArray.length - 1 && state.isCanScrollDown) {
+      if (itemArray[state.scrollingIndex + 1].classList.contains('special')) {
+        return;
+      }
+
       state.scrollingIndex += 1;
       state.timelines[state.scrollingIndex - 1].play();
     }
@@ -92,18 +101,19 @@ const scrollHandler = (
 
   container.addEventListener('wheel', (evt) => {
     if (state.isCanScrolling) {
-      state.timelines.forEach((timeline, index) => {
-        if (state.isNavigationEvent) {
-          // console.log(state.scrollingIndex);
-          return;
-        }
+      if (state.isNavigationEvent) {
+        // console.log(state.scrollingIndex);
+        state.isCanScrolling = false;
+        return;
+      }
 
+      state.timelines.forEach((timeline, index) => {
         if (index === state.scrollingIndex) {
           if (timeline.progress === 0) {
             timeline.addCallback(
               'start',
               () => {
-                // console.log('start', index);
+                // console.log('start', index, state.scrollingIndex);
                 state.isCanScrolling = false;
               },
               { isOnce: true }

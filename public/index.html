@@ -17,8 +17,10 @@
     <header class="header">
       <div class="_container header__container">
         <div class="header__wrapper">
-          <div class="header__item"><button class="header-menu popup-open" data-popup="_popup-menu"
-              title="open menu"><span class="header-menu__title">menu</span><span
+          <div class="header__item"><button class="header-menu scroll-control" data-section="menu"><span
+                class="header-menu__title">menu</span><span
+                class="header-menu__burger menu-burger"></span></button><button class="header-menu popup-open"
+              data-popup="_popup-menu" title="open menu"><span class="header-menu__title">menu</span><span
                 class="header-menu__burger menu-burger"></span></button></div>
           <div class="header__item"><a class="custom-logo-link header__logo" href="#"> <img class="custom-logo"
                 src="assets/img/logo.svg" alt="logo" draggable="false"></a></div>
@@ -864,6 +866,26 @@
             impedit laudantium. Fugit quia odio iure eius ad incidunt dicta, consequuntur obcaecati dignissimos ullam
             necessitatibus a sit ea, rem quis, asperiores quae. Harum provident facere voluptatibus aut voluptatem
             labore tempore maiores nihil nemo, neque deserunt laborum ipsum odit libero error perferendis.</Lorem>
+        </div>
+        <div class="scroll-container__item special" data-section="menu">
+          <div class="_container">
+            <div class="modal-menu__header"><button class="popup__close"><img src="assets/img/popup-close.svg"
+                  alt="close"></button></div>
+            <div class="modal-menu__main">
+              <nav class="menu">
+                <ul class="menu-list">
+                  <li class="menu-list__item"><a class="menu__link anchor" href="#" data-goto=".products">Products</a>
+                  </li>
+                  <li class="menu-list__item"><a class="menu__link anchor" href="#"
+                      data-goto=".advantages">Advantages</a></li>
+                  <li class="menu-list__item"><a class="menu__link anchor" href="#" data-goto=".about">About
+                      Overtech</a></li>
+                  <li class="menu-list__item"><a class="menu__link anchor" href="#" data-goto=".contacts">Contact Us</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
     </div>
