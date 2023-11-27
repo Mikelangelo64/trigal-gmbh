@@ -1,6 +1,6 @@
 import debounce from '../config/debounce';
 import makeGlobalTimeline from './makeTimeline';
-import navigationInit from './navigationInit';
+import navigationInit from './navigation/navigationInit';
 import recalculateHeight, {
   changeInnerItemPosition
 } from './recalculateHeight';

@@ -54,6 +54,9 @@
     @include reset-button;
     display: inline-flex;
     align-items: center;
+    margin: 0;
+
+    @include transition(color 0.4s);
     color: inherit;
 
     &.scroll-control {
@@ -65,6 +68,12 @@
     &.popup-open {
       @include non-mobile-device {
         display: none;
+      }
+    }
+
+    @include hover-focus-visible {
+      @include non-mobile-device {
+        color: var(--color-red);
       }
     }
 

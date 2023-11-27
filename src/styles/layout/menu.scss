@@ -176,7 +176,11 @@
   &-burger {
     @include reset-button;
     position: relative;
-    display: block;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     flex-shrink: 0;
     width: px-to-rem(28);
     height: px-to-rem(28);
@@ -205,18 +209,18 @@
       height: px-to-rem(2);
       border-radius: px-to-rem(50);
       
-      @include transition((transform 0.5s, background 0.4s));
+      @include transition((transform 0.5s, background 0.4s, opacity 0.3s));
       background-color: var(--color-white);
 
       &:focus-visible {
         background-color: var(--color-red);
       }
 
-      @at-root .menu-burger:hover span {
-        @include non-mobile-device {
-          background-color: var(--color-red);
-        }
-      }
+      // @at-root .menu-burger:hover span {
+      //   @include non-mobile-device {
+      //     background-color: var(--color-red);
+      //   }
+      // }
 
       @at-root .menu-burger:hover::before {
         @include non-mobile-device {
@@ -229,6 +233,38 @@
           background-color: var(--color-red);
         }
       }
+
+      @at-root .header-menu:hover .menu-burger::before {
+        @include non-mobile-device {
+          background-color: var(--color-red);
+        }
+      }
+
+      @at-root .header-menu:focus-visible .menu-burger::before {
+        @include non-mobile-device {
+          background-color: var(--color-red);
+        }
+      }
+
+      @at-root .header-menu:hover .menu-burger::after {
+        @include non-mobile-device {
+          background-color: var(--color-red);
+        }
+      }
+
+      @at-root .header-menu:focus-visible .menu-burger::after {
+        @include non-mobile-device {
+          background-color: var(--color-red);
+        }
+      }
+
+      @at-root .scroll-control.progress .menu-burger::before {
+        opacity: 0;
+      }
+
+      @at-root .scroll-control.progress .menu-burger::after {
+        opacity: 0;
+      }
     }
 
     &::before {
@@ -237,13 +273,17 @@
       @at-root .menu-burger._opened::before {
         transform: rotate(-45deg);
       }
+      
+      @at-root .scroll-control.active .menu-burger::before {
+        transform: rotate(-45deg);
+      }
     }
 
     &::after {
       transform-origin: 50% 50%;
       transform: translate(0, #{px-to-rem(6)});
 
-      @at-root .menu-burger._opened::after {
+      @at-root .scroll-control.active .menu-burger::after {
         transform: rotate(45deg);
       }
     }

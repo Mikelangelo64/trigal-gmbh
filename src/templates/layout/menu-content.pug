@@ -1,0 +1,9 @@
+nav.menu
+  ul.menu-list
+    each item in menuPopupList
+      li.menu-list__item
+        a.menu__link(
+          class=`${item.goto !== 'false' ? 'anchor' : ''}`,
+          href=`${item.href}`,
+          data-goto=`${item.goto}`
+        ) #{ item.name }
