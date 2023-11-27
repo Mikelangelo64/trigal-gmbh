@@ -151,7 +151,7 @@
 
         @include transition(transform 0.4s);
         transform: translate(-50%, -50%);
-        background-color: rgba(var(--color-white--rgb), 0.17);
+        background-color: var(--color-black-400);
 
         @at-root .scroll-container-navigation__button.active::before {
           transform: translate(-50%, -50%) scale(0);
