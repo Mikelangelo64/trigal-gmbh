@@ -2,5 +2,12 @@
   button.popup__close
     img(src=require('@/assets/img/popup-close.svg'), alt='close')
 
-.modal-menu__main
-  include @/templates/layout/menu-content.pug
+.modal-menu__main.menu-section
+  .menu-section__wrapper
+    .menu-section__header.section-header
+      //- h2.section-header__title menu
+
+      p.section-header__label Menu
+
+    .menu-section__main
+      include @/templates/layout/menu-content.pug

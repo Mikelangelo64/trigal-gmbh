@@ -42,19 +42,40 @@
             <div class="popup__content">
               <div class="modal-menu__header"><button class="popup__close"><img src="assets/img/popup-close.svg"
                     alt="close"></button></div>
-              <div class="modal-menu__main">
-                <nav class="menu">
-                  <ul class="menu-list">
-                    <li class="menu-list__item"><a class="menu__link anchor" href="#" data-goto=".products">Products</a>
-                    </li>
-                    <li class="menu-list__item"><a class="menu__link anchor" href="#"
-                        data-goto=".advantages">Advantages</a></li>
-                    <li class="menu-list__item"><a class="menu__link anchor" href="#" data-goto=".about">About
-                        Overtech</a></li>
-                    <li class="menu-list__item"><a class="menu__link anchor" href="#" data-goto=".contacts">Contact
-                        Us</a></li>
-                  </ul>
-                </nav>
+              <div class="modal-menu__main menu-section">
+                <div class="menu-section__wrapper">
+                  <div class="menu-section__header section-header">
+                    <p class="section-header__label">Menu</p>
+                  </div>
+                  <div class="menu-section__main">
+                    <nav class="menu">
+                      <ul class="menu-list">
+                        <li class="menu-list__item">
+                          <ul class="menu-list__col">
+                            <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Главная</a>
+                            </li>
+                            <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Демонтажные
+                                работы</a></li>
+                            <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Ремонт
+                                помещений</a></li>
+                            <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Фасадная
+                                печать</a></li>
+                          </ul>
+                        </li>
+                        <li class="menu-list__item">
+                          <ul class="menu-list__col">
+                            <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Прокат
+                                инструментов</a></li>
+                            <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">О нас</a></li>
+                            <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Цены</a></li>
+                            <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Контакты</a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -102,13 +123,22 @@
     <div class="scroll-container">
       <div class="scroll-container__wrapper">
         <div class="scroll-container__item">
-          <section class="banner">
-            <div class="_container banner__container">
+          <section class="banner section">
+            <div class="section-bg">
+              <div class="section-bg__image"><img src="assets/img/banner-media.jpg" alt="background"></div>
+              <div class="section-bg-lines">
+                <div class="section-bg-lines__item"></div>
+                <div class="section-bg-lines__item"></div>
+                <div class="section-bg-lines__item"></div>
+                <div class="section-bg-lines__item"></div>
+              </div>
+            </div>
+            <div class="_container banner__container section__container">
               <div class="banner__wrapper">
-                <div class="banner-content">
-                  <h1 class="banner__title">Быстро, профессионально и c опытом</h1>
-                  <h2 class="banner__subtitle">Мы справляемся с самыми сложными задачами</h2><a
-                    class="banner__button button-hollow anchor" href="#" data-goto=".about"><span>About</span></a>
+                <h1 class="banner__title">Быстро, профессионально и c опытом</h1>
+                <p class="banner__subtitle">Мы справляемся с самыми сложными задачами</p>
+                <div class="banner-mouse">
+                  <div class="banner-mouse__label"><img src="assets/img/mouse.svg" alt="scroll-down"></div>
                 </div>
               </div>
             </div>
@@ -872,19 +902,49 @@
             labore tempore maiores nihil nemo, neque deserunt laborum ipsum odit libero error perferendis.</Lorem>
         </div>
         <div class="scroll-container__item special" data-section="menu">
-          <div class="_container">
-            <nav class="menu">
-              <ul class="menu-list">
-                <li class="menu-list__item"><a class="menu__link anchor" href="#" data-goto=".products">Products</a>
-                </li>
-                <li class="menu-list__item"><a class="menu__link anchor" href="#" data-goto=".advantages">Advantages</a>
-                </li>
-                <li class="menu-list__item"><a class="menu__link anchor" href="#" data-goto=".about">About Overtech</a>
-                </li>
-                <li class="menu-list__item"><a class="menu__link anchor" href="#" data-goto=".contacts">Contact Us</a>
-                </li>
-              </ul>
-            </nav>
+          <div class="section menu-section">
+            <div class="section-bg">
+              <div class="section-bg-lines">
+                <div class="section-bg-lines__item"></div>
+                <div class="section-bg-lines__item"></div>
+                <div class="section-bg-lines__item"></div>
+                <div class="section-bg-lines__item"></div>
+              </div>
+            </div>
+            <div class="_container section__container">
+              <div class="menu-section__wrapper">
+                <div class="menu-section__header section-header">
+                  <p class="section-header__label">Menu</p>
+                </div>
+                <div class="menu-section__main">
+                  <nav class="menu">
+                    <ul class="menu-list">
+                      <li class="menu-list__item">
+                        <ul class="menu-list__col">
+                          <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Главная</a></li>
+                          <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Демонтажные
+                              работы</a></li>
+                          <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Ремонт
+                              помещений</a></li>
+                          <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Фасадная
+                              печать</a></li>
+                        </ul>
+                      </li>
+                      <li class="menu-list__item">
+                        <ul class="menu-list__col">
+                          <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Прокат
+                              инструментов</a></li>
+                          <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">О нас</a></li>
+                          <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Цены</a></li>
+                          <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Контакты</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

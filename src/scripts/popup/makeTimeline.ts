@@ -41,7 +41,7 @@ const renderModalAnimation = ({
     }
 
     if (parent.classList.contains('popup-menu')) {
-      element.style.transform = `translateX(${(1 - easing) * 100}%)`;
+      // element.style.transform = `translateX(${(1 - easing) * 100}%)`;
     } else if (parent.classList.contains('popup-header-modal')) {
       element.style.transform = `translateY(${(easing - 1) * 2}rem)`;
     } else {
@@ -53,7 +53,8 @@ const renderModalAnimation = ({
     const element = additional;
     element.style.opacity = `${easing}`;
     if (parent.classList.contains('popup-menu')) {
-      element.style.transform = `translateX(${(1 - easing) * 100}%)`;
+      element.style.transform = `translateY(${(1 - easing) * 100}%)`;
+      // element.style.transform = `translateX(${(1 - easing) * 100}%)`;
     } else {
       element.style.transform = `translateY(${(1 - easing) * 2}rem)`;
     }

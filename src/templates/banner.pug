@@ -1,13 +1,26 @@
-section.banner
-  ._container.banner__container
+section.banner.section
+  .section-bg
+    .section-bg__image
+      img(src=require('@/assets/img/banner-media.jpg'), alt='background')
+
+    .section-bg-lines
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+
+  ._container.banner__container.section__container
     .banner__wrapper
-      .banner-content
-        h1.banner__title Быстро, профессионально и c опытом
+      h1.banner__title Быстро, профессионально и c опытом
 
-        h2.banner__subtitle Мы справляемся с самыми сложными задачами
+      p.banner__subtitle Мы справляемся с самыми сложными задачами
 
-        a.banner__button.button-hollow.anchor(href='#', data-goto='.about')
-          span About
+      .banner-mouse
+        .banner-mouse__label
+          img(src=require('@/assets/img/mouse.svg'), alt='scroll-down')
+
+      //- a.banner__button.button-hollow.anchor(href='#', data-goto='.about')
+      //-   span About
 
       //- .banner-media
       //-   .banner-media__container
