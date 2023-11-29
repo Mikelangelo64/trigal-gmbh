@@ -82,10 +82,10 @@
       background-color: var(--color-black);
     }
 
-    &:nth-child(even) {
-      color: var(--color-black);
-      background-color: var(--color-white);
-    }
+    // &:nth-child(2n + 3) {
+    //   color: var(--color-black);
+    //   background-color: var(--color-white);
+    // }
   }
 
   //.scroll-container-navigation 
