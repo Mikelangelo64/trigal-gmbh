@@ -1,14 +1,9 @@
 .typography {
-  font-weight: 300;
-  line-height: 110%;
+  font-weight: 400;
+  line-height: 160%;
   font-size: px-to-rem(16);
 
-  color: var(--color-black);
-  
-  &.reverse {
-    line-height: 170%;
-    color: var(--color-white);
-  }
+  color: var(--color-white);
   
   &.about__typography {
     line-height: 170%;
@@ -56,10 +51,6 @@
         text-decoration: none;
       }
     } 
-
-    @at-root .typography.reverse a {
-      color: var(--color-white);
-    }
   }
 
   ul {
@@ -146,13 +137,53 @@
   }
 
   blockquote {
-    border-bottom: 2px solid var(--color-red);
-    margin: 0;
-    padding-bottom: px-to-rem(20);
+    --quote-label-shift: #{px-to-rem(18)};
 
-    font-weight: 700;
-    line-height: 120%;
-    font-size: px-to-rem(20);
+    @include viewport-tablet-min {
+      --quote-label-width: #{px-to-rem(46)}; 
+    }
+    
+    @include viewport-phone {
+      --quote-label-width: #{px-to-rem(36)}; 
+    }
+
+    // border-bottom: 2px solid var(--color-red);
+    // margin: 0;
+    // padding-bottom: px-to-rem(20);
+    
+    // font-weight: 700;
+    // line-height: 120%;
+    // font-size: px-to-rem(20);
+    
+    position: relative;
+    z-index: 0;
+    
+    display: block;
+    width: 100%;
+    padding-left: calc(var(--quote-label-shift) + var(--quote-label-width));
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+
+    font-weight: 600;
+    font-style: italic;
+    line-height: 158%;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: var(--quote-label-width);
+      height: var(--quote-label-width);
+
+      background-image: url('@/assets/img/quote.svg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+    }
   }
 
   figure {

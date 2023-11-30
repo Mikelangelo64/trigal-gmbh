@@ -12,34 +12,38 @@ export const init = () => {
 
   if (!vevet.isMobile) {
     initScrollSections();
+  } else {
+    const header = document.querySelector<HTMLElement>('.header');
+    const footer = document.querySelector<HTMLElement>('.footer');
+    // const headerHeight = header ? header.offsetHeight : 0;
+    let isScrolled = false;
+
+    if (header || footer) {
+      if (window.scrollY > 20) {
+        header?.classList.add('scrolled');
+        footer?.classList.add('scrolled');
+        isScrolled = true;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20 && !isScrolled) {
+          header?.classList.add('scrolled');
+          footer?.classList.add('scrolled');
+          isScrolled = true;
+          return;
+        }
+
+        if (window.scrollY <= 20 && isScrolled) {
+          header?.classList.remove('scrolled');
+          footer?.classList.remove('scrolled');
+          isScrolled = false;
+        }
+      });
+    }
   }
 
   slidersInit();
   accordionInit();
-
-  // const header = document.querySelector('.header') as HTMLElement;
-  // // const headerHeight = header ? header.offsetHeight : 0;
-  // let isScrolled = false;
-
-  // if (header) {
-  //   if (window.scrollY > 20) {
-  //     header.classList.add('scrolled');
-  //     isScrolled = true;
-  //   }
-
-  //   window.addEventListener('scroll', () => {
-  //     if (window.scrollY > 20 && !isScrolled) {
-  //       header.classList.add('scrolled');
-  //       isScrolled = true;
-  //       return;
-  //     }
-
-  //     if (window.scrollY <= 20 && isScrolled) {
-  //       header.classList.remove('scrolled');
-  //       isScrolled = false;
-  //     }
-  //   });
-  // }
 
   const popups = initPopups();
 

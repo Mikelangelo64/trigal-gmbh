@@ -9,6 +9,14 @@
   @include transition(background 0.4s);
   color: var(--color-white);
 
+  @include mobile-device {
+    position: fixed;
+
+    &.scrolled {
+      background-color: rgba(var(--color-black--rgb), 0.8);
+    }
+  }
+
   @at-root body.scrollable & {
     background-color: rgba(var(--color-black--rgb), 0.8);
   }

@@ -1,0 +1,33 @@
+.socials {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: max-content;
+
+  > * + * {
+    margin-left: px-to-rem(16);
+  }
+
+  //.socials__link 
+  &__link {
+    display: flex;
+    width: px-to-rem(24);
+    align-items: center;
+    justify-content: center;
+
+    @include transition(color 0.4s);
+    color: rgba(var(--color-white--rgb), 0.8);
+
+    @include hover-focus-visible {
+      @include non-mobile-device {
+        color: var(--color-red);
+      }
+    }
+
+    svg,
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

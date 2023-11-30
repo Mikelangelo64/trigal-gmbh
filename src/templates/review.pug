@@ -1,0 +1,116 @@
+-
+  const reviewList = [
+    {
+      name: 'Company Name',
+      raiting: 4,
+      typography: `
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sapien quam, malesuada ut diam efficitur, commodo pretium velit. Integer consequat quis diam non vulputate. Praesent auctor, enim tincidunt finibus ultrices, nibh leo sollicitudin mi, quis efficitur orci felis vel augue. Sed placerat nibh libero, ut porta tellus lobortis eu. 
+        </p>
+      `,
+    },
+    {
+      name: 'Company Name',
+      raiting: 5,
+      typography: `
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sapien quam, malesuada ut diam efficitur, commodo pretium velit. Integer consequat quis diam non vulputate. Praesent auctor, enim tincidunt finibus ultrices, nibh leo sollicitudin mi, quis efficitur orci felis vel augue. Sed placerat nibh libero, ut porta tellus lobortis eu. 
+        </p>
+        <p>
+          Proin efficitur erat a posuere gravida. Suspendisse ornare eleifend nunc, vel laoreet libero lacinia elementum. Nam interdum egestas lorem quis lobortis. Proin sit amet bibendum est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque orci ipsum, mollis nec cursus in, imperdiet nec eros.
+        </p>
+      `,
+    },
+    {
+      name: 'Company Name',
+      raiting: 5,
+      typography: `
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sapien quam, malesuada ut diam efficitur, commodo pretium velit. Integer consequat quis diam non vulputate. Praesent auctor, enim tincidunt finibus ultrices, nibh leo sollicitudin mi, quis efficitur orci felis vel augue. Sed placerat nibh libero, ut porta tellus lobortis eu. 
+        </p>
+        <p>
+          Proin efficitur erat a posuere gravida. Suspendisse ornare eleifend nunc, vel laoreet libero lacinia elementum. Nam interdum egestas lorem quis lobortis. Proin sit amet bibendum est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque orci ipsum, mollis nec cursus in, imperdiet nec eros.
+        </p>
+      `,
+    },
+    {
+      name: 'Company Name',
+      raiting: 5,
+      typography: `
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sapien quam, malesuada ut diam efficitur, commodo pretium velit. Integer consequat quis diam non vulputate. Praesent auctor, enim tincidunt finibus ultrices, nibh leo sollicitudin mi, quis efficitur orci felis vel augue. Sed placerat nibh libero, ut porta tellus lobortis eu. 
+        </p>
+        <p>
+          Proin efficitur erat a posuere gravida. Suspendisse ornare eleifend nunc, vel laoreet libero lacinia elementum. Nam interdum egestas lorem quis lobortis. Proin sit amet bibendum est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque orci ipsum, mollis nec cursus in, imperdiet nec eros.
+        </p>
+      `,
+    },
+    {
+      name: 'Company Name',
+      raiting: 5,
+      typography: `
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sapien quam, malesuada ut diam efficitur, commodo pretium velit. Integer consequat quis diam non vulputate. Praesent auctor, enim tincidunt finibus ultrices, nibh leo sollicitudin mi, quis efficitur orci felis vel augue. Sed placerat nibh libero, ut porta tellus lobortis eu. 
+        </p>
+        <p>
+          Proin efficitur erat a posuere gravida. Suspendisse ornare eleifend nunc, vel laoreet libero lacinia elementum. Nam interdum egestas lorem quis lobortis. Proin sit amet bibendum est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque orci ipsum, mollis nec cursus in, imperdiet nec eros.
+        </p>
+      `,
+    },
+  ];
+
+section.review.section
+  .section-bg
+    .section-bg-lines
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+
+  ._container.section__container
+    .review__wrapper
+      .review-header
+        .review-header__top.section-header
+          h2.section-header__title Отзывы о нашей работе
+
+          p.section-header__label отзывы
+
+        .review-header__content
+          .review-quote
+            blockquote.review-quote__description Мы успешно решаем эти сложные задачи в самых разных условиях. Мы также найдем правильное решение для вашей задачи и поможем в ее реализацию в кратчайшие сроки
+
+            p.review-quote__author Sandor Gal
+
+          button.review__button.button-hollow.popup-open(
+            data-popup='_popup-form'
+          )
+            span Оставить отзыв
+
+      .review__main
+        .review-slider.swiper.slider
+          .swiper-wrapper
+            each item in reviewList
+              .swiper-slide
+                .review-slider__item
+                  p.review-slider__author= item.name
+
+                  .review-slider-raiting
+                    - for(let i=0; i<5; i++)
+                      .review-slider-raiting__item(
+                        class=`${i + 1 <= item.raiting ? 'filled' : 'empty'}`
+                      ) 
+                        if i + 1 <= item.raiting
+                          img(
+                            src=require('@/assets/img/review/star.svg'),
+                            alt='star'
+                          )
+                        else
+                          img(
+                            src=require('@/assets/img/review/star-empty.svg'),
+                            alt='star'
+                          )
+
+                  .review-slider__typography.typography!= item.typography
+
+        .review-slider-controls.slider-controls
+          .review-slider-pagination.slider-pagination

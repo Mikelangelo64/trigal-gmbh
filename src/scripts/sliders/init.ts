@@ -1,3 +1,4 @@
+import initPaginationChanger from './dynamicPagination/init';
 import makeSlider from './sliderHandler';
 import Swiper from 'swiper';
 
@@ -9,7 +10,7 @@ export interface IInitializedSlider {
 
 const sliderProductsInit = (sliders: Array<IInitializedSlider>) => {
   const containerArray = document.querySelectorAll(
-    '.products'
+    '.review'
   ) as NodeListOf<HTMLElement>;
 
   if (containerArray.length === 0) {
@@ -19,29 +20,42 @@ const sliderProductsInit = (sliders: Array<IInitializedSlider>) => {
   containerArray.forEach((item, sliderIndex) => {
     const slider = makeSlider({
       container: item,
-      className: 'products',
+      className: 'review',
+
+      renderBullets(index, className) {
+        return `
+          <button class="${className}">
+          </button>
+        `;
+      },
 
       config: {
         allowTouchMove: true,
         slidesPerView: 1,
         slidesPerGroup: 1,
-        spaceBetween: 28
+        spaceBetween: 34,
         // loop: true,
 
         // autoplay: {
         //   // delay: 2000,
         //   disableOnInteraction: false
         // }
+        breakpoints: {
+          900: {
+            slidesPerView: 2,
+            slidesPerGroup: 2
+          }
+        }
       }
     });
 
     if (slider) {
       const info: IInitializedSlider = {
-        name: `products-${sliderIndex}`,
+        name: `review-${sliderIndex}`,
         slider
       };
 
-      // initPaginationChanger(info);
+      initPaginationChanger(info);
 
       // еще не обновляется состояния дайнемик - потом допилить
       sliders.push(info);
