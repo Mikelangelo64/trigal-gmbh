@@ -14,13 +14,13 @@
 
       div
         label(for='popup-name') 
-          strong Name
+          //- strong Name
           input#popup-name(type='text', name='name', placeholder='Your name')
           span.wpcf7-not-valid-tip Wrong format
 
       div
         label(for='popup-email') 
-          strong Email
+          //- strong Email
           input#popup-email(
             type='email',
             name='email',
@@ -30,7 +30,7 @@
 
       div
         label(for='popup-telephone') 
-          strong Phone number
+          //- strong Phone number
           input#popup-telephone(
             type='tel',
             name='telephone',
@@ -40,9 +40,10 @@
 
       div
         label(for='popup-request') 
-          strong Your request
+          //- strong Your request
           textarea#popup-request(name='request', placeholder='Message text')
           span.wpcf7-not-valid-tip Wrong format
 
       p
-        button(type='submit') Send
+        button(type='submit') 
+          span Send

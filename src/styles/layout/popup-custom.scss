@@ -33,7 +33,7 @@
 
     @at-root .popup.fullscreen-phone & {
       @include viewport-phone {
-        background-color: var(--color-white);
+        background-color: var(--color-black-100);
       }
     }
   }
@@ -43,7 +43,7 @@
     &::before {
       left: unset;
       right: 0;
-      background-color: var(--color-white);
+      background-color: var(--color-black-100);
     }
     
     @at-root .popup.popup-menu & {
@@ -57,8 +57,9 @@
   
   //.popup__wrapper 
   &__wrapper {   
-    border-radius: px-to-rem(20);
-    background-color: var(--color-white);
+    // border-radius: px-to-rem(20);
+    color: var(--color-white);
+    background-color: var(--color-black-100);
     
     @include viewport-desktop {
       padding: px-to-rem(60) px-to-rem(60);

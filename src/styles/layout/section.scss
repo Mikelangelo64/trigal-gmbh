@@ -70,6 +70,10 @@ section,
       @include viewport-phone {
         font-size: px-to-rem(118);
       }
+
+      @at-root .section-header.feedback__header & {
+        transform: translate(0, -50%);
+      }
     }
   }
 

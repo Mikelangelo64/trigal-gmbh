@@ -62,7 +62,14 @@
 
     font-weight: 500;
     line-height: 116%;
-    font-size: px-to-rem(20);
+
+    @include viewport-tablet-min {
+      font-size: px-to-rem(20);
+    }
+
+    @include viewport-phone {
+      font-size: px-to-rem(18);
+    }
   }
   
   //.banner__button 

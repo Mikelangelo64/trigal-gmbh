@@ -3,29 +3,29 @@
 @import '../mixins/reset';
 @import '../mixins/font-size';
 
-select {
-  display: block;
-  width: 100%;
-  border: unset;
-  border-bottom: 1px solid var(--color-white);
-  padding: px-to-rem(10) 0;
-  outline: none;
+// select {
+//   display: block;
+//   width: 100%;
+//   border: unset;
+//   border-bottom: 1px solid var(--color-white);
+//   padding: px-to-rem(10) 0;
+//   outline: none;
 
-  font-family: $font-family;
-  font-size: px-to-rem(16);
-  line-height: 100%;
-  font-weight: 400;
-  color: var(--color-black);
-  background-color: var(--color-white);
+//   font-family: $font-family;
+//   font-size: px-to-rem(16);
+//   line-height: 100%;
+//   font-weight: 400;
+//   color: var(--color-black);
+//   background-color: var(--color-white);
 
-  &:focus-visible {
-    border-color: var(--color-black);
-  }
+//   &:focus-visible {
+//     border-color: var(--color-black);
+//   }
 
-  @at-root form.invalid select {
-    border-color: var(--color-red);
-  }
-}
+//   @at-root form.invalid select {
+//     border-color: var(--color-red);
+//   }
+// }
 
 input,
 textarea {
@@ -33,8 +33,8 @@ textarea {
   appearance: none;
   outline: none;
   width: 100%;
-  border-bottom: 1px solid var(--color-white);
-  padding: px-to-rem(10) 0;
+  border: 1px solid transparent;
+  padding: px-to-rem(22) px-to-rem(20);
 
   @include transition(border 0.4s);
 
@@ -42,18 +42,18 @@ textarea {
   font-size: px-to-rem(14);
   line-height: 100%;
   font-weight: 300;
-  color: var(--color-black);
-  background-color: var(--color-white);
+  color: var(--color-white);
+  background-color: var(--color-black);
 
   &:focus-visible {
-    border-color: var(--color-black);
+    border-color: rgba(var(--color-white--rgb), 0.5);
   }
 
   &::placeholder {
     font-size: inherit;
     font-weight: inherit;
     line-height: inherit;
-    color: var(--color-white);
+    color: rgba(var(--color-white--rgb), 0.5);;
   }
 
   &.hidden {
@@ -73,10 +73,17 @@ textarea {
   @at-root form.invalid input {
     border-color: var(--color-red);
   }
-
   
   @at-root form.invalid textarea {
     border-color: var(--color-red);
+  }
+
+  @at-root form.feedback__form input {
+    background-color: var(--color-black-100);
+  }
+  
+  @at-root form.feedback__form textarea {
+    background-color: var(--color-black-100);
   }
 }
 
@@ -101,7 +108,7 @@ form {
   position: relative;
   z-index: 0;
   text-align: left;
-  color: var(--color-black);
+  color: var(--color-white);
 
   &.hidden {
     position: absolute;
@@ -133,7 +140,7 @@ form {
       font-weight: 500;
       line-height: 170%;
       font-size: px-to-rem(14);
-      color: var(--color-black);
+      color: var(--color-white);
 
       @at-root form.invalid strong {
         color: var(--color-red);
@@ -158,12 +165,12 @@ form {
       }
     }
 
-    span {
-      display: block;
-      text-align: center;
-      font-weight: 300;
-      font-size: px-to-rem(12);
-    }
+    // span {
+    //   display: block;
+    //   text-align: center;
+    //   font-weight: 300;
+    //   font-size: px-to-rem(12);
+    // }
 
     > * + * {
       margin-top: px-to-rem(14);
@@ -200,9 +207,9 @@ form {
 
   button[type=submit],
   input[type=submit] {
-    @include button-filled;
-    max-width: px-to-rem(220);
-    width: 100%;
+    @include button-hollow;
+    // max-width: px-to-rem(202);
+    // width: 100%;
 
     &.hidden {
       padding: 0;
@@ -210,18 +217,18 @@ form {
       font-size: 0; 
     }
 
-    @include transition((color 0.4s, background 0.4s, clip-path 0.4s));
-    background-color: var(--color-reverse);
+    // @include transition((color 0.4s, background 0.4s, clip-path 0.4s));
+    // background-color: var(--color-reverse);
 
-    &::before,
-    &::after {
-      display: none;
-    }
+    // &::before,
+    // &::after {
+    //   display: none;
+    // }
 
-    @include hover-focus-visible {
-      @include non-mobile-device {
-        background-color: var(--color-black);
-      }
-    }
+    // @include hover-focus-visible {
+    //   @include non-mobile-device {
+    //     background-color: var(--color-black);
+    //   }
+    // }
   }
 }

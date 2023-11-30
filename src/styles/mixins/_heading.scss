@@ -23,6 +23,10 @@
 
   @include viewport-phone {
     font-size: px-to-rem(42);
+    
+    @media (max-width: 550px) {
+      font-size: px-to-rem(28);
+    }
   }
 }
 
@@ -39,6 +43,10 @@
   
   @include viewport-phone {
     font-size: px-to-rem(34);
+
+    @media (max-width: 550px) {
+      font-size: px-to-rem(24);
+    }
   }
 }
 
@@ -55,6 +63,10 @@
   
   @include viewport-phone {
     font-size: px-to-rem(24);
+
+    @media (max-width: 550px) {
+      font-size: px-to-rem(20);
+    }
   }
 }
 

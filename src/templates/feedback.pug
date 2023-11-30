@@ -1,0 +1,82 @@
+-
+  const contactsList = [
+    {
+      isTargetBlank: 'false',
+      image: '@/assets/img/contacts/contacts-1.svg',
+      href: 'tel:+4917656953558',
+      title: '+49 176 56953558'
+    },
+    {
+      isTargetBlank: 'false',
+      image: '@/assets/img/contacts/contacts-2.svg',
+      href: 'mailto:example@gmail.com',
+      title: 'example@gmail.com'
+    },
+    {
+      isTargetBlank: 'true',
+      image: '@/assets/img/contacts/contacts-3.svg',
+      href: 'https://goo.gl/maps/seLEXai7oZapeHc29',
+      title: 'Adress, Adress 12. ap20'
+    },
+  ];
+
+section.feedback.section
+  .section-bg
+    .section-bg__image
+      img(src=require('@/assets/img/feedback-media.jpg'), alt='background')
+
+    .section-bg-lines
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+
+  ._container.section__container
+    .feedback__wrapper
+      .feedback__header.section-header
+        h2.section-header__title Вы заинтересованы в сотрудничестве?
+
+        p.section-header__label сотрудничество
+
+      .feedback__main
+        .feedback__content
+          p.feedback__description Расскажите нам о своем проекте, и мы вышлем вам бесплатное и ни к чему не обязывающее предложение в течение 24 часов
+
+          ul.feedback-contacts
+            each item in contactsList
+              li
+                a.feedback-contacts__item(
+                  href=`${item.href}`,
+                  target=`${item.isTargetBlank === 'true' ? '_blank' : '_self'}`
+                )
+                  span.feedback-contacts__label
+                    img(
+                      src=require(`${item.image}`),
+                      alt=`contact-${index + 1}`
+                    )
+
+                  span.feedback-contacts__text= item.title
+
+        .feedback__action
+          form#form-feedback.feedback__form.form(action='post')
+            div
+              label(for='popup-name') 
+                input#feedback-name(
+                  type='text',
+                  name='name',
+                  placeholder='Имя'
+                )
+                span.wpcf7-not-valid-tip Wrong format
+
+            div
+              label(for='popup-telephone') 
+                input#feedback-telephone(
+                  type='tel',
+                  name='telephone',
+                  placeholder='Телефон'
+                )
+                span.wpcf7-not-valid-tip Wrong format
+
+            p
+              button(type='submit') 
+                span Связаться с нами

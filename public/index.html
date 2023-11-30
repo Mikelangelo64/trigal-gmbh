@@ -29,7 +29,7 @@
           <div class="header__item"><a class="custom-logo-link header__logo" href="#"> <img class="custom-logo"
                 src="assets/img/logo.svg" alt="logo" draggable="false"></a></div>
           <div class="header__item"><a class="header-call contact-call whatsapp" href="tel:+380662105690"><span
-                class="contact-call__label"><img src="assets/img/contacts/whatsapp.svg" alt="call"></span><span
+                class="contact-call__label"><img src="assets/img/socials/whatsapp.svg" alt="call"></span><span
                 class="contact-call__text">+38 066 210-56-90</span></a></div>
         </div>
       </div>
@@ -125,24 +125,23 @@
         <div class="popup__additional"></div>
         <div class="popup__scroll">
           <div class="popup__wrapper"><button class="popup__close"><img class="desktop" src="assets/img/popup-close.svg"
-                alt="close"><img class="mobile" src="assets/img/popup-close-black.svg" alt="close"></button>
+                alt="close"><img class="mobile" src="assets/img/popup-close.svg" alt="close"></button>
             <div class="popup__content">
               <div class="popup-action">
                 <p class="popup-action__title">Please fill out the form and we will contact you shortly.</p>
                 <div class="popup-action__main">
                   <form class="form popup-action__form" id="form-popup" action="post">
-                    <div><label for="popup-name"> <strong>Name</strong><input id="popup-name" type="text" name="name"
+                    <div><label for="popup-name"> <input id="popup-name" type="text" name="name"
                           placeholder="Your name"><span class="wpcf7-not-valid-tip">Wrong format</span></label></div>
-                    <div><label for="popup-email"> <strong>Email</strong><input id="popup-email" type="email"
-                          name="email" placeholder="Your email"><span class="wpcf7-not-valid-tip">Wrong
+                    <div><label for="popup-email"> <input id="popup-email" type="email" name="email"
+                          placeholder="Your email"><span class="wpcf7-not-valid-tip">Wrong format</span></label></div>
+                    <div><label for="popup-telephone"> <input id="popup-telephone" type="tel" name="telephone"
+                          placeholder="Your phone number"><span class="wpcf7-not-valid-tip">Wrong format</span></label>
+                    </div>
+                    <div><label for="popup-request"> <textarea id="popup-request" name="request"
+                          placeholder="Message text"></textarea><span class="wpcf7-not-valid-tip">Wrong
                           format</span></label></div>
-                    <div><label for="popup-telephone"> <strong>Phone number</strong><input id="popup-telephone"
-                          type="tel" name="telephone" placeholder="Your phone number"><span
-                          class="wpcf7-not-valid-tip">Wrong format</span></label></div>
-                    <div><label for="popup-request"> <strong>Your request</strong><textarea id="popup-request"
-                          name="request" placeholder="Message text"></textarea><span class="wpcf7-not-valid-tip">Wrong
-                          format</span></label></div>
-                    <p><button type="submit">Send</button></p>
+                    <p><button type="submit"> <span>Send</span></button></p>
                   </form>
                 </div>
               </div>
@@ -455,13 +454,54 @@
           </section>
         </div>
         <div class="scroll-container__item">
-          <Lorem>ipsum dolor sit amet, consectetur adipisicing elit. Aliquid eum aperiam repellat maiores fugiat vel
-            omnis modi qui numquam. Obcaecati corrupti eveniet sit voluptate quidem. Repellat, porro ratione esse soluta
-            odit praesentium quae quisquam? Tenetur vero adipisci voluptatibus laborum nam veritatis quam voluptatem
-            esse cupiditate, ducimus commodi! Saepe quaerat maxime id vitae esse fugiat obcaecati ut. Vel dolore unde
-            impedit laudantium. Fugit quia odio iure eius ad incidunt dicta, consequuntur obcaecati dignissimos ullam
-            necessitatibus a sit ea, rem quis, asperiores quae. Harum provident facere voluptatibus aut voluptatem
-            labore tempore maiores nihil nemo, neque deserunt laborum ipsum odit libero error perferendis.</Lorem>
+          <section class="feedback section">
+            <div class="section-bg">
+              <div class="section-bg__image"><img src="assets/img/feedback-media.jpg" alt="background"></div>
+              <div class="section-bg-lines">
+                <div class="section-bg-lines__item"></div>
+                <div class="section-bg-lines__item"></div>
+                <div class="section-bg-lines__item"></div>
+                <div class="section-bg-lines__item"></div>
+              </div>
+            </div>
+            <div class="_container section__container">
+              <div class="feedback__wrapper">
+                <div class="feedback__header section-header">
+                  <h2 class="section-header__title">Вы заинтересованы в сотрудничестве?</h2>
+                  <p class="section-header__label">сотрудничество</p>
+                </div>
+                <div class="feedback__main">
+                  <div class="feedback__content">
+                    <p class="feedback__description">Расскажите нам о своем проекте, и мы вышлем вам бесплатное и ни к
+                      чему не обязывающее предложение в течение 24 часов</p>
+                    <ul class="feedback-contacts">
+                      <li><a class="feedback-contacts__item" href="tel:+4917656953558" target="_self"><span
+                            class="feedback-contacts__label"><img src="assets/img/contacts/contacts-1.svg"
+                              alt="contact-NaN"></span><span class="feedback-contacts__text">+49 176 56953558</span></a>
+                      </li>
+                      <li><a class="feedback-contacts__item" href="mailto:example@gmail.com" target="_self"><span
+                            class="feedback-contacts__label"><img src="assets/img/contacts/contacts-2.svg"
+                              alt="contact-NaN"></span><span
+                            class="feedback-contacts__text">example@gmail.com</span></a></li>
+                      <li><a class="feedback-contacts__item" href="https://goo.gl/maps/seLEXai7oZapeHc29"
+                          target="_blank"><span class="feedback-contacts__label"><img
+                              src="assets/img/contacts/contacts-3.svg" alt="contact-NaN"></span><span
+                            class="feedback-contacts__text">Adress, Adress 12. ap20</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="feedback__action">
+                    <form class="feedback__form form" id="form-feedback" action="post">
+                      <div><label for="popup-name"> <input id="feedback-name" type="text" name="name"
+                            placeholder="Имя"><span class="wpcf7-not-valid-tip">Wrong format</span></label></div>
+                      <div><label for="popup-telephone"> <input id="feedback-telephone" type="tel" name="telephone"
+                            placeholder="Телефон"><span class="wpcf7-not-valid-tip">Wrong format</span></label></div>
+                      <p><button type="submit"> <span>Связаться с нами</span></button></p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
         <div class="scroll-container__item">
           <Lorem>ipsum dolor sit amet, consectetur adipisicing elit. Aliquid eum aperiam repellat maiores fugiat vel
