@@ -1,0 +1,183 @@
+-
+  const contactsList = [
+    {
+      isMarkedContacts: 'false',
+      title: 'Услуги',
+      list: [
+        [
+          {
+            type: 'link',
+            href: '#',
+            isTargetBlank: 'false',
+            isBold: 'false',
+            title: 'Демонтажные работы',
+          },
+          {
+            type: 'link',
+            href: '#',
+            isTargetBlank: 'false',
+            isBold: 'false',
+            title: 'Ремонт помещений',
+          },
+          {
+            type: 'link',
+            href: '#',
+            isTargetBlank: 'false',
+            isBold: 'false',
+            title: 'Фасадная печать',
+          },
+          {
+            type: 'link',
+            href: '#',
+            isTargetBlank: 'false',
+            isBold: 'false',
+            title: 'Прокат инструментов',
+          },
+        ],
+        [
+          {
+            type: 'link',
+            href: '#',
+            isTargetBlank: 'false',
+            isBold: 'false',
+            title: 'О нас',
+          },
+          {
+            type: 'link',
+            href: '#',
+            isTargetBlank: 'false',
+            isBold: 'false',
+            title: 'Цены',
+          },
+          {
+            type: 'link',
+            href: '#',
+            isTargetBlank: 'false',
+            isBold: 'false',
+            title: 'Контакты ',
+          },
+        ],
+      ],
+    },
+    {
+      isMarkedContacts: 'true',
+      title: 'Контакты',
+      list: [
+        [
+          {
+            type: 'link',
+            href: 'tel:+4917656953558',
+            isTargetBlank: 'false',
+            isBold: 'true',
+            title: '+49 176 56953558',
+          },
+          {
+            type: 'link',
+            href: 'tel:+4917656953558',
+            isTargetBlank: 'false',
+            isBold: 'true',
+            title: '+49 176 56953558',
+          },
+          {
+            type: 'link',
+            href: 'mailto:example@gmail.com',
+            isTargetBlank: 'false',
+            isBold: 'true',
+            title: 'example@gmail.com',
+          },
+          {
+            type: 'socials'
+          },
+        ],
+        [
+          {
+            type: 'link',
+            href: 'https://maps.app.goo.gl/NYkvu1CpFB2ogte28',
+            isTargetBlank: 'true',
+            title: '20097 Hamburg Sonninstrase 5',
+          },
+          {
+            type: 'text',
+            title: 'Пн-Пт: 8.00-20.00',
+          },
+          {
+            type: 'text',
+            title: 'Пн-Пт: 8.00-20.00',
+          },
+        ],
+      ],
+    },
+  ];
+
+.contacts.section
+  .section-bg
+    //- .section-bg__image
+    //-   img(src=require('@/assets/img/feedback-media.jpg'), alt='background')
+
+    .section-bg-lines
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+
+  ._container.section__container
+    .contacts__wrapper
+      .contacts__header.section-header
+        //- h2.section-header__title Trigal GmbH
+
+        p.section-header__label Trigal GmbH
+
+      .contacts-main
+        each item in contactsList
+          .contacts-main__item
+            p.contacts-main__title= item.title
+
+            ul.contacts-list(
+              class=`${item.isMarkedContacts === 'true' ? 'marked' : ''}`
+            )
+              each column in item.list
+                li.contacts-list__item
+                  ul.contacts-list__col
+                    each contact in column
+                      li.contacts-list__row(
+                        class=`${contact.isBold && contact.isBold === 'true' ? 'bold' : ''} ${contact.type === 'socials' ? 'unmarked' : ''}`
+                      )
+                        case contact.type
+                          when 'link'
+                            a.contacts-list__link(
+                              href=`${contact.href}`,
+                              target=`${contact.isTargetBlank === 'true' ? '_blank' : '_self'}`
+                            )= contact.title
+
+                          when 'text'
+                            p.contacts-list__description= contact.title
+
+                          when 'socials'
+                            if socials
+                              ul.contacts__socials.socials
+                                each item, index in socials
+                                  li
+                                    a.socials__link(
+                                      href=`${item.href}`,
+                                      target=`${item.isTargetBlank === 'true' ? '_blank' : '_self'}`,
+                                      aria-label=`${item.title}`
+                                    )!= item.image
+
+                          default
+                            p.contacts-list__description default description
+
+      .contacts__footer
+        button.contacts__button.button-hollow.popup-open(
+          data-popup='_popup-form'
+        )
+          span Заказать звонок
+
+        a.develop.contacts__develop(
+          href='https://impulse-design.com.ua/',
+          target='_blank',
+          rel='noreferrer'
+        )
+          span.develop__text Developed By
+
+          span.develop__img
+            img(src=require('@/assets/img/impulse.svg'), alt='impulse')

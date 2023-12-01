@@ -24,6 +24,16 @@
       }
     }
 
+    @at-root .socials.contacts__socials & {
+      color: var(--color-red);
+
+      @include hover-focus-visible {
+        @include non-mobile-device {
+          color: var(--color-white);
+        }
+      }
+    }
+
     svg,
     img {
       width: 100%;

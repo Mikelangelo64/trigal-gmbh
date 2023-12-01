@@ -4,11 +4,13 @@
   position: relative;
   z-index: 0;
 
-  // min-height: calc(var(--vh, 1vh) * 100);
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
+  @include mobile-device {
+    min-height: calc(var(--vh, 1vh) * 76);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   padding-bottom: px-to-rem(66);
   //overflow: hidden;

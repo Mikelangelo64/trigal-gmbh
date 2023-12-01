@@ -1,5 +1,5 @@
 -
-  const contactsList = [
+  const contactsFeedbackList = [
     {
       isTargetBlank: 'false',
       image: '@/assets/img/contacts/contacts-1.svg',
@@ -43,7 +43,7 @@ section.feedback.section
           p.feedback__description Расскажите нам о своем проекте, и мы вышлем вам бесплатное и ни к чему не обязывающее предложение в течение 24 часов
 
           ul.feedback-contacts
-            each item in contactsList
+            each item in contactsFeedbackList
               li
                 a.feedback-contacts__item(
                   href=`${item.href}`,
