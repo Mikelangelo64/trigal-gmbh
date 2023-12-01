@@ -8,8 +8,30 @@
   }
   
   //.services__header 
-  // &__header {
-  // }
+  &__header {
+    width: 100%;
+    
+    @include viewport-tablet-min {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    > * + * {
+      @include viewport-tablet-min {
+        margin-left: px-to-rem(40);
+      }
+    
+      @include viewport-phone {
+        margin-top: px-to-rem(36);
+      }
+    }
+  }
+
+  //.services__button 
+  &__button {
+    flex-shrink: 0;
+  }
   
   //.services-list 
   &-list {
@@ -81,6 +103,8 @@
 
       overflow: hidden;
       transform: translateZ(0);
+
+      background-color: var(--color-black-100);
 
       &::after {
         content: '';

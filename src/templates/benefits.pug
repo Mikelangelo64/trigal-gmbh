@@ -1,0 +1,49 @@
+-
+  const benefitsList = [
+    {
+      image: '@/assets/img/benefits/benefit-1.svg',
+      title: 'Экспертиза',
+      description: `Работаем более 8 лет. <br/>Имеем постоянный штат профессионалов`,
+    },
+    {
+      image: '@/assets/img/benefits/benefit-2.svg',
+      title: 'Пунктуальность',
+      description: `Когда дело касается надежности, мы держим свое слово. Все работы выполняются в срок`,
+    },
+    {
+      image: '@/assets/img/benefits/benefit-3.svg',
+      title: 'Фиксация цены',
+      description: `Мы прописываем прайс в договоре. <br/>Вы всегда понимаете полную стоимость работ`,
+    },
+    {
+      image: '@/assets/img/benefits/benefit-4.svg',
+      title: '100% чисто',
+      description: `После завершения всех работ, наша компания совершает профессиональную уборку.`,
+    },
+  ];
+
+section.benefits.section
+  .section-bg
+    .section-bg-lines
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+
+  ._container.section__container
+    .benefits__wrapper
+      .benefits__header.section-header
+        h2.section-header__title Ваш надежный партнер среди ремонтных компаний Гамбурга
+
+        p.section-header__label надежный
+
+      ul.benefits-list
+        each item in benefitsList
+          li.benefits-list__item
+            .benefits-list__label
+              img(src=require(`${item.image}`), alt=`${item.title}`)
+
+            .benefits-list__content
+              p.benefits-list__title= item.title
+
+              p.benefits-list__description!= item.description

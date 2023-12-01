@@ -4,36 +4,36 @@
   const banner = {
     media: {
       type: 'image',
-      path: '@/assets/img/banner-media.jpg'
+      path: '@/assets/img/repair/banner-media.jpg'
     },
-    title: 'Быстро, профессионально и c опытом',
-    subtitle: 'Мы справляемся с самыми сложными задачами',
-    button: ''
+    title: 'Ремонт Гамбург',
+    subtitle: 'Мы отремонтируем вашу жилую или коммерческую недвижимость в Гамбурге и его окрестностях.',
+    button: 'Получить бесплатное предложение'
   }
 
   const services = {
-    title: 'Услуги',
-    hasHeaderButton: 'false',
+    title: 'Наши услуги по ремонту помещений',
+    hasHeaderButton: 'true',
     list: [
       {
-        image: '@/assets/img/services/service-1.jpg',
+        image: '@/assets/img/services/service-repair-1.jpg',
         href: '#',
-        title: 'Фасадные работы',
+        title: 'Укладка пола',
       },
       {
-        image: '@/assets/img/services/service-2.jpg',
+        image: '@/assets/img/services/service-repair-2.jpg',
         href: '#',
-        title: 'Ремонтные работы',
+        title: 'Ремонт помещений',
       },
       {
-        image: '@/assets/img/services/service-3.jpg',
+        image: '@/assets/img/services/service-repair-3.jpg',
         href: '#',
-        title: 'Фасадная печать',
+        title: 'Малярные работы',
       },
       {
-        image: '@/assets/img/services/service-4.jpg',
+        image: '@/assets/img/services/service-repair-4.jpg',
         href: '#',
-        title: 'Прокат инструментов',
+        title: 'Демонтажные работы',
       },
     ]
   }
@@ -78,9 +78,9 @@ html(lang='en')
   head
     include @/layout/head.pug
 
-    title Trigal GmbH
+    title Trigal GmbH - Repair
 
-    link(rel='stylesheet', href=require('@/styles/styles.scss'))
+    link(rel='stylesheet', href=require('@/styles/pages/repair.scss'))
 
   body
     include @/layout/preloader.pug
@@ -103,7 +103,7 @@ html(lang='en')
           include @/templates/services.pug
 
         .scroll-container__item
-          include @/templates/review.pug
+          include @/templates/benefits.pug
 
         .scroll-container__item
           include @/templates/feedback.pug
@@ -141,4 +141,4 @@ html(lang='en')
     include @/layout/footer.pug
 
     //- script(src=require('@/scripts/video.ts')) 
-    script(src=require('./index.ts')) 
+    script(src=require('../index.ts')) 

@@ -77,9 +77,9 @@
   //.banner__button 
   &__button {
     width: 100%;
-    max-width: px-to-rem(228);
+    max-width: max-content;
 
-    margin-top: px-to-rem(64);
+    margin-top: px-to-rem(54);
   }
 
   //.banner-mouse 

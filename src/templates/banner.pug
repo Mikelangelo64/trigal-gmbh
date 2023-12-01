@@ -1,7 +1,9 @@
 section.banner.section
   .section-bg
-    .section-bg__image
-      img(src=require('@/assets/img/banner-media.jpg'), alt='background')
+    if banner.media
+      .section-bg__image
+        if banner.media.type === 'image'
+          img(src=require(`${banner.media.path}`), alt='background')
 
     .section-bg-lines
       .section-bg-lines__item
@@ -11,16 +13,19 @@ section.banner.section
 
   ._container.banner__container.section__container
     .banner__wrapper
-      h1.banner__title Быстро, профессионально и c опытом
+      h1.banner__title= banner.title
 
-      p.banner__subtitle Мы справляемся с самыми сложными задачами
+      p.banner__subtitle= banner.subtitle
+
+      if banner.button !== ''
+        button.banner__button.button-hollow.popup-open(
+          data-popup='_popup-form'
+        )
+          span= banner.button
 
       .banner-mouse
         .banner-mouse__label
           img(src=require('@/assets/img/mouse.svg'), alt='scroll-down')
-
-      //- a.banner__button.button-hollow.anchor(href='#', data-goto='.about')
-      //-   span About
 
       //- .banner-media
       //-   .banner-media__container

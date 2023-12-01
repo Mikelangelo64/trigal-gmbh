@@ -1,27 +1,3 @@
--
-  const servicesList = [
-    {
-      image: '@/assets/img/services/service-1.jpg',
-      href: '#',
-      title: 'Фасадные работы',
-    },
-    {
-      image: '@/assets/img/services/service-2.jpg',
-      href: '#',
-      title: 'Ремонтные работы',
-    },
-    {
-      image: '@/assets/img/services/service-3.jpg',
-      href: '#',
-      title: 'Фасадная печать',
-    },
-    {
-      image: '@/assets/img/services/service-4.jpg',
-      href: '#',
-      title: 'Прокат инструментов',
-    },
-  ];
-
 section.services.section
   .section-bg
     .section-bg-lines
@@ -33,17 +9,27 @@ section.services.section
   ._container.section__container
     .services__wrapper
       .services__header.section-header
-        h2.section-header__title Услуги
+        h2.section-header__title= services.title
 
         p.section-header__label Услуги
 
+        if services.hasHeaderButton === 'true'
+          button.services__button.button-hollow.popup-open(
+            data-popup='_popup-form'
+          )
+            span Смотреть все услуги
+
       ul.services-list
-        each item in servicesList
+        each item in services.list
           li
             a.services-list__item(href=`${item.href}`)
               span.services-list__media
                 span.services-list__media__container
-                  img(src=require(`${item.image}`), alt=`${item.title}`)
+                  img(
+                    src=require(`${item.image}`),
+                    alt=`${item.title}`,
+                    loading='lazy'
+                  )
 
               span.services-list__content
                 h3.services-list__title= item.title
