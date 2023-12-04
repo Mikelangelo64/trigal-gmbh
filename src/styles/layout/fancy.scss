@@ -1,0 +1,21 @@
+.fancybox__container {
+  --fancybox-color: var(--color-white);
+  --fancybox-hover-color: var(--color-white);
+}
+
+.fancybox__backdrop {
+  --fancybox-bg: rgba(var(--color-black--rgb), 0.7);
+}
+
+.fancybox__toolbar,
+.fancybox__nav {
+  --f-button-border-radius: 50%;
+  --f-button-bg: rgba(var(--color-black-100--rgb), 0.4);
+  --f-button-hover-bg: var(--color-black);
+  --f-button-active-bg: var(--color-black);
+  --f-button-svg-filter: none;
+}
+
+.fancybox__thumbs {
+  --f-thumb-outline-color: rgba(var(--color-white--rgb), 0.7)
+}

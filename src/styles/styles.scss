@@ -4,6 +4,9 @@
 @import 'swiper/element/css/autoplay';
 //@import 'vevet/lib/styles/index';
 
+@import '@fancyapps/ui/dist/fancybox/fancybox';
+@import './layout/fancy';
+
 @import './base';
 @import './fonts';
 @import './settings';
@@ -32,7 +35,8 @@ body {
 }
 
 html {
-  &:not(.v-loaded) {
+  &:not(.v-loaded),
+  &.with-fancybox {
     overflow: hidden;
   }
 }
@@ -283,6 +287,7 @@ ol {
 @import './layout/footer';
 @import './layout/section';
 @import './layout/preloader';
+@import './layout/fade-section';
 
 @import './layout/socials';
 @import './layout/scroll-container';
@@ -295,6 +300,7 @@ ol {
 @import './layout/feedback';
 @import './layout/contacts';
 @import './layout/benefits';
+@import './layout/gallery';
 
 @import './layout/seo-banner';
 @import './layout/popup-action';

@@ -1,6 +1,8 @@
 import accordionInit from './accordion/init';
 import anchorsInit from './anchor/init';
 import vevet from './config/vevet';
+import fadeContentInit from './fadeContent/init';
+import fancyboxInit from './fancybox/init';
 import initPopups from './popup/init';
 import projectToggle from './projectToggle/init';
 import initScrollSections from './scrollSections/init';
@@ -44,6 +46,9 @@ export const init = () => {
 
   slidersInit();
   accordionInit();
+
+  fadeContentInit();
+  fancyboxInit();
 
   const popups = initPopups();
 
