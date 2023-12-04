@@ -1,0 +1,84 @@
+-
+  const info = {
+    title: 'О нашей компании',
+    titleLabel: 'о компании',
+    media: {
+      type: 'image',
+      path: '@/assets/img/info/about/info-media.jpg',
+    },
+    content: [
+      {
+        type: 'typography',
+        text: `
+          <p>
+            Мы рассматриваем каждый проект индивидуально и предлагаем вам индивидуальные решения для вашего помещения. Качество и удовлетворенность клиентов имеют высший приоритет»
+          </p>
+        `,
+      },
+      {
+        type: 'list',
+        list: [
+           {
+              image: '@/assets/img/info/about/info-list-1.svg',
+              title: 'Экспертиза',
+              description: `Работаем более 8 лет. <br/>Имеем постоянный штат профессионалов`,
+            },
+            {
+              image: '@/assets/img/info/about/info-list-2.svg',
+              title: 'Пунктуальность',
+              description: `Когда дело касается надежности, мы держим свое слово. Все работы выполняются в срок`,
+            },
+            {
+              image: '@/assets/img/info/about/info-list-3.svg',
+              title: 'Фиксация цены',
+              description: `Мы прописываем прайс в договоре. <br/>Вы всегда понимаете полную стоимость работ`,
+            },
+        ],
+      },
+    ]
+  };
+
+section.info-section.section
+  .section-bg
+    .section-bg-lines
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+
+  ._container.section__container
+    .info-section__wrapper
+      .info-section__header.section-header
+        h2.section-header__title= info.title
+
+        p.section-header__label= info.titleLabel
+
+      .info-section__main
+        .info-section-media
+          if info.media.type === 'image'
+            img(
+              src=require(`${info.media.path}`),
+              alt=`${info.title}`,
+              loading='lazy'
+            )
+
+        .info-section__content
+          each content in info.content
+            case content.type
+              when 'typography'
+                .typography.info-section__typography!= content.text
+
+              when 'list'
+                ul.info-section-list.marked-list
+                  each item in content.list
+                    li.marked-list__item
+                      .marked-list__label
+                        img(src=require(`${item.image}`), alt=`${item.title}`)
+
+                      .marked-list__content
+                        p.marked-list__title= item.title
+
+                        p.marked-list__description!= item.description
+
+              default
+                .typography.info-section__typography!= `<p>no content!</p>`

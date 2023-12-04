@@ -8,6 +8,14 @@
   &.about__typography {
     line-height: 170%;
   }
+  
+  &.info-section__typography  {
+    line-height: 116%;
+
+    @include viewport-tablet-min {
+      font-size: px-to-rem(20);
+    }
+  }
 
   &.popup-team__typography, 
   &.case-popup__typography {

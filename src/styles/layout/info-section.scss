@@ -1,0 +1,115 @@
+.info-section {
+  
+  //.info-section__wrapper 
+  &__wrapper {
+    width: 100%;
+
+    > * + * {
+      @include viewport-tablet-min {
+        margin-top: px-to-rem(54);
+      }
+
+      @include viewport-phone {
+        margin-top: px-to-rem(36);
+      }
+    }
+  }
+  
+  //.info-section__header 
+  // &__header {
+  // }
+  
+  //.info-section__main 
+  &__main {
+    display: flex;
+
+    @include viewport-tablet-min {
+      width: calc(100% + var(--wrap));
+      margin-left: calc(-1 * var(--wrap));
+
+      justify-content: space-between;
+      align-items: center;
+      
+      @media (min-width: 1441px) {
+        width: calc(100% + #{px-to-rem(150)});
+        margin-left: calc(-1 * #{px-to-rem(150)});
+      }
+    }
+
+    @include viewport-phone {
+      width: 100%;
+      flex-direction: column-reverse;
+    }
+
+    > * + * {
+      @include viewport-desktop {
+        margin-left: px-to-rem(76);
+      }
+      @include viewport-tablet {
+        margin-left: px-to-rem(54);
+      }
+      @include viewport-phone {
+        margin-bottom: px-to-rem(36);
+      }
+    }
+  }
+  
+  //.info-section-media 
+  &-media {
+    width: 100%;
+    max-width: px-to-rem(624);
+
+    @include viewport-phone {
+      @media (max-width: 450px) {
+        max-width: unset;
+        width: calc(100% + 2 * var(--wrap));
+        margin-left: calc(-1 * var(--wrap));
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+
+      background-color: var(--color-black-100);
+    }
+  }
+  
+  //.info-section__content 
+  &__content {
+    width: 100%;
+
+    > * + * {
+      @include viewport-desktop {
+        margin-top: px-to-rem(56);
+      }
+      @include viewport-tablet {
+        margin-top: px-to-rem(40);
+      }
+      @include viewport-phone {
+        margin-top: px-to-rem(28);
+      }
+    }
+  }
+  
+  //.info-section__typography 
+  // &__typography {
+
+  // }
+  
+  //.info-section-list 
+  &-list {
+    > * + * {
+      @include viewport-desktop {
+        margin-top: px-to-rem(40);
+      }
+      @include viewport-tablet {
+        margin-top: px-to-rem(32);
+      }
+      @include viewport-phone {
+        margin-top: px-to-rem(22);
+      }
+    }
+  }
+}

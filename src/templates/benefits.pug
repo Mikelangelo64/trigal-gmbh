@@ -37,13 +37,13 @@ section.benefits.section
 
         p.section-header__label надежный
 
-      ul.benefits-list
+      ul.benefits-list.marked-list
         each item in benefitsList
-          li.benefits-list__item
-            .benefits-list__label
+          li.marked-list__item
+            .marked-list__label
               img(src=require(`${item.image}`), alt=`${item.title}`)
 
-            .benefits-list__content
-              p.benefits-list__title= item.title
+            .marked-list__content
+              p.marked-list__title= item.title
 
-              p.benefits-list__description!= item.description
+              p.marked-list__description!= item.description
