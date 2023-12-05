@@ -58,6 +58,7 @@ section,
       width: max-content;
       transform: translate(0, -16%);
 
+      pointer-events: none;
       font-weight: 600;
       line-height: 100%;
       color: rgba(var(--color-white--rgb), 0.03);

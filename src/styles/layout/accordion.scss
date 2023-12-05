@@ -42,18 +42,18 @@
     color: inherit;
     
     @include viewport-tablet-min {
-      max-width: px-to-rem(22);
-      height: px-to-rem(22);
+      max-width: px-to-rem(14);
+      height: px-to-rem(14);
     }
 
     @include viewport-phone {
-      max-width: px-to-rem(18);
-      height: px-to-rem(18);
+      max-width: px-to-rem(14);
+      height: px-to-rem(14);
     }
 
     @include hover-focus-visible {
       @include non-mobile-device {
-        color: var(--color-blue);
+        color: var(--color-red);
       }
     } 
 
