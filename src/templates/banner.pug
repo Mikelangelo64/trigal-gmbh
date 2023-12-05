@@ -15,7 +15,7 @@ section.banner.section
     .banner__wrapper
       h1.banner__title= banner.title
 
-      p.banner__subtitle= banner.subtitle
+      p.banner__subtitle!= banner.subtitle
 
       if banner.button !== ''
         button.banner__button.button-hollow.popup-open(

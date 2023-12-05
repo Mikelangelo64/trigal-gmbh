@@ -1,178 +1,178 @@
 -
-  const galleryArray = [
-    {
-      isActive: 'true',
-      data: '1',
-      type: 'Category 1',
+  //- const galleryArray = [
+  //-   {
+  //-     isActive: 'true',
+  //-     data: '1',
+  //-     type: 'Category 1',
 
-      list: [
-        {
-          image: '@/assets/img/gallery/gallery-1.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-2.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-3.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-1.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-2.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-3.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-1.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-2.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-3.jpg',
-        },
-      ]
-    },
-    {
-      isActive: 'false',
-      data: '2',
-      type: 'Category 2',
+  //-     list: [
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-1.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-2.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-3.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-1.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-2.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-3.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-1.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-2.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-3.jpg',
+  //-       },
+  //-     ]
+  //-   },
+  //-   {
+  //-     isActive: 'false',
+  //-     data: '2',
+  //-     type: 'Category 2',
 
-      list: [
-        {
-          image: '@/assets/img/gallery/gallery-2.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-2.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-2.jpg',
-        },
-      ]
-    },
-    {
-      isActive: 'false',
-      data: '3',
-      type: 'Category 3',
+  //-     list: [
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-2.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-2.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-2.jpg',
+  //-       },
+  //-     ]
+  //-   },
+  //-   {
+  //-     isActive: 'false',
+  //-     data: '3',
+  //-     type: 'Category 3',
 
-      list: [
-        {
-          image: '@/assets/img/gallery/gallery-1.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-1.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-1.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-1.jpg',
-        },
-      ]
-    },
-    {
-      isActive: 'false',
-      data: '4',
-      type: 'Category 4',
+  //-     list: [
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-1.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-1.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-1.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-1.jpg',
+  //-       },
+  //-     ]
+  //-   },
+  //-   {
+  //-     isActive: 'false',
+  //-     data: '4',
+  //-     type: 'Category 4',
 
-      list: [
-        {
-          image: '@/assets/img/gallery/gallery-3.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-3.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-3.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-3.jpg',
-        },
-      ]
-    },
-    {
-      isActive: 'false',
-      data: '5',
-      type: 'Category 5',
+  //-     list: [
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-3.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-3.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-3.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-3.jpg',
+  //-       },
+  //-     ]
+  //-   },
+  //-   {
+  //-     isActive: 'false',
+  //-     data: '5',
+  //-     type: 'Category 5',
 
-      list: [
-        {
-          image: '@/assets/img/gallery/gallery-2.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-2.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-2.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-2.jpg',
-        },
-      ]
-    },
-    {
-      isActive: 'false',
-      data: '6',
-      type: 'Category 6',
+  //-     list: [
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-2.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-2.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-2.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-2.jpg',
+  //-       },
+  //-     ]
+  //-   },
+  //-   {
+  //-     isActive: 'false',
+  //-     data: '6',
+  //-     type: 'Category 6',
 
-      list: [
-        {
-          image: '@/assets/img/gallery/gallery-1.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-1.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-1.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-1.jpg',
-        },
-      ]
-    },
-    {
-      isActive: 'false',
-      data: '7',
-      type: 'Category 7',
+  //-     list: [
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-1.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-1.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-1.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-1.jpg',
+  //-       },
+  //-     ]
+  //-   },
+  //-   {
+  //-     isActive: 'false',
+  //-     data: '7',
+  //-     type: 'Category 7',
 
-      list: [
-        {
-          image: '@/assets/img/gallery/gallery-3.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-3.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-3.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-3.jpg',
-        },
-      ]
-    },
-    {
-      isActive: 'false',
-      data: '8',
-      type: 'Category 8',
+  //-     list: [
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-3.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-3.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-3.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-3.jpg',
+  //-       },
+  //-     ]
+  //-   },
+  //-   {
+  //-     isActive: 'false',
+  //-     data: '8',
+  //-     type: 'Category 8',
 
-      list: [
-        {
-          image: '@/assets/img/gallery/gallery-2.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-2.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-2.jpg',
-        },
-        {
-          image: '@/assets/img/gallery/gallery-2.jpg',
-        },
-      ]
-    },
-  ];
+  //-     list: [
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-2.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-2.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-2.jpg',
+  //-       },
+  //-       {
+  //-         image: '@/assets/img/gallery/gallery-2.jpg',
+  //-       },
+  //-     ]
+  //-   },
+  //- ];
 
 section.gallery.section
   .section-bg
@@ -187,25 +187,29 @@ section.gallery.section
       .gallery-header.section-header
         h2.section-header__title Пример наших реализованых объектов
 
-        p.gallery-header__subtitle Фотографии от клиентов
+        if gallery.subtitle && gallery.subtitle !== ''
+          p.gallery-header__subtitle Фотографии от клиентов
 
         p.section-header__label объекты
 
-      .gallery__main.fade-section
-        .fade-section__list.gallery-navigation
-          ul.gallery-navigation__inner
-            each item in galleryArray
-              li
-                button.button-hollow.fade-section__button.gallery-navigation__button(
-                  class=`${item.isActive === 'true' ? 'active' : ''}`,
-                  data-item=`${item.data}`,
-                  aria-label=`${item.type}`
-                )
-                  span= item.type
+      .gallery__main(
+        class=`${gallery.content.length !== 1 ? 'fade-section' : 'single-gallery'}`
+      )
+        if gallery.content.length !== 1
+          .fade-section__list.gallery-navigation
+            ul.gallery-navigation__inner
+              each item in gallery.content
+                li
+                  button.button-hollow.fade-section__button.gallery-navigation__button(
+                    class=`${item.isActive === 'true' ? 'active' : ''}`,
+                    data-item=`${item.data}`,
+                    aria-label=`${item.type}`
+                  )
+                    span= item.type
 
         .gallery-content
-          .fade-section-content
-            each item, index in galleryArray
+          div(class=`${gallery.content.length !== 1 ? 'fade-section-content' : ''}`)
+            each item, index in gallery.content
               .fade-section-content__item(
                 class=`${item.isActive !== 'true' ? 'unactive' : ''}`,
                 data-item=`${item.data}`

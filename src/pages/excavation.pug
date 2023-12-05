@@ -4,82 +4,56 @@
   const banner = {
     media: {
       type: 'image',
-      path: '@/assets/img/repair/banner-media.jpg'
+      path: '@/assets/img/excavation/banner-media.jpg'
     },
-    title: 'Ремонт Гамбург',
-    subtitle: 'Мы отремонтируем вашу жилую или коммерческую недвижимость в Гамбурге и его окрестностях.',
+    title: 'Земляные работы в Гамбурге',
+    subtitle: 'При работе на земле часто очень важен местный партнер. <br/>Поэтому мы рады приветствовать вас в нашем офисе в Гамбурге, где мы сможем быстро и компетентно помочь вам по любому запросу.',
     button: 'Получить бесплатное предложение'
-  }
-
-  const services = {
-    title: 'Наши услуги по ремонту помещений',
-    hasHeaderButton: 'true',
-    list: [
-      {
-        image: '@/assets/img/services/service-repair-1.jpg',
-        href: '#',
-        title: 'Укладка пола',
-      },
-      {
-        image: '@/assets/img/services/service-repair-2.jpg',
-        href: '#',
-        title: 'Ремонт помещений',
-      },
-      {
-        image: '@/assets/img/services/service-repair-3.jpg',
-        href: '#',
-        title: 'Малярные работы',
-      },
-      {
-        image: '@/assets/img/services/service-repair-4.jpg',
-        href: '#',
-        title: 'Демонтажные работы',
-      },
-    ]
-  }
-
-  const info = {
-    title: 'О нашей компании',
-    titleLabel: 'о компании',
-    media: {
-      type: 'image',
-      path: '@/assets/img/info/reapir-about/info-media.jpg',
-    },
-    content: [
-      {
-        type: 'typography',
-        text: `
-          <p>
-            Мы рассматриваем каждый проект индивидуально и предлагаем вам индивидуальные решения для вашего помещения. Качество и удовлетворенность клиентов имеют высший приоритет»
-          </p>
-        `,
-      },
-      {
-        type: 'list',
-        list: [
-           {
-              image: '@/assets/img/info/reapir-about/info-list-1.svg',
-              title: 'Экспертиза',
-              description: `Работаем более 8 лет. <br/>Имеем постоянный штат профессионалов`,
-            },
-            {
-              image: '@/assets/img/info/reapir-about/info-list-2.svg',
-              title: 'Пунктуальность',
-              description: `Когда дело касается надежности, мы держим свое слово. Все работы выполняются в срок`,
-            },
-            {
-              image: '@/assets/img/info/reapir-about/info-list-3.svg',
-              title: 'Фиксация цены',
-              description: `Мы прописываем прайс в договоре. <br/>Вы всегда понимаете полную стоимость работ`,
-            },
-        ],
-      },
-    ]
   };
+
+  const infoArray = [
+    {
+      title: 'Услуги по земельным работам',
+      titleLabel: 'услуги',
+      media: {
+        type: 'image',
+        path: '@/assets/img/info/excavation-services/info-media-1.jpg',
+      },
+      content: [
+        {
+          type: 'typography',
+          text: `
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat dignissim tortor viverra ullamcorper. Nulla pulvinar odio vel justo mollis, non tincidunt dolor eleifend. Curabitur id mauris vel neque aliquam tincidunt. Proin est sapien, sagittis vitae suscipit in, ullamcorper dictum lacus. Aliquam euismod at tortor eget pretium. Mauris mattis sagittis mi, ut laoreet eros sagittis non. Fusce accumsan, velit ac rutrum tristique, risus mauris molestie ex, sed dapibus libero quam a lacus. Vestibulum urna velit, euismod a accumsan at, fringilla eget orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam mauris velit, pretium a enim sit amet, euismod commodo ex. Etiam porttitor nunc mollis aliquet finibus. Aliquam erat volutpat. Morbi eu ornare nulla.
+            </p>
+          `,
+        },
+      ]
+    },
+
+    {
+      title: 'Услуги по земельным работам',
+      titleLabel: 'услуги',
+      media: {
+        type: 'image',
+        path: '@/assets/img/info/excavation-services/info-media-2.jpg',
+      },
+      content: [
+        {
+          type: 'typography',
+          text: `
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat dignissim tortor viverra ullamcorper. Nulla pulvinar odio vel justo mollis, non tincidunt dolor eleifend. Curabitur id mauris vel neque aliquam tincidunt. Proin est sapien, sagittis vitae suscipit in, ullamcorper dictum lacus. Aliquam euismod at tortor eget pretium. Mauris mattis sagittis mi, ut laoreet eros sagittis non. Fusce accumsan, velit ac rutrum tristique, risus mauris molestie ex, sed dapibus libero quam a lacus. Vestibulum urna velit, euismod a accumsan at, fringilla eget orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam mauris velit, pretium a enim sit amet, euismod commodo ex. Etiam porttitor nunc mollis aliquet finibus. Aliquam erat volutpat. Morbi eu ornare nulla.
+            </p>
+          `,
+        },
+      ]
+    },
+  ];
 
   const gallery = {
     title: 'Пример наших реализованых объектов',
-    subtitle: 'Фотографии от клиентов',
+    subtitle: '',
     headerLabel: 'объекты',
 
     content: [
@@ -115,143 +89,6 @@
           },
           {
             image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-        ]
-      },
-      {
-        isActive: 'false',
-        data: '2',
-        type: 'Category 2',
-
-        list: [
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-        ]
-      },
-      {
-        isActive: 'false',
-        data: '3',
-        type: 'Category 3',
-
-        list: [
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-        ]
-      },
-      {
-        isActive: 'false',
-        data: '4',
-        type: 'Category 4',
-
-        list: [
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-        ]
-      },
-      {
-        isActive: 'false',
-        data: '5',
-        type: 'Category 5',
-
-        list: [
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-        ]
-      },
-      {
-        isActive: 'false',
-        data: '6',
-        type: 'Category 6',
-
-        list: [
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-        ]
-      },
-      {
-        isActive: 'false',
-        data: '7',
-        type: 'Category 7',
-
-        list: [
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-        ]
-      },
-      {
-        isActive: 'false',
-        data: '8',
-        type: 'Category 8',
-
-        list: [
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
           },
         ]
       },
@@ -298,9 +135,9 @@ html(lang='en')
   head
     include @/layout/head.pug
 
-    title Trigal GmbH - Repair
+    title Trigal GmbH - Excavation
 
-    link(rel='stylesheet', href=require('@/styles/pages/repair.scss'))
+    link(rel='stylesheet', href=require('@/styles/pages/excavation.scss'))
 
   body
     include @/layout/preloader.pug
@@ -319,17 +156,15 @@ html(lang='en')
         .scroll-container__item
           include @/templates/banner.pug
 
-        .scroll-container__item
-          include @/templates/services.pug
+        each info in infoArray
+          .scroll-container__item
+            include @/templates/info-section.pug
 
         .scroll-container__item
           include @/templates/benefits.pug
 
         .scroll-container__item
           include @/templates/gallery.pug
-
-        .scroll-container__item
-          include @/templates/info-section.pug
 
         .scroll-container__item
           include @/templates/faq.pug

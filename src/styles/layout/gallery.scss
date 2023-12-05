@@ -52,6 +52,16 @@
   &__main {
     width: 100%;
 
+    &.single-gallery {
+      @include viewport-tablet-min {
+        margin-top: px-to-rem(62);
+      }
+
+      @include viewport-phone {
+        margin-top: px-to-rem(38);
+      }
+    }
+
     > * + * {
       @include viewport-tablet-min {
         margin-top: px-to-rem(42);
