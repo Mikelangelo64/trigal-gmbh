@@ -2,6 +2,7 @@
   isFooterNearSeo = false;
 
   const banner = {
+    specialClass: '',
     media: {
       type: 'image',
       path: '@/assets/img/excavation/banner-media.jpg'
@@ -204,5 +205,5 @@ html(lang='en')
 
     include @/layout/footer.pug
 
-    //- script(src=require('@/scripts/video.ts')) 
+    script(src=require('@/scripts/video.ts')) 
     script(src=require('../index.ts')) 

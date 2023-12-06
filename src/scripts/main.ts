@@ -3,6 +3,7 @@ import anchorsInit from './anchor/init';
 import vevet from './config/vevet';
 import fadeContentInit from './fadeContent/init';
 import fancyboxInit from './fancybox/init';
+import isViewedHandler, { isVideoViewedHandler } from './isViewedHandler/init';
 import initPopups from './popup/init';
 import projectToggle from './projectToggle/init';
 import initScrollSections from './scrollSections/init';
@@ -53,6 +54,9 @@ export const init = () => {
   const popups = initPopups();
 
   anchorsInit(0, popups);
+
+  isViewedHandler('banner');
+  isVideoViewedHandler('banner');
 
   const formArr = document.querySelectorAll('form');
   const hasError = false;

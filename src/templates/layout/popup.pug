@@ -1,10 +1,10 @@
 -
   const popupList = [
-    //- { 
-    //-   name: 'banner', 
-    //-   type: 'video', 
-    //-   video: '@/assets/video/banner.mp4',
-    //- }, 
+    { 
+      name: 'banner', 
+      type: 'video', 
+      video: '@/assets/video/banner-popup.mp4',
+    }, 
     { 
       name: 'menu', 
       type: 'menu', 
@@ -62,7 +62,7 @@ each item in popupList
           case item.type 
             when 'video'
               .popup-video__media
-                video.video(
+                video.video.lazy-video(
                   disablePictureInPicture,
                   preload='metadata',
                   playsinline,

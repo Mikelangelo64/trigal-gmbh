@@ -44,6 +44,21 @@
                 class="contact-call__text">+38 066 210-56-90</span></a></div>
         </div>
       </div>
+      <div class="popup popup-video banner__popup " data-popupname="_popup-banner" aria-modal="true" role="dialog">
+        <div class="popup__overlay"></div>
+        <div class="popup__additional"></div>
+        <div class="popup__scroll">
+          <div class="popup__wrapper"><button class="popup__close"><img src="assets/img/popup-close.svg"
+                alt="close"></button>
+            <div class="popup__content">
+              <div class="popup-video__media"><video class="video lazy-video" disablePictureInPicture preload="metadata"
+                  playsinline controls>
+                  <source data-src="assets/video/banner-popup.mp4" type="video/mp4">
+                </video></div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="popup popup-menu menu__popup " data-popupname="_popup-menu" aria-modal="true" role="dialog">
         <div class="popup__overlay"></div>
         <div class="popup__additional"></div>
@@ -179,8 +194,9 @@
                 <h1 class="banner__title">Земляные работы в Гамбурге</h1>
                 <p class="banner__subtitle">При работе на земле часто очень важен местный партнер. <br />Поэтому мы рады
                   приветствовать вас в нашем офисе в Гамбурге, где мы сможем быстро и компетентно помочь вам по любому
-                  запросу.</p><button class="banner__button button-hollow popup-open"
-                  data-popup="_popup-form"><span>Получить бесплатное предложение</span></button>
+                  запросу.</p>
+                <div class="banner__button__container"><button class="banner__button button-hollow popup-open"
+                    data-popup="_popup-form"><span>Получить бесплатное предложение</span></button></div>
                 <div class="banner-mouse">
                   <div class="banner-mouse__label"><img src="assets/img/mouse.svg" alt="scroll-down"></div>
                 </div>
@@ -749,6 +765,7 @@
     </footer>
     <script src="runtime.bundle.js"> </script>
     <script src="vendor.js"> </script>
+    <script src="video.bundle.js"> </script>
     <script src="607.bundle.js"> </script>
     <script src="index.1.bundle.js"> </script>
   </body>

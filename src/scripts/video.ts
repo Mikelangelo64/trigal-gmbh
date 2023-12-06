@@ -1,6 +1,8 @@
+import vevet from './config/vevet';
+
 const videoHandler = () => {
   const videoArr = document.querySelectorAll(
-    '.video'
+    '.lazy-video'
   ) as NodeListOf<HTMLVideoElement>;
 
   if (videoArr.length === 0) {
@@ -36,6 +38,9 @@ const videoHandler = () => {
   });
 };
 
-document.addEventListener('loaded', () => {
+vevet.pageLoad.onLoad(() => {
   videoHandler();
 });
+// document.addEventListener('load', () => {
+//   videoHandler();
+// });

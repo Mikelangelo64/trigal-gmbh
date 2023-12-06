@@ -25,7 +25,7 @@ const useObserver: (
         const element = entry.target;
 
         if (entry.isIntersecting) {
-          console.log(entry);
+          // console.log(entry);
           // console.log(entry, element);
           if (!callbackIn) {
             return;
