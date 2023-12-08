@@ -9,6 +9,12 @@
     line-height: 170%;
   }
   
+  &.marked-list__description {
+    line-height: 116%;
+    font-weight: 300;
+    font-size: px-to-rem(16);
+  }
+  
   &.info-section__typography  {
     line-height: 116%;
 
@@ -64,6 +70,12 @@
   ul {
     @include reset-ul;
 
+    @at-root .printing .typography.marked-list__description ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     li {
       --marker-size: #{px-to-rem(8)};
       --line-height: 1.1;
@@ -96,6 +108,11 @@
         // @at-root .typography.reverse ul li::before {
         //   background-image: url('@/assets/img/line-white.svg');
         // }
+        @at-root .printing .typography.marked-list__description ul li::before {
+          --marker-size: #{px-to-rem(4)};
+          border: unset;
+          background-color: var(--color-red);
+        }
       }
     }
 

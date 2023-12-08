@@ -12,6 +12,85 @@
     button: 'Рассчитать стоимость'
   };
 
+  const benefits = {
+    specialClass: 'printing',
+    title: 'Какие помещения можно оформить',
+    titleLabel: 'печать',
+    subtitle: 'Внутри здания и на фасаде',
+
+    list: [
+      {
+        image: '@/assets/img/benefits/wallprinting/benefit-1.svg',
+        title: 'Жилой сектор',
+        description: `
+          <ul>
+            <li>
+              Квартиры 
+            </li>
+            <li>
+              Виллы 
+            </li>
+            <li>
+              Таун-Хаусы 
+            </li>
+            <li>
+              Дома 
+            </li>
+            <li>
+              Гаражи 
+            </li>
+          </ul>
+        `,
+      },
+      {
+        image: '@/assets/img/benefits/wallprinting/benefit-2.svg',
+        title: 'Коммерческий сектор',
+        description: `
+          <ul>
+            <li>
+              HoReCa
+            </li>
+            <li>
+              Офисы
+            </li>
+            <li>
+              Торговые помещения
+            </li>
+            <li>
+              Фитнес-клубы
+            </li>
+            <li>
+              Индустрия красоты
+            </li>
+          </ul>
+        `,
+      },
+      {
+        image: '@/assets/img/benefits/wallprinting/benefit-3.svg',
+        title: 'Административный сектор',
+        description: `
+          <ul>
+            <li>
+              Садики
+            </li>
+            <li>
+              Школы
+            </li>
+            <li>
+              Университеты
+            </li>
+            <li>
+              Больницы
+            </li>
+            <li>
+              Гос. учреждения
+            </li>
+          </ul>
+        `,
+      },
+    ],
+  };
+
   const infoArray = [
     {
       title: 'Услуги по земельным работам',
@@ -157,12 +236,15 @@ html(lang='en')
         .scroll-container__item
           include @/templates/banner.pug
 
+        //- .scroll-container__item
+        //-   include @/templates/printing.pug
+        .scroll-container__item
+          include @/templates/benefits.pug
+
         each info in infoArray
           .scroll-container__item
             include @/templates/info-section.pug
 
-        .scroll-container__item
-          include @/templates/benefits.pug
 
         .scroll-container__item
           include @/templates/gallery.pug

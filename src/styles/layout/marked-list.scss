@@ -19,6 +19,19 @@
         margin-top: px-to-rem(16);
       }
     }
+
+    @at-root .printing .marked-list & {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      > * + * {
+        @include viewport-tablet-min {
+          margin-left: unset;
+          margin-top: px-to-rem(16);
+        }
+      }
+    }
   }
   
   //.marked-list__label 
@@ -90,6 +103,10 @@
   //.marked-list__content 
   &__content {
     width: 100%;
+
+    @at-root .printing .marked-list & {
+      text-align: center;
+    }
 
     > * + * {
       margin-top: px-to-rem(10);

@@ -22,7 +22,9 @@
     },
   ];
 
-section.benefits.section
+section.benefits.section(
+  class=`${benefits.specialClass ? benefits.specialClass : '' }`
+)
   .section-bg
     .section-bg-lines
       .section-bg-lines__item
@@ -32,13 +34,16 @@ section.benefits.section
 
   ._container.section__container
     .benefits__wrapper
-      .benefits__header.section-header
-        h2.section-header__title Ваш надежный партнер среди ремонтных компаний Гамбурга
+      .benefits-header.section-header
+        h2.section-header__title= benefits.title
 
-        p.section-header__label надежный
+        p.section-header__label= benefits.titleLabel
+
+        if benefits.subtitle && benefits.subtitle !== ''
+          p.benefits-header__subtitle= benefits.subtitle
 
       ul.benefits-list.marked-list
-        each item in benefitsList
+        each item in benefits.list
           li.marked-list__item
             .marked-list__label
               img(src=require(`${item.image}`), alt=`${item.title}`)
@@ -46,4 +51,4 @@ section.benefits.section
             .marked-list__content
               p.marked-list__title= item.title
 
-              p.marked-list__description!= item.description
+              .typography.marked-list__description!= item.description
