@@ -15,12 +15,22 @@ export const changeInnerItemPosition = (itemArray: NodeListOf<HTMLElement>) => {
     const { height } = item.getBoundingClientRect();
     const { height: innerHeight } = inner.getBoundingClientRect();
 
+    const scrollbarY = item.querySelector<HTMLElement>('.v-scrollbar_y');
+
     if (height > innerHeight) {
       item.classList.add('centered');
       item.classList.remove('with-scroll');
+
+      if (scrollbarY) {
+        scrollbarY.classList.add('v-scrollbar_is-empty');
+      }
     } else {
       item.classList.remove('centered');
       item.classList.add('with-scroll');
+
+      if (scrollbarY) {
+        scrollbarY.classList.remove('v-scrollbar_is-empty');
+      }
     }
   });
 };

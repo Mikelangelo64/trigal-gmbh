@@ -9,6 +9,7 @@ export interface IState {
   previousIndex: number;
   timelines: Timeline[];
   duration: number;
+  resizeCallback: () => void;
 }
 
 export interface ICreateNestedTimelines {

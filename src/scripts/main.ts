@@ -7,14 +7,28 @@ import isViewedHandler, { isVideoViewedHandler } from './isViewedHandler/init';
 import initPopups from './popup/init';
 import projectToggle from './projectToggle/init';
 import initScrollSections from './scrollSections/init';
+import { IState } from './scrollSections/types';
 import scrollBarInit from './scrollbar';
 import slidersInit from './sliders/init';
 
+export interface IScrollSectionState {
+  containerArray: HTMLElement[];
+  stateArray: IState[];
+}
+
 export const init = () => {
   scrollBarInit();
+  slidersInit();
+
+  const scrollSectionState: IScrollSectionState = {
+    containerArray: [],
+    stateArray: []
+  };
 
   if (!vevet.isMobile) {
-    initScrollSections();
+    const { containerArray, stateArray } = initScrollSections();
+    scrollSectionState.containerArray = containerArray;
+    scrollSectionState.stateArray = stateArray;
   } else {
     const header = document.querySelector<HTMLElement>('.header');
     const footer = document.querySelector<HTMLElement>('.footer');
@@ -45,8 +59,9 @@ export const init = () => {
     }
   }
 
-  slidersInit();
-  accordionInit();
+  console.log(scrollSectionState);
+
+  accordionInit(scrollSectionState);
 
   fadeContentInit();
   fancyboxInit();

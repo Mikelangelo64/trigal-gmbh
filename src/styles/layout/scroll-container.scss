@@ -60,6 +60,11 @@
       &.centered {
         justify-content: center;
         align-items: center;
+
+        // &.important-scroll {
+        //   justify-content: unset;
+        //   align-items: unset;
+        // }
       }
 
       &.progress {

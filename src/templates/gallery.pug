@@ -210,7 +210,7 @@ section.gallery.section
         .gallery-content
           div(class=`${gallery.content.length !== 1 ? 'fade-section-content' : ''}`)
             each item, index in gallery.content
-              .fade-section-content__item(
+              div.fade-section-content__item(
                 class=`${item.isActive !== 'true' ? 'unactive' : ''}`,
                 data-item=`${item.data}`
               )

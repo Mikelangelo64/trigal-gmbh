@@ -1,6 +1,11 @@
 import { Timeline } from 'vevet';
+import { IScrollSectionState } from '../main';
 
-const itemHandler = (container: HTMLElement, isLabelClick: boolean) => {
+const itemHandler = (
+  container: HTMLElement,
+  isLabelClick: boolean,
+  scrollState: IScrollSectionState
+) => {
   const elements = container.querySelectorAll<HTMLElement>('.accordion__item');
 
   if (elements.length === 0) {
@@ -37,6 +42,18 @@ const itemHandler = (container: HTMLElement, isLabelClick: boolean) => {
       body.style.opacity = `${easing}`;
     });
 
+    timeline.addCallback('start', () => {
+      scrollState.stateArray.forEach((state) => {
+        state.resizeCallback();
+      });
+    });
+
+    timeline.addCallback('end', () => {
+      scrollState.stateArray.forEach((state) => {
+        state.resizeCallback();
+      });
+    });
+
     arrow.addEventListener('click', () => {
       element.classList.toggle('_active');
 
@@ -49,7 +66,7 @@ const itemHandler = (container: HTMLElement, isLabelClick: boolean) => {
   });
 };
 
-const accordionInit = () => {
+const accordionInit = (scrollState: IScrollSectionState) => {
   const containerArray = document.querySelectorAll<HTMLElement>('.accordion');
 
   if (containerArray.length === 0) {
@@ -58,7 +75,7 @@ const accordionInit = () => {
 
   containerArray.forEach((container) => {
     const isLabelClick = container.dataset.isLabelClick === 'true';
-    itemHandler(container, isLabelClick);
+    itemHandler(container, isLabelClick, scrollState);
   });
 };
 

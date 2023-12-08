@@ -12,8 +12,10 @@ const initScrollSections = () => {
   const containerArray =
     document.querySelectorAll<HTMLElement>('.scroll-container');
 
+  const stateArray: IState[] = [];
+
   if (containerArray.length === 0) {
-    return;
+    return { containerArray: [], stateArray };
   }
 
   containerArray.forEach((container) => {
@@ -37,7 +39,8 @@ const initScrollSections = () => {
       scrollingIndex: 0,
       previousIndex: 0,
       timelines: [],
-      duration: 600
+      duration: 600,
+      resizeCallback: () => {}
     };
 
     const timelines = makeGlobalTimeline({
@@ -55,17 +58,30 @@ const initScrollSections = () => {
     navigationInit(container, wrapper, itemArray, state);
     // specialScrollInit(container, wrapper, itemArray, state);
 
+    const resizeCallback = () => {
+      scrollbarFix(itemArray);
+      changeInnerItemPosition(itemArray);
+      recalculateHeight(wrapper, state.scrollingIndex);
+    };
+
+    state.resizeCallback = resizeCallback;
+
     window.addEventListener(
       'resize',
       debounce({
         callback: () => {
-          scrollbarFix(itemArray);
-          changeInnerItemPosition(itemArray);
-          recalculateHeight(wrapper, state.scrollingIndex);
+          state.resizeCallback();
+          // scrollbarFix(itemArray);
+          // changeInnerItemPosition(itemArray);
+          // recalculateHeight(wrapper, state.scrollingIndex);
         }
       })
     );
+
+    stateArray.push(state);
   });
+
+  return { containerArray: Array.from(containerArray), stateArray };
 };
 
 export default initScrollSections;
