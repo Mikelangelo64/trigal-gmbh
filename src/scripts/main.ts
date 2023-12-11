@@ -59,7 +59,7 @@ export const init = () => {
     }
   }
 
-  console.log(scrollSectionState);
+  // console.log(scrollSectionState);
 
   accordionInit(scrollSectionState);
 

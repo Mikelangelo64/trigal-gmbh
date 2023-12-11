@@ -132,8 +132,9 @@
   ];
 
   const gallery = {
+    specialClass: 'printing',
     title: 'Пример наших реализованых объектов',
-    subtitle: '',
+    subtitle: 'Графика. Брендирование. Реклама.',
     headerLabel: 'объекты',
 
     content: [
@@ -144,31 +145,28 @@
 
         list: [
           {
-            image: '@/assets/img/gallery/gallery-1.jpg',
+            image: '@/assets/img/gallery/wallprinting/gallery-1.jpg',
+            title: 'Фотография',
           },
           {
-            image: '@/assets/img/gallery/gallery-2.jpg',
+            image: '@/assets/img/gallery/wallprinting/gallery-2.jpg',
+            title: 'Рисунок',
           },
           {
-            image: '@/assets/img/gallery/gallery-3.jpg',
+            image: '@/assets/img/gallery/wallprinting/gallery-3.jpg',
+            title: 'Орнамент',
           },
           {
-            image: '@/assets/img/gallery/gallery-1.jpg',
+            image: '@/assets/img/gallery/wallprinting/gallery-1.jpg',
+            title: 'Фотография',
           },
           {
-            image: '@/assets/img/gallery/gallery-2.jpg',
+            image: '@/assets/img/gallery/wallprinting/gallery-2.jpg',
+            title: 'Рисунок',
           },
           {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
+            image: '@/assets/img/gallery/wallprinting/gallery-3.jpg',
+            title: 'Орнамент',
           },
         ]
       },
@@ -241,13 +239,12 @@ html(lang='en')
         .scroll-container__item
           include @/templates/benefits.pug
 
+        .scroll-container__item
+          include @/templates/gallery.pug
+
         each info in infoArray
           .scroll-container__item
             include @/templates/info-section.pug
-
-
-        .scroll-container__item
-          include @/templates/gallery.pug
 
         .scroll-container__item
           include @/templates/faq.pug

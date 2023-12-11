@@ -174,7 +174,9 @@
   //-   },
   //- ];
 
-section.gallery.section
+section.gallery.section(
+  class=`${gallery.specialClass ? gallery.specialClass : '' }`
+)
   .section-bg
     .section-bg-lines
       .section-bg-lines__item
@@ -185,12 +187,12 @@ section.gallery.section
   ._container.section__container
     .gallery__wrapper
       .gallery-header.section-header
-        h2.section-header__title Пример наших реализованых объектов
+        h2.section-header__title= gallery.title
 
         if gallery.subtitle && gallery.subtitle !== ''
           p.gallery-header__subtitle= gallery.subtitle
 
-        p.section-header__label объекты
+        p.section-header__label= gallery.headerLabel
 
       .gallery__main(
         class=`${gallery.content.length !== 1 ? 'fade-section' : 'single-gallery'}`
@@ -219,16 +221,20 @@ section.gallery.section
                     .swiper-wrapper
                       each media, indexMedia in item.list 
                         .swiper-slide
-                          a.gallery-slider__media(
+                          a.gallery-slider__item(
                             href=require(`${media.image}`),
                             data-fancybox=`gallery-${index}`
                           )
-                            .gallery-slider__media__container
-                              img(
-                                src=require(`${media.image}`),
-                                alt=`${item.type}-${indexMedia + 1}`,
-                                loading='lazy'
-                              )
+                            span.gallery-slider__media
+                              span.gallery-slider__media__container
+                                img(
+                                  src=require(`${media.image}`),
+                                  alt=`${item.type}-${indexMedia + 1}`,
+                                  loading='lazy'
+                                )
+
+                            if media.title && media.title !== ''
+                              span.gallery-slider__title= media.title
 
                   .gallery-slider-controls.slider-controls
                     .gallery-slider-pagination.slider-pagination
