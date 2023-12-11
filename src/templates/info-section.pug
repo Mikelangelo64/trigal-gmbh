@@ -8,8 +8,11 @@ section.info-section.section
 
   ._container.section__container
     .info-section__wrapper
-      .info-section__header.section-header
+      .info-section-header.section-header
         h2.section-header__title= info.title
+
+        if info.subtitle && info.subtitle !== ''
+          p.info-section-header__subtitle= info.subtitle
 
         p.section-header__label= info.titleLabel
 
@@ -27,6 +30,13 @@ section.info-section.section
             case content.type
               when 'typography'
                 .typography.info-section__typography!= content.text
+
+              when 'action'
+                .info-section__action
+                  button.info-section__button.button-hollow.popup-open(
+                    data-popup='_popup-form'
+                  )
+                    span= content.text
 
               when 'list'
                 ul.info-section-list.marked-list

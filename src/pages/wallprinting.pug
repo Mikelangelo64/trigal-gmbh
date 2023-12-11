@@ -91,46 +91,6 @@
     ],
   };
 
-  const infoArray = [
-    {
-      title: 'Услуги по земельным работам',
-      titleLabel: 'услуги',
-      media: {
-        type: 'image',
-        path: '@/assets/img/info/excavation-services/info-media-1.jpg',
-      },
-      content: [
-        {
-          type: 'typography',
-          text: `
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat dignissim tortor viverra ullamcorper. Nulla pulvinar odio vel justo mollis, non tincidunt dolor eleifend. Curabitur id mauris vel neque aliquam tincidunt. Proin est sapien, sagittis vitae suscipit in, ullamcorper dictum lacus. Aliquam euismod at tortor eget pretium. Mauris mattis sagittis mi, ut laoreet eros sagittis non. Fusce accumsan, velit ac rutrum tristique, risus mauris molestie ex, sed dapibus libero quam a lacus. Vestibulum urna velit, euismod a accumsan at, fringilla eget orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam mauris velit, pretium a enim sit amet, euismod commodo ex. Etiam porttitor nunc mollis aliquet finibus. Aliquam erat volutpat. Morbi eu ornare nulla.
-            </p>
-          `,
-        },
-      ]
-    },
-
-    {
-      title: 'Услуги по земельным работам',
-      titleLabel: 'услуги',
-      media: {
-        type: 'image',
-        path: '@/assets/img/info/excavation-services/info-media-2.jpg',
-      },
-      content: [
-        {
-          type: 'typography',
-          text: `
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat dignissim tortor viverra ullamcorper. Nulla pulvinar odio vel justo mollis, non tincidunt dolor eleifend. Curabitur id mauris vel neque aliquam tincidunt. Proin est sapien, sagittis vitae suscipit in, ullamcorper dictum lacus. Aliquam euismod at tortor eget pretium. Mauris mattis sagittis mi, ut laoreet eros sagittis non. Fusce accumsan, velit ac rutrum tristique, risus mauris molestie ex, sed dapibus libero quam a lacus. Vestibulum urna velit, euismod a accumsan at, fringilla eget orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam mauris velit, pretium a enim sit amet, euismod commodo ex. Etiam porttitor nunc mollis aliquet finibus. Aliquam erat volutpat. Morbi eu ornare nulla.
-            </p>
-          `,
-        },
-      ]
-    },
-  ];
-
   const gallery = {
     specialClass: 'printing',
     title: 'Пример наших реализованых объектов',
@@ -172,6 +132,72 @@
       },
     ]
   };
+
+
+  const infoArray = [
+    {
+      title: 'Почему так быстро',
+      subtitle: 'Пример печати изображения площадью 2,5 кв.м',
+      titleLabel: 'печать',
+      media: {
+        type: 'image',
+        path: '@/assets/img/info/wallprinting/info-media-1.jpg',
+      },
+      content: [
+        {
+          type: 'typography',
+          text: `
+            <ul>
+              <li>
+                Настройки принтера на объекте необходимо 5 минут
+              </li>
+              <li>
+                Печать — 15 минут
+              </li>
+              <li>
+                Разборка и упаковка принтера 10 минут
+              </li>
+            </ul>
+
+            <p>
+              <i>
+                Всего — 30 минут
+              </i>
+            </p>
+
+            <p>
+              <strong>
+                Краски сохнут моментально в процессе нанесения! Уборка в помещении после печати не требуется!
+              </strong>
+            </p>
+          `,
+        },
+        {
+          type: 'action',
+          text: 'Рассчитать стоимость',
+        }
+      ]
+    },
+
+    {
+      title: 'Услуги по земельным работам',
+      titleLabel: 'услуги',
+      media: {
+        type: 'image',
+        path: '@/assets/img/info/excavation-services/info-media-2.jpg',
+      },
+      content: [
+        {
+          type: 'typography',
+          text: `
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat dignissim tortor viverra ullamcorper. Nulla pulvinar odio vel justo mollis, non tincidunt dolor eleifend. Curabitur id mauris vel neque aliquam tincidunt. Proin est sapien, sagittis vitae suscipit in, ullamcorper dictum lacus. Aliquam euismod at tortor eget pretium. Mauris mattis sagittis mi, ut laoreet eros sagittis non. Fusce accumsan, velit ac rutrum tristique, risus mauris molestie ex, sed dapibus libero quam a lacus. Vestibulum urna velit, euismod a accumsan at, fringilla eget orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam mauris velit, pretium a enim sit amet, euismod commodo ex. Etiam porttitor nunc mollis aliquet finibus. Aliquam erat volutpat. Morbi eu ornare nulla.
+            </p>
+          `,
+        },
+      ]
+    },
+  ];
 
   const socials = [
     {
@@ -243,9 +269,10 @@ html(lang='en')
         .scroll-container__item
           include @/templates/printing-material.pug
 
-        each info in infoArray
-          .scroll-container__item
-            include @/templates/info-section.pug
+        each info, index in infoArray
+          if index === 0
+            .scroll-container__item
+              include @/templates/info-section.pug
 
         .scroll-container__item
           include @/templates/faq.pug
