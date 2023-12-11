@@ -1,0 +1,59 @@
+-
+  const printingMaterialList = [
+    {
+      image: '@/assets/img/wallprinting/material/material-1.jpg',
+      title: 'Дерево'
+    },
+    {
+      image: '@/assets/img/wallprinting/material/material-2.jpg',
+      title: 'Бетон'
+    },
+    {
+      image: '@/assets/img/wallprinting/material/material-3.jpg',
+      title: 'Металл'
+    },
+    {
+      image: '@/assets/img/wallprinting/material/material-4.jpg',
+      title: 'Стекло'
+    },
+    {
+      image: '@/assets/img/wallprinting/material/material-5.jpg',
+      title: 'Керамическая плитка'
+    },
+    {
+      image: '@/assets/img/wallprinting/material/material-6.jpg',
+      title: 'Кирпичная кладка'
+    },
+    {
+      image: '@/assets/img/wallprinting/material/material-7.jpg',
+      title: 'Отделочный камень'
+    },
+    {
+      image: '@/assets/img/wallprinting/material/material-8.jpg',
+      title: 'Штукатурка и обои'
+    },
+  ];
+
+section.printing-material.section
+  .section-bg
+    .section-bg-lines
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+
+  ._container.section__container
+    .printing-material__wrapper
+      .printing-material__header.section-header
+        h2.section-header__title Какой материал стен подходит для печати
+
+        p.section-header__label Графика. Брендирование. Реклама.
+
+      ul.printing-material-list
+        each item in printingMaterialList
+          li.printing-material-list__item
+            .printing-material-list__media
+              .printing-material-list__media__container
+                img(src=require(`${item.image}`), alt=`${item.title}`) 
+
+            p.printing-material-list__title!= item.title

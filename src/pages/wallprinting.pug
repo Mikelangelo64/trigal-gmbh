@@ -234,13 +234,14 @@ html(lang='en')
         .scroll-container__item
           include @/templates/banner.pug
 
-        //- .scroll-container__item
-        //-   include @/templates/printing.pug
         .scroll-container__item
           include @/templates/benefits.pug
 
         .scroll-container__item
           include @/templates/gallery.pug
+
+        .scroll-container__item
+          include @/templates/printing-material.pug
 
         each info in infoArray
           .scroll-container__item
