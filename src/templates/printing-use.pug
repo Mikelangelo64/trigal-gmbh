@@ -1,0 +1,35 @@
+-
+  const printingUseList = [
+    {
+      image: '@/assets/img/wallprinting/use/use-1.jpg',
+      title: 'Запатентованный принтер, сделанный в Германии'
+    },
+    {
+      image: '@/assets/img/wallprinting/use/use-2.jpg',
+      title: 'Безвредные чернила, сделанные в ЕС'
+    },
+  ];
+
+section.printing-use.section
+  .section-bg
+    .section-bg-lines
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+
+  ._container.section__container
+    .printing-use__wrapper
+      .printing-use__header.section-header
+        h2.section-header__title Мы используем
+
+        p.section-header__label Графика. Брендирование. Реклама.
+
+      ul.printing-use-list
+        each item in printingUseList
+          li.printing-use-list__item
+            .printing-use-list__media
+              .printing-use-list__media__container
+                img(src=require(`${item.image}`), alt=`${item.title}`) 
+
+            p.printing-use-list__title!= item.title
