@@ -38,6 +38,22 @@
   
   //.info-section__main 
   &__main {
+    @include viewport-desktop {
+      --gap: #{px-to-rem(76)};
+    }
+    @include viewport-tablet {
+      --gap: #{px-to-rem(54)};
+    }
+    @include viewport-phone {
+      --gap: #{px-to-rem(36)};
+    }
+
+    @at-root .info-section.printing-benefits & {
+      @include viewport-desktop {
+        --gap: #{px-to-rem(54)};
+      }
+    }
+    
     display: flex;
 
     @include viewport-tablet-min {
@@ -59,14 +75,11 @@
     }
 
     > * + * {
-      @include viewport-desktop {
-        margin-left: px-to-rem(76);
-      }
-      @include viewport-tablet {
-        margin-left: px-to-rem(54);
+      @include viewport-tablet-min {
+        margin-left: var(--gap);
       }
       @include viewport-phone {
-        margin-bottom: px-to-rem(36);
+        margin-bottom: var(--gap);
       }
     }
   }
@@ -84,6 +97,12 @@
       }
     }
 
+    @at-root .info-section.printing-benefits & {
+      @include viewport-desktop {
+        max-width: px-to-rem(824);
+      }
+    }
+
     img {
       display: block;
       width: 100%;
@@ -96,6 +115,11 @@
   //.info-section__content 
   &__content {
     width: 100%;
+    max-width: calc(var(--gap) + #{px-to-rem(568)});
+    
+    @at-root .info-section.printing-benefits & {
+      max-width: calc(var(--gap) + #{px-to-rem(362)});
+    }
 
     > * {
       + * {
@@ -135,6 +159,64 @@
       @include viewport-phone {
         margin-top: px-to-rem(22);
       }
+    }
+  }
+
+  //.info-section-check-list
+  &-check-list {
+    width: 100%;
+
+    > * + * {
+      margin-top: px-to-rem(18);
+    }
+
+    //.info-section-check-list__item 
+    &__item {
+      display: flex;
+      align-items: flex-start;
+
+      font-weight: 400;
+      line-height: 116%;
+
+      @include viewport-desktop {
+        font-size: px-to-rem(20);
+      }
+      @include viewport-tablet-max {
+        font-size: px-to-rem(16);
+      }
+
+      > * + * {
+        margin-left: px-to-rem(14);
+      }
+    }
+
+    //.info-section-check-list__label 
+    &__label {
+      flex-shrink: 0;
+      width: 100%;
+
+      @include viewport-desktop {
+        max-width: px-to-rem(24);
+      }
+      
+      @include viewport-tablet-max {
+        max-width: px-to-rem(20);
+      }
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg,
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    //.info-section-check-list__description 
+    &__description {
+      width: 100%;
     }
   }
 }

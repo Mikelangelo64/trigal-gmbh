@@ -133,7 +133,6 @@
     ]
   };
 
-
   const infoArray = [
     {
       title: 'Почему так быстро',
@@ -180,21 +179,88 @@
     },
 
     {
-      title: 'Услуги по земельным работам',
-      titleLabel: 'услуги',
+      specialClass: 'printing-benefits',
+      title: 'Плюсы изображения прямой настенной печати',
+      titleLabel: 'печать',
       media: {
         type: 'image',
-        path: '@/assets/img/info/excavation-services/info-media-2.jpg',
+        path: '@/assets/img/info/wallprinting/info-media-2.jpg',
+      },
+      content: [
+        {
+          type: 'checklist',
+          list: [
+            `
+              <p>
+                Полноцветная печать
+              </p>
+            `,
+            `
+              <p>
+                Высокое разрешение (до 1440 dpi)
+              </p>
+            `,
+            `
+              <p>
+                Стойкость к выгоранию
+              </p>
+            `,
+            `
+              <p>
+                Не боится моющих средств
+              </p>
+            `,
+            `
+              <p>
+                Устойчивость к царапинам
+              </p>
+            `,
+            `
+              <p>
+                Безвредно при пожаре
+              </p>
+            `,
+            `
+              <p>
+                Не токсичные краски без запаха
+              </p>
+            `,
+            `
+              <p>
+                Нет отходов после нанесения
+              </p>
+            `,
+          ],
+        },
+      ]
+    },
+
+    {
+      title: 'Услуги дизайнера входят в стоимость',
+      subtitle: '',
+      titleLabel: 'печать',
+      media: {
+        type: 'image',
+        path: '@/assets/img/info/wallprinting/info-media-3.jpg',
       },
       content: [
         {
           type: 'typography',
           text: `
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat dignissim tortor viverra ullamcorper. Nulla pulvinar odio vel justo mollis, non tincidunt dolor eleifend. Curabitur id mauris vel neque aliquam tincidunt. Proin est sapien, sagittis vitae suscipit in, ullamcorper dictum lacus. Aliquam euismod at tortor eget pretium. Mauris mattis sagittis mi, ut laoreet eros sagittis non. Fusce accumsan, velit ac rutrum tristique, risus mauris molestie ex, sed dapibus libero quam a lacus. Vestibulum urna velit, euismod a accumsan at, fringilla eget orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam mauris velit, pretium a enim sit amet, euismod commodo ex. Etiam porttitor nunc mollis aliquet finibus. Aliquam erat volutpat. Morbi eu ornare nulla.
+              Наш дизайнер поможет найти подходящую иллюстрацию или создать уникальный дизайн, а также подготовит изображение к печати
+            </p>
+
+            <p>
+              У вас уже есть файл с изображением? <br/>
+              Узнайте, подходит ли он для печати.
             </p>
           `,
         },
+        {
+          type: 'action',
+          text: 'Консультация дизайнера',
+        }
       ]
     },
   ];
@@ -277,11 +343,18 @@ html(lang='en')
         .scroll-container__item
           include @/templates/printing-use.pug
 
-        .scroll-container__item
-          include @/templates/faq.pug
+        each info, index in infoArray
+          if index == 1
+            .scroll-container__item
+              include @/templates/info-section.pug
 
         .scroll-container__item
-          include @/templates/feedback.pug
+          include @/templates/review.pug
+
+        each info, index in infoArray
+          if index == 2
+            .scroll-container__item
+              include @/templates/info-section.pug
 
         .scroll-container__item
           include @/templates/contacts.pug

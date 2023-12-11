@@ -1,4 +1,4 @@
-section.info-section.section
+section.info-section.section(class=`${info.specialClass ? info.specialClass : '' }`)
   .section-bg
     .section-bg-lines
       .section-bg-lines__item
@@ -49,6 +49,18 @@ section.info-section.section
                         p.marked-list__title= item.title
 
                         p.marked-list__description!= item.description
+
+              when 'checklist'
+                ul.info-section-check-list
+                  each item in content.list
+                    li.info-section-check-list__item
+                      .info-section-check-list__label
+                        img(
+                          src=require('@/assets/img/info/check.svg'),
+                          alt=`${item}`
+                        )
+
+                      .info-section-check-list__description!= item
 
               default
                 .typography.info-section__typography!= `<p>no content!</p>`
