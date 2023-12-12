@@ -9,7 +9,8 @@ const pageNames = [
   'excavation',
   'wallprinting',
   'shop-main',
-  'shop-catalog'
+  'shop-catalog',
+  'shop-product'
 ];
 
 const pages = pageNames.map((name) => {

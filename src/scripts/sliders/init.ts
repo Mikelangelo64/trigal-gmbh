@@ -63,6 +63,77 @@ const sliderProductsInit = (sliders: Array<IInitializedSlider>) => {
   });
 };
 
+const sliderShopProductInit = (sliders: Array<IInitializedSlider>) => {
+  const sectionArray = document.querySelectorAll(
+    '.shop-product'
+  ) as NodeListOf<HTMLElement>;
+
+  if (sectionArray.length === 0) {
+    return;
+  }
+
+  sectionArray.forEach((item, sliderIndex) => {
+    const containerArray = item.querySelectorAll<HTMLElement>(
+      '.shop-product__media'
+    );
+
+    if (containerArray.length === 0) {
+      return;
+    }
+
+    containerArray.forEach((container, innerIndex) => {
+      const slider = makeSlider({
+        container: container,
+        className: 'shop-product-gallery',
+
+        renderBullets(index, className) {
+          return `
+            <button class="${className}">
+            </button>
+          `;
+        },
+
+        config: {
+          allowTouchMove: true,
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+          spaceBetween: 24
+          // autoHeight: true,
+          // loop: true,
+
+          // autoplay: {
+          //   // delay: 2000,
+          //   disableOnInteraction: false
+          // }
+          // breakpoints: {
+          //   900: {
+          //     autoHeight: false
+          //   }
+          // }
+        }
+      });
+
+      if (slider) {
+        const info: IInitializedSlider = {
+          name: `shop-product-gallery-${sliderIndex}-${innerIndex}`,
+          slider
+        };
+
+        initPaginationChanger(info);
+
+        // const mediaQuery = window.matchMedia('(min-width: 900px)');
+
+        // mediaQuery.addEventListener('change', () => {
+        //   slider.updateAutoHeight(300);
+        // });
+
+        // еще не обновляется состояния дайнемик - потом допилить
+        sliders.push(info);
+      }
+    });
+  });
+};
+
 const sliderGalleryInit = (sliders: Array<IInitializedSlider>) => {
   const sectionArray = document.querySelectorAll(
     '.gallery'
@@ -137,6 +208,7 @@ const slidersInit = () => {
 
   sliderProductsInit(sliders);
   sliderGalleryInit(sliders);
+  sliderShopProductInit(sliders);
 
   return sliders;
 };

@@ -80,6 +80,10 @@
       @include transition((background 0.3s, transform 0.4s));
       transform: scale(0.625);
       background-color: rgba(var(--color-white--rgb), 0.08);
+      
+      @at-root .shop-product-gallery-slider-pagination.slider-pagination .swiper-pagination-bullet {
+        background-color: rgba(var(--color-black-300--rgb), 0.21);
+      }
 
       &::before {
         content: '';
@@ -98,6 +102,10 @@
         opacity: 0;
         background-color: var(--color-black);
         
+        @at-root .shop-product-gallery-slider-pagination.slider-pagination .swiper-pagination-bullet::before {
+          background-color: var(--color-white);
+        }
+
         @at-root .swiper-pagination-bullet.swiper-pagination-bullet-active::before {
           opacity: 1;
         }
