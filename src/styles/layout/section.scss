@@ -25,6 +25,30 @@ section,
     padding: px-to-rem(60) 0;
   }
 
+  &.section-shop {
+    @include viewport-desktop {
+      padding: px-to-rem(120) 0;
+    }
+    @include viewport-tablet {
+      padding: px-to-rem(100) 0;
+    }
+    @include viewport-phone {
+      padding: px-to-rem(60) 0;
+    }
+  }
+
+  &.first-section {
+    @include viewport-tablet-min {
+      padding-top: calc(#{px-to-rem(46)} + #{px-to-rem(20)} + var(--started-header-height, #{px-to-rem(34)}));
+    }
+    
+    @include viewport-phone {
+      padding-top: calc(2 * #{px-to-rem(20)} + var(--started-header-height, #{px-to-rem(36)}));
+      // padding-top: var(--started-header-height, px-to-rem(76));
+      // padding-top: px-to-rem(76);
+    }
+  }
+
   //.section__container 
   &__container {
     position: relative;

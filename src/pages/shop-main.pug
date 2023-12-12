@@ -2,16 +2,6 @@
   isShopPage = true;
   isFooterNearSeo = false;
 
-  const banner = {
-    media: {
-      type: '',
-      path: '@/assets/img/repair/banner-media.jpg'
-    },
-    title: 'Ремонт Гамбург',
-    subtitle: 'Мы отремонтируем вашу жилую или коммерческую недвижимость в Гамбурге и его окрестностях.',
-    button: 'Получить бесплатное предложение'
-  }
-
   const services = {
     title: 'Наши услуги по ремонту помещений',
     hasHeaderButton: 'true',
@@ -38,187 +28,6 @@
       },
     ]
   }
-
-  const gallery = {
-    title: 'Пример наших реализованых объектов',
-    subtitle: 'Фотографии от клиентов',
-    headerLabel: 'объекты',
-
-    content: [
-      {
-        isActive: 'true',
-        data: '1',
-        type: 'Category 1',
-
-        list: [
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-        ]
-      },
-      {
-        isActive: 'false',
-        data: '2',
-        type: 'Category 2',
-
-        list: [
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-        ]
-      },
-      {
-        isActive: 'false',
-        data: '3',
-        type: 'Category 3',
-
-        list: [
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-        ]
-      },
-      {
-        isActive: 'false',
-        data: '4',
-        type: 'Category 4',
-
-        list: [
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-        ]
-      },
-      {
-        isActive: 'false',
-        data: '5',
-        type: 'Category 5',
-
-        list: [
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-        ]
-      },
-      {
-        isActive: 'false',
-        data: '6',
-        type: 'Category 6',
-
-        list: [
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-1.jpg',
-          },
-        ]
-      },
-      {
-        isActive: 'false',
-        data: '7',
-        type: 'Category 7',
-
-        list: [
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-3.jpg',
-          },
-        ]
-      },
-      {
-        isActive: 'false',
-        data: '8',
-        type: 'Category 8',
-
-        list: [
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-          {
-            image: '@/assets/img/gallery/gallery-2.jpg',
-          },
-        ]
-      },
-    ]
-  };
 
   const socials = [
     {
@@ -269,7 +78,7 @@ html.shop(lang='en')
 
     include @/layout/header-shop.pug
 
-    include @/templates/banner.pug
+    include @/templates/shop-category.pug
 
     include @/templates/faq.pug
 

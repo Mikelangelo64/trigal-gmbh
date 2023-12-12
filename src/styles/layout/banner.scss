@@ -19,11 +19,11 @@
   background-color: var(--color-black);
   
   @include viewport-tablet-min {
-    padding-top: calc(#{px-to-rem(46)} + #{px-to-rem(20)} + var(--started-header-height, px-to-rem(100)));
+    padding-top: calc(#{px-to-rem(46)} + #{px-to-rem(20)} + var(--started-header-height, #{px-to-rem(34)}));
   }
   
   @include viewport-phone {
-    padding-top: calc(2 * #{px-to-rem(20)} + var(--started-header-height, px-to-rem(76)));
+    padding-top: calc(2 * #{px-to-rem(20)} + var(--started-header-height, #{px-to-rem(36)}));
     // padding-top: var(--started-header-height, px-to-rem(76));
     // padding-top: px-to-rem(76);
   }
