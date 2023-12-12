@@ -18,6 +18,12 @@
   @include transition(background 0.4s);
   color: var(--color-white);
 
+  &.shop-page {
+    position: fixed;
+
+    background-color: rgba(var(--color-black--rgb), 0.8);
+  }
+
   @include mobile-device {
     position: fixed;
 

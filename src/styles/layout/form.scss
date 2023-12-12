@@ -85,6 +85,44 @@ textarea {
   @at-root form.feedback__form textarea {
     background-color: var(--color-black-100);
   }
+
+  @at-root form.header-search__form input {
+    border: 0;
+    padding: 0;
+
+    border-bottom: 1px solid rgba(var(--color-white--rgb), 0.48);
+    padding-bottom: px-to-rem(10);
+    padding-right: px-to-rem(36);
+
+    background-color: transparent;
+
+    &:focus-visible {
+      border-color: rgba(var(--color-white--rgb), 1);
+    }
+
+    &::placeholder {
+      color: rgba(var(--color-white--rgb), 0.12);
+    }
+  }
+
+  @at-root form.header-search__form textarea {
+    border: 0;
+    padding: 0;
+
+    border-bottom: 1px solid rgba(var(--color-white--rgb), 0.48);
+    padding-bottom: px-to-rem(10);
+    padding-right: px-to-rem(46);
+
+    background-color: transparent;
+
+    &:focus-visible {
+      border-color: rgba(var(--color-white--rgb), 1);
+    }
+
+    &::placeholder {
+      color: rgba(var(--color-white--rgb), 0.12);
+    }
+  }
 }
 
 textarea {
@@ -217,18 +255,31 @@ form {
       font-size: 0; 
     }
 
-    // @include transition((color 0.4s, background 0.4s, clip-path 0.4s));
-    // background-color: var(--color-reverse);
+    @at-root .form.header-search__form button[type=submit] {
+      --color-theme: var(--color-white);
+      --color-reverse: var(--color-red);
 
-    // &::before,
-    // &::after {
-    //   display: none;
-    // }
+      position: absolute;
+      top: 0;
+      right: px-to-rem(6);
 
-    // @include hover-focus-visible {
-    //   @include non-mobile-device {
-    //     background-color: var(--color-black);
-    //   }
-    // }
+      width: px-to-rem(34);
+      height: 100%;
+      border: 0;
+      padding: 0;
+
+      // transform: translate(0, -50%);
+
+      &::before,
+      &::after {
+        display: none;
+      }
+
+      svg {
+        width: 100%;
+        max-width: px-to-rem(24);
+        height: auto;
+      }
+    }
   }
 }

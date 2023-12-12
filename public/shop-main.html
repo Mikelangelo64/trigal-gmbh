@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html class="shop" lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>Trigal GmbH - Shop</title>
+    <link rel="stylesheet" href="shop-main.css">
+  </head>
+  <body>
+    <div class="v-preloader preloader" id="v-preloader">
+      <div class="preloader__content section-header">
+        <p class="section-header__title">Trigal GmbH</p>
+        <p class="section-header__label">GmbH</p>
+        <div class="preloader__circle"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="6" transform="matrix(0 1 1 0 0 0)" stroke="currentColor" stroke-width="4">
+            </circle>
+          </svg></div>
+      </div>
+    </div>
+    <header class="header header-shop">
+      <div class="_container header__container">
+        <div class="header__wrapper">
+          <div class="header__item"><button class="header-menu popup-open" data-popup="_popup-menu"
+              title="open menu"><span class="header-menu__title">menu</span><span
+                class="header-menu__burger menu-burger"></span></button><a
+              class="header-catalog button-hollow desktop"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 11V4H4V11H11ZM5.5 5.5H9.5V9.5H5.5V5.5Z" fill="currentColor" />
+                <path d="M20 4H13V11H20V4ZM18.5 9.5H14.5V5.5H18.5V9.5Z" fill="currentColor" />
+                <path d="M11 20V13H4V20H11ZM5.5 14.5H9.5V18.5H5.5V14.5Z" fill="currentColor" />
+                <path d="M20 13H13V20H20V13ZM18.5 18.5H14.5V14.5H18.5V18.5Z" fill="currentColor" />
+              </svg><span><span>Каталог</span><span class="tablet-hide">товаров</span></span></a></div>
+          <div class="header__item logo"><a class="custom-logo-link header__logo" href="#"> <img class="custom-logo"
+                src="assets/img/logo.svg" alt="logo" draggable="false"></a></div>
+          <div class="header__item"><a class="header-cart" title="cart" href="#"><span class="header-cart-counter"><span
+                  class="header-cart-counter__number">4</span></span><span class="header-cart__label"><svg
+                  class="header-cart__svg showed" width="34" height="34" viewBox="0 0 34 34" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M15.9378 26.5625C15.9378 27.7383 14.9887 28.6875 13.8128 28.6875C12.637 28.6875 11.6878 27.7383 11.6878 26.5625C11.6878 25.3867 12.637 24.4375 13.8128 24.4375C14.9887 24.4375 15.9378 25.3867 15.9378 26.5625ZM25.1462 26.5625C25.1462 27.7383 24.197 28.6875 23.0212 28.6875C21.8453 28.6875 20.8962 27.7383 20.8962 26.5625C20.8962 25.3867 21.8453 24.4375 23.0212 24.4375C24.197 24.4375 25.1462 25.3867 25.1462 26.5625ZM29.3678 10.88L26.5345 22.2133C26.4212 22.6808 25.9962 23.0208 25.5003 23.0208H11.3337C10.8237 23.0208 10.3845 22.6525 10.2853 22.1425L7.60783 7.4375H5.66699C5.08616 7.4375 4.60449 6.95583 4.60449 6.375C4.60449 5.79417 5.08616 5.3125 5.66699 5.3125H8.50033C9.01033 5.3125 9.44949 5.68083 9.54866 6.19083L10.1578 9.5625H28.3337C28.6595 9.5625 28.9712 9.71833 29.1695 9.97333C29.3678 10.2283 29.4387 10.5683 29.3678 10.88ZM26.9737 11.6875H10.5403L12.212 20.8958H24.6645L26.9595 11.6875H26.9737Z"
+                    fill="white" />
+                </svg>
+                <svg class="header-cart__svg hovered" width="34" height="34" viewBox="0 0 34 34" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M15.9378 26.5625C15.9378 27.7383 14.9887 28.6875 13.8128 28.6875C12.637 28.6875 11.6878 27.7383 11.6878 26.5625C11.6878 25.3867 12.637 24.4375 13.8128 24.4375C14.9887 24.4375 15.9378 25.3867 15.9378 26.5625ZM25.1462 26.5625C25.1462 27.7383 24.197 28.6875 23.0212 28.6875C21.8453 28.6875 20.8962 27.7383 20.8962 26.5625C20.8962 25.3867 21.8453 24.4375 23.0212 24.4375C24.197 24.4375 25.1462 25.3867 25.1462 26.5625ZM29.3678 10.88L26.5345 22.2133C26.4212 22.6808 25.9962 23.0208 25.5003 23.0208H11.3337C10.8237 23.0208 10.3845 22.6525 10.2853 22.1425L7.60783 7.4375H5.66699C5.08616 7.4375 4.60449 6.95583 4.60449 6.375C4.60449 5.79417 5.08616 5.3125 5.66699 5.3125H8.50033C9.01033 5.3125 9.44949 5.68083 9.54866 6.19083L10.1578 9.5625H28.3337C28.6595 9.5625 28.9712 9.71833 29.1695 9.97333C29.3678 10.2283 29.4387 10.5683 29.3678 10.88ZM26.9737 11.6875H10.5403L12.212 20.8958H24.6645L26.9595 11.6875H26.9737Z"
+                    fill="#e1261d" />
+                </svg></span></a><a class="header-call contact-call whatsapp" href="tel:+380662105690"><span
+                class="contact-call__label"><img src="assets/img/socials/whatsapp.svg" alt="call"></span><span
+                class="contact-call__text">+38 066 210-56-90</span></a></div>
+        </div>
+        <div class="header-search">
+          <form class="header-search__form form" id="form-search" action="post"><input id="search" type="text"
+              name="search" placeholder="Введите название оборудования"><button type="submit"> <svg width="24"
+                height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M6.58679 17.031C7.8251 17.8584 9.28094 18.3 10.7702 18.3C11.7591 18.3 12.7383 18.1052 13.6518 17.7268C14.3337 17.4444 14.969 17.0638 15.5382 16.5982L19.47 20.53C19.5392 20.6001 19.6218 20.6557 19.7128 20.6934C19.8038 20.7312 19.9014 20.7504 20 20.75C20.0985 20.7504 20.1961 20.7312 20.2872 20.6934C20.3782 20.6557 20.4607 20.6001 20.53 20.53C20.6704 20.3893 20.7493 20.1987 20.7493 20C20.7493 19.8012 20.6704 19.6106 20.53 19.47L16.5982 15.5382C17.0639 14.969 17.4446 14.3336 17.727 13.6516C18.1055 12.738 18.3002 11.7588 18.3002 10.77C18.3002 9.2807 17.8586 7.82485 17.0312 6.58655C16.2038 5.34825 15.0278 4.38311 13.6518 3.81318C12.2759 3.24325 10.7619 3.09413 9.30121 3.38468C7.84053 3.67523 6.49881 4.39239 5.44572 5.44548C4.39263 6.49857 3.67547 7.84029 3.38492 9.30096C3.09438 10.7616 3.2435 12.2757 3.81342 13.6516C4.38335 15.0275 5.34849 16.2036 6.58679 17.031ZM7.43682 5.76118C8.42351 5.10189 9.58355 4.74999 10.7702 4.74999C12.3615 4.74999 13.8877 5.38213 15.0129 6.50735C16.1381 7.63257 16.7702 9.15869 16.7702 10.75C16.7702 11.9367 16.4183 13.0967 15.7591 14.0834C15.0998 15.0701 14.1627 15.8391 13.0663 16.2933C11.97 16.7474 10.7636 16.8662 9.5997 16.6347C8.43581 16.4032 7.36671 15.8317 6.5276 14.9926C5.68848 14.1535 5.11704 13.0844 4.88553 11.9205C4.65401 10.7566 4.77283 9.55025 5.22696 8.45389C5.68109 7.35754 6.45012 6.42046 7.43682 5.76118Z"
+                  fill="currentColor" />
+              </svg></button></form>
+        </div>
+      </div>
+      <div class="popup popup-video banner__popup " data-popupname="_popup-banner" aria-modal="true" role="dialog">
+        <div class="popup__overlay"></div>
+        <div class="popup__additional"></div>
+        <div class="popup__scroll">
+          <div class="popup__wrapper"><button class="popup__close"><img src="assets/img/popup-close.svg"
+                alt="close"></button>
+            <div class="popup__content">
+              <div class="popup-video__media"><video class="video lazy-video" disablePictureInPicture preload="metadata"
+                  playsinline controls>
+                  <source data-src="assets/video/banner-popup.mp4" type="video/mp4">
+                </video></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup popup-menu menu__popup " data-popupname="_popup-menu" aria-modal="true" role="dialog">
+        <div class="popup__overlay"></div>
+        <div class="popup__additional"></div>
+        <div class="popup__scroll">
+          <div class="popup__wrapper"><button class="popup__close hidden"><img src="assets/img/popup-close.svg"
+                alt="close"></button>
+            <div class="popup__content">
+              <div class="modal-menu__header"><button class="popup__close"><img src="assets/img/popup-close.svg"
+                    alt="close"></button></div>
+              <div class="modal-menu__main menu-section shop-page">
+                <div class="menu-section__wrapper">
+                  <div class="menu-section__header section-header"><a class="header-catalog button-hollow mobile"><svg
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 11V4H4V11H11ZM5.5 5.5H9.5V9.5H5.5V5.5Z" fill="currentColor" />
+                        <path d="M20 4H13V11H20V4ZM18.5 9.5H14.5V5.5H18.5V9.5Z" fill="currentColor" />
+                        <path d="M11 20V13H4V20H11ZM5.5 14.5H9.5V18.5H5.5V14.5Z" fill="currentColor" />
+                        <path d="M20 13H13V20H20V13ZM18.5 18.5H14.5V14.5H18.5V18.5Z" fill="currentColor" />
+                      </svg><span>Каталог товаров</span></a>
+                    <p class="section-header__label">Menu</p>
+                  </div>
+                  <div class="menu-section__main">
+                    <nav class="menu">
+                      <ul class="menu-list">
+                        <li class="menu-list__item">
+                          <ul class="menu-list__col">
+                            <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Главная</a>
+                            </li>
+                            <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Демонтажные
+                                работы</a></li>
+                            <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Ремонт
+                                помещений</a></li>
+                            <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Фасадная
+                                печать</a></li>
+                          </ul>
+                        </li>
+                        <li class="menu-list__item">
+                          <ul class="menu-list__col">
+                            <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Прокат
+                                инструментов</a></li>
+                            <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">О нас</a></li>
+                            <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Цены</a></li>
+                            <li class="menu-list__row"><a class="menu__link anchor" href="#" data-goto="">Контакты</a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup popup-feedback thanks__popup " data-popupname="_popup-thanks" aria-modal="true" role="dialog">
+        <div class="popup__overlay"></div>
+        <div class="popup__additional"></div>
+        <div class="popup__scroll">
+          <div class="popup__wrapper"><button class="popup__close"><img src="assets/img/popup-close.svg"
+                alt="close"></button>
+            <div class="popup__content">
+              <div class="popup-feedback">
+                <div class="popup-feedback__header">
+                  <div class="popup-feedback__label"><img src="assets/img/success.svg" alt="success"></div>
+                  <p class="popup-feedback__title">Thank you!</p>
+                </div>
+                <p class="popup-feedback__subtitle">Your application has been accepted. <br />Expect a call soon.</p>
+                <button class="popup-feedback__button popup__button button-filled"><span>Home</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup popup-feedback error__popup " data-popupname="_popup-error" aria-modal="true" role="dialog">
+        <div class="popup__overlay"></div>
+        <div class="popup__additional"></div>
+        <div class="popup__scroll">
+          <div class="popup__wrapper"><button class="popup__close"><img src="assets/img/popup-close.svg"
+                alt="close"></button>
+            <div class="popup__content">
+              <div class="popup-feedback">
+                <div class="popup-feedback__header">
+                  <div class="popup-feedback__label"><img src="assets/img/error.svg" alt="success"></div>
+                  <p class="popup-feedback__title">Oops</p>
+                </div>
+                <p class="popup-feedback__subtitle">Something wrong. Try later.</p><button
+                  class="popup-feedback__button popup__button button-filled"><span>Home</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup popup-form form__popup fullscreen-phone" data-popupname="_popup-form" aria-modal="true"
+        role="dialog">
+        <div class="popup__overlay"></div>
+        <div class="popup__additional"></div>
+        <div class="popup__scroll">
+          <div class="popup__wrapper"><button class="popup__close"><img class="desktop" src="assets/img/popup-close.svg"
+                alt="close"><img class="mobile" src="assets/img/popup-close.svg" alt="close"></button>
+            <div class="popup__content">
+              <div class="popup-action">
+                <p class="popup-action__title">Please fill out the form and we will contact you shortly.</p>
+                <div class="popup-action__main">
+                  <form class="form popup-action__form" id="form-popup" action="post">
+                    <div><label for="popup-name"> <input id="popup-name" type="text" name="name"
+                          placeholder="Your name"><span class="wpcf7-not-valid-tip">Wrong format</span></label></div>
+                    <div><label for="popup-email"> <input id="popup-email" type="email" name="email"
+                          placeholder="Your email"><span class="wpcf7-not-valid-tip">Wrong format</span></label></div>
+                    <div><label for="popup-telephone"> <input id="popup-telephone" type="tel" name="telephone"
+                          placeholder="Your phone number"><span class="wpcf7-not-valid-tip">Wrong format</span></label>
+                    </div>
+                    <div><label for="popup-request"> <textarea id="popup-request" name="request"
+                          placeholder="Message text"></textarea><span class="wpcf7-not-valid-tip">Wrong
+                          format</span></label></div>
+                    <p><button type="submit"> <span>Send</span></button></p>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="banner section">
+      <div class="section-bg">
+        <div class="section-bg__image"></div>
+        <div class="section-bg-lines">
+          <div class="section-bg-lines__item"></div>
+          <div class="section-bg-lines__item"></div>
+          <div class="section-bg-lines__item"></div>
+          <div class="section-bg-lines__item"></div>
+        </div>
+      </div>
+      <div class="_container banner__container section__container">
+        <div class="banner__wrapper">
+          <h1 class="banner__title">Ремонт Гамбург</h1>
+          <p class="banner__subtitle">Мы отремонтируем вашу жилую или коммерческую недвижимость в Гамбурге и его
+            окрестностях.</p>
+          <div class="banner__button__container"><button class="banner__button button-hollow popup-open"
+              data-popup="_popup-form"><span>Получить бесплатное предложение</span></button></div>
+          <div class="banner-mouse">
+            <div class="banner-mouse__label"><img src="assets/img/mouse.svg" alt="scroll-down"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="faq section">
+      <div class="section-bg">
+        <div class="section-bg-lines">
+          <div class="section-bg-lines__item"></div>
+          <div class="section-bg-lines__item"></div>
+          <div class="section-bg-lines__item"></div>
+          <div class="section-bg-lines__item"></div>
+        </div>
+      </div>
+      <div class="_container section__container">
+        <div class="faq__wrapper">
+          <div class="faq__header section-header">
+            <h2 class="section-header__title">Ответы на часто задаваемые вопросы</h2>
+            <p class="section-header__label">FAQ</p>
+          </div>
+          <ul class="faq-accordion accordion" data-is-label-click="false">
+            <li class="accordion__item faq-accordion__item"><button class="accordion__summary"><span
+                  class="accordion__title faq-accordion__title">Привет вопроса Пример вопрос</span><span
+                  class="accordion__label"></span></button>
+              <div class="accordion__details">
+                <p class="accordion__description faq-accordion__description">Мы рассматриваем каждый проект
+                  индивидуально и предлагаем вам индивидуальные решения для вашего помещения. Качество и
+                  удовлетворенность клиентов имеют высший приоритет». Мы рассматриваем каждый проект индивидуально и
+                  предлагаем вам индивидуальные решения для вашего помещения. Качество и удовлетворенность клиентов
+                  имеют высший приоритет».</p>
+              </div>
+            </li>
+            <li class="accordion__item faq-accordion__item"><button class="accordion__summary"><span
+                  class="accordion__title faq-accordion__title">Пример вопрос</span><span
+                  class="accordion__label"></span></button>
+              <div class="accordion__details">
+                <p class="accordion__description faq-accordion__description">Мы рассматриваем каждый проект
+                  индивидуально и предлагаем вам индивидуальные решения для вашего помещения. Качество и
+                  удовлетворенность клиентов имеют высший приоритет». Мы рассматриваем каждый проект индивидуально и
+                  предлагаем вам индивидуальные решения для вашего помещения. Качество и удовлетворенность клиентов
+                  имеют высший приоритет».</p>
+              </div>
+            </li>
+            <li class="accordion__item faq-accordion__item"><button class="accordion__summary"><span
+                  class="accordion__title faq-accordion__title">Привет вопроса Пример вопрос</span><span
+                  class="accordion__label"></span></button>
+              <div class="accordion__details">
+                <p class="accordion__description faq-accordion__description">Мы рассматриваем каждый проект
+                  индивидуально и предлагаем вам индивидуальные решения для вашего помещения. Качество и
+                  удовлетворенность клиентов имеют высший приоритет». Мы рассматриваем каждый проект индивидуально и
+                  предлагаем вам индивидуальные решения для вашего помещения. Качество и удовлетворенность клиентов
+                  имеют высший приоритет».</p>
+              </div>
+            </li>
+            <li class="accordion__item faq-accordion__item"><button class="accordion__summary"><span
+                  class="accordion__title faq-accordion__title">Привет вопроса Пример вопрос</span><span
+                  class="accordion__label"></span></button>
+              <div class="accordion__details">
+                <p class="accordion__description faq-accordion__description">Мы рассматриваем каждый проект
+                  индивидуально и предлагаем вам индивидуальные решения для вашего помещения. Качество и
+                  удовлетворенность клиентов имеют высший приоритет». Мы рассматриваем каждый проект индивидуально и
+                  предлагаем вам индивидуальные решения для вашего помещения. Качество и удовлетворенность клиентов
+                  имеют высший приоритет».</p>
+              </div>
+            </li>
+            <li class="accordion__item faq-accordion__item"><button class="accordion__summary"><span
+                  class="accordion__title faq-accordion__title">Пример вопрос</span><span
+                  class="accordion__label"></span></button>
+              <div class="accordion__details">
+                <p class="accordion__description faq-accordion__description">Мы рассматриваем каждый проект
+                  индивидуально и предлагаем вам индивидуальные решения для вашего помещения. Качество и
+                  удовлетворенность клиентов имеют высший приоритет». Мы рассматриваем каждый проект индивидуально и
+                  предлагаем вам индивидуальные решения для вашего помещения. Качество и удовлетворенность клиентов
+                  имеют высший приоритет».</p>
+              </div>
+            </li>
+            <li class="accordion__item faq-accordion__item"><button class="accordion__summary"><span
+                  class="accordion__title faq-accordion__title">Привет вопроса Пример вопрос</span><span
+                  class="accordion__label"></span></button>
+              <div class="accordion__details">
+                <p class="accordion__description faq-accordion__description">Мы рассматриваем каждый проект
+                  индивидуально и предлагаем вам индивидуальные решения для вашего помещения. Качество и
+                  удовлетворенность клиентов имеют высший приоритет». Мы рассматриваем каждый проект индивидуально и
+                  предлагаем вам индивидуальные решения для вашего помещения. Качество и удовлетворенность клиентов
+                  имеют высший приоритет».</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <div class="contacts section">
+      <div class="section-bg">
+        <div class="section-bg-lines">
+          <div class="section-bg-lines__item"></div>
+          <div class="section-bg-lines__item"></div>
+          <div class="section-bg-lines__item"></div>
+          <div class="section-bg-lines__item"></div>
+        </div>
+      </div>
+      <div class="_container section__container">
+        <div class="contacts__wrapper">
+          <div class="contacts__header section-header">
+            <p class="section-header__label">Trigal GmbH</p>
+          </div>
+          <div class="contacts-main">
+            <div class="contacts-main__item">
+              <p class="contacts-main__title">Услуги</p>
+              <ul class="contacts-list">
+                <li class="contacts-list__item">
+                  <ul class="contacts-list__col">
+                    <li class="contacts-list__row  "><a class="contacts-list__link" href="#" target="_self">Демонтажные
+                        работы</a></li>
+                    <li class="contacts-list__row  "><a class="contacts-list__link" href="#" target="_self">Ремонт
+                        помещений</a></li>
+                    <li class="contacts-list__row  "><a class="contacts-list__link" href="#" target="_self">Фасадная
+                        печать</a></li>
+                    <li class="contacts-list__row  "><a class="contacts-list__link" href="#" target="_self">Прокат
+                        инструментов</a></li>
+                  </ul>
+                </li>
+                <li class="contacts-list__item">
+                  <ul class="contacts-list__col">
+                    <li class="contacts-list__row  "><a class="contacts-list__link" href="#" target="_self">О нас</a>
+                    </li>
+                    <li class="contacts-list__row  "><a class="contacts-list__link" href="#" target="_self">Цены</a>
+                    </li>
+                    <li class="contacts-list__row  "><a class="contacts-list__link" href="#" target="_self">Контакты
+                      </a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="contacts-main__item">
+              <p class="contacts-main__title">Контакты</p>
+              <ul class="contacts-list marked">
+                <li class="contacts-list__item">
+                  <ul class="contacts-list__col">
+                    <li class="contacts-list__row bold "><a class="contacts-list__link" href="tel:+4917656953558"
+                        target="_self">+49 176 56953558</a></li>
+                    <li class="contacts-list__row bold "><a class="contacts-list__link" href="tel:+4917656953558"
+                        target="_self">+49 176 56953558</a></li>
+                    <li class="contacts-list__row bold "><a class="contacts-list__link" href="mailto:example@gmail.com"
+                        target="_self">example@gmail.com</a></li>
+                    <li class="contacts-list__row  unmarked">
+                      <ul class="contacts__socials socials">
+                        <li><a class="socials__link"
+                            href="https://www.google.com/maps/place/ул.+Казацкая,+120%2F4,+Киев,+02000/@50.396979,30.4921365,18z/data=!4m9!1m2!2m1!1zMDMwMjIsINC80ZbRgdGC0L4g0JrQuNGX0LIsICDQstGD0LsuINCa0L7Qt9Cw0YbRjNC60LAsIDEyMC80LCDQutC-0YDQv9GD0YEg0JIsINC60ZbQvNC90LDRgtCwIDE1!3m5!1s0x40d4c8d034b088bb:0x7935e7458342673a!8m2!3d50.396979!4d30.4921365!16s%2Fg%2F1tczcdtc?authuser=0"
+                            target="_blank" aria-label="instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M11.999 7.37688C9.44495 7.37688 7.37595 9.44688 7.37595 11.9999C7.37595 14.5539 9.44495 16.6239 11.999 16.6239C14.551 16.6239 16.622 14.5539 16.622 11.9999C16.622 9.44688 14.551 7.37688 11.999 7.37688ZM11.999 15.0039C10.34 15.0039 8.99495 13.6589 8.99495 12.0009C8.99495 10.3419 10.34 8.99788 11.999 8.99788C13.658 8.99788 15.001 10.3419 15.001 12.0009C15.001 13.6589 13.658 15.0039 11.999 15.0039Z"
+                                fill="currentColor" />
+                              <path
+                                d="M16.806 8.28488C17.4013 8.28488 17.884 7.80225 17.884 7.20688C17.884 6.61152 17.4013 6.12888 16.806 6.12888C16.2106 6.12888 15.728 6.61152 15.728 7.20688C15.728 7.80225 16.2106 8.28488 16.806 8.28488Z"
+                                fill="currentColor" />
+                              <path
+                                d="M20.533 6.11088C20.064 4.90188 19.109 3.94588 17.9 3.47888C17.201 3.21588 16.462 3.07488 15.714 3.05888C14.751 3.01688 14.446 3.00488 12.004 3.00488C9.56195 3.00488 9.24895 3.00488 8.29395 3.05888C7.54795 3.07388 6.80895 3.21488 6.10995 3.47888C4.89995 3.94588 3.94495 4.90188 3.47695 6.11088C3.21395 6.81088 3.07295 7.54888 3.05795 8.29688C3.01495 9.25888 3.00195 9.56388 3.00195 12.0069C3.00195 14.4489 3.00195 14.7599 3.05795 15.7169C3.07295 16.4649 3.21395 17.2029 3.47695 17.9039C3.94595 19.1119 4.90095 20.0679 6.11095 20.5359C6.80695 20.8079 7.54595 20.9619 8.29595 20.9859C9.25895 21.0279 9.56395 21.0409 12.006 21.0409C14.448 21.0409 14.761 21.0409 15.716 20.9859C16.463 20.9709 17.202 20.8289 17.902 20.5669C19.111 20.0979 20.066 19.1429 20.535 17.9339C20.798 17.2339 20.939 16.4959 20.954 15.7479C20.997 14.7859 21.01 14.4809 21.01 12.0379C21.01 9.59488 21.01 9.28488 20.954 8.32788C20.941 7.56988 20.801 6.81888 20.533 6.11088ZM19.315 15.6429C19.308 16.2189 19.204 16.7899 19.004 17.3309C18.699 18.1179 18.078 18.7399 17.292 19.0419C16.757 19.2409 16.193 19.3449 15.622 19.3529C14.672 19.3969 14.404 19.4079 11.968 19.4079C9.52995 19.4079 9.28095 19.4079 8.31295 19.3529C7.74395 19.3459 7.17795 19.2409 6.64395 19.0419C5.85495 18.7409 5.22995 18.1189 4.92495 17.3309C4.72895 16.7969 4.62295 16.2319 4.61395 15.6619C4.57095 14.7119 4.56095 14.4439 4.56095 12.0079C4.56095 9.57088 4.56095 9.32188 4.61395 8.35288C4.62095 7.77688 4.72495 7.20688 4.92495 6.66588C5.22995 5.87688 5.85495 5.25588 6.64395 4.95388C7.17795 4.75588 7.74395 4.65088 8.31295 4.64288C9.26395 4.59988 9.53095 4.58788 11.968 4.58788C14.405 4.58788 14.655 4.58788 15.622 4.64288C16.193 4.64988 16.757 4.75488 17.292 4.95388C18.078 5.25688 18.699 5.87888 19.004 6.66588C19.2 7.19988 19.306 7.76488 19.315 8.33488C19.358 9.28588 19.369 9.55288 19.369 11.9899C19.369 14.4259 19.369 14.6879 19.326 15.6439H19.315V15.6429Z"
+                                fill="currentColor" />
+                            </svg>
+                          </a></li>
+                        <li><a class="socials__link" href="tel:+380662105690" target="_blank" aria-label="facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M12.001 2.00195C6.47895 2.00195 2.00195 6.47895 2.00195 12.001C2.00195 16.991 5.65795 21.127 10.439 21.88V14.892H7.89895V12.001H10.439V9.79795C10.439 7.28995 11.932 5.90695 14.215 5.90695C15.309 5.90695 16.455 6.10195 16.455 6.10195V8.56095H15.191C13.951 8.56095 13.563 9.33295 13.563 10.124V11.999H16.334L15.891 14.89H13.563V21.878C18.344 21.129 22 16.992 22 12.001C22 6.47895 17.523 2.00195 12.001 2.00195Z"
+                                fill="currentColor" />
+                            </svg>
+                          </a></li>
+                        <li><a class="socials__link" href="mailto:info@discorb.com.ua" target="_blank"
+                            aria-label="youtube">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M21.5928 7.20301C21.3628 6.34501 20.6878 5.66801 19.8308 5.43701C18.2648 5.00701 11.9998 5.00001 11.9998 5.00001C11.9998 5.00001 5.73584 4.99301 4.16884 5.40401C3.32884 5.63301 2.63484 6.32501 2.40284 7.18201C1.98984 8.74801 1.98584 11.996 1.98584 11.996C1.98584 11.996 1.98184 15.26 2.39184 16.81C2.62184 17.667 3.29684 18.344 4.15484 18.575C5.73684 19.005 11.9848 19.012 11.9848 19.012C11.9848 19.012 18.2498 19.019 19.8158 18.609C20.6718 18.379 21.3498 17.703 21.5828 16.846C21.9968 15.281 21.9998 12.034 21.9998 12.034C21.9998 12.034 22.0198 8.76901 21.5928 7.20301ZM9.99584 15.005L10.0008 9.00501L15.2078 12.01L9.99584 15.005Z"
+                                fill="currentColor" />
+                            </svg>
+                          </a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="contacts-list__item">
+                  <ul class="contacts-list__col">
+                    <li class="contacts-list__row  "><a class="contacts-list__link"
+                        href="https://maps.app.goo.gl/NYkvu1CpFB2ogte28" target="_blank">20097 Hamburg Sonninstrase
+                        5</a></li>
+                    <li class="contacts-list__row  ">
+                      <p class="contacts-list__description">Пн-Пт: 8.00-20.00</p>
+                    </li>
+                    <li class="contacts-list__row  ">
+                      <p class="contacts-list__description">Пн-Пт: 8.00-20.00</p>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="contacts__footer"><button class="contacts__button button-hollow popup-open"
+              data-popup="_popup-form"><span>Заказать звонок</span></button><a class="develop contacts__develop"
+              href="https://impulse-design.com.ua/" target="_blank" rel="noreferrer"><span
+                class="develop__text">Developed By</span><span class="develop__img"><img src="assets/img/impulse.svg"
+                  alt="impulse"></span></a></div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer  shop-page">
+      <div class="_container">
+        <div class="footer__wrapper">
+          <p class="footer__copyright">© 2023 Copyright 2023 Sandor Gal. All Rights Reserved.</p>
+          <ul class="footer__socials socials">
+            <li><a class="socials__link"
+                href="https://www.google.com/maps/place/ул.+Казацкая,+120%2F4,+Киев,+02000/@50.396979,30.4921365,18z/data=!4m9!1m2!2m1!1zMDMwMjIsINC80ZbRgdGC0L4g0JrQuNGX0LIsICDQstGD0LsuINCa0L7Qt9Cw0YbRjNC60LAsIDEyMC80LCDQutC-0YDQv9GD0YEg0JIsINC60ZbQvNC90LDRgtCwIDE1!3m5!1s0x40d4c8d034b088bb:0x7935e7458342673a!8m2!3d50.396979!4d30.4921365!16s%2Fg%2F1tczcdtc?authuser=0"
+                target="_blank" aria-label="instagram">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.999 7.37688C9.44495 7.37688 7.37595 9.44688 7.37595 11.9999C7.37595 14.5539 9.44495 16.6239 11.999 16.6239C14.551 16.6239 16.622 14.5539 16.622 11.9999C16.622 9.44688 14.551 7.37688 11.999 7.37688ZM11.999 15.0039C10.34 15.0039 8.99495 13.6589 8.99495 12.0009C8.99495 10.3419 10.34 8.99788 11.999 8.99788C13.658 8.99788 15.001 10.3419 15.001 12.0009C15.001 13.6589 13.658 15.0039 11.999 15.0039Z"
+                    fill="currentColor" />
+                  <path
+                    d="M16.806 8.28488C17.4013 8.28488 17.884 7.80225 17.884 7.20688C17.884 6.61152 17.4013 6.12888 16.806 6.12888C16.2106 6.12888 15.728 6.61152 15.728 7.20688C15.728 7.80225 16.2106 8.28488 16.806 8.28488Z"
+                    fill="currentColor" />
+                  <path
+                    d="M20.533 6.11088C20.064 4.90188 19.109 3.94588 17.9 3.47888C17.201 3.21588 16.462 3.07488 15.714 3.05888C14.751 3.01688 14.446 3.00488 12.004 3.00488C9.56195 3.00488 9.24895 3.00488 8.29395 3.05888C7.54795 3.07388 6.80895 3.21488 6.10995 3.47888C4.89995 3.94588 3.94495 4.90188 3.47695 6.11088C3.21395 6.81088 3.07295 7.54888 3.05795 8.29688C3.01495 9.25888 3.00195 9.56388 3.00195 12.0069C3.00195 14.4489 3.00195 14.7599 3.05795 15.7169C3.07295 16.4649 3.21395 17.2029 3.47695 17.9039C3.94595 19.1119 4.90095 20.0679 6.11095 20.5359C6.80695 20.8079 7.54595 20.9619 8.29595 20.9859C9.25895 21.0279 9.56395 21.0409 12.006 21.0409C14.448 21.0409 14.761 21.0409 15.716 20.9859C16.463 20.9709 17.202 20.8289 17.902 20.5669C19.111 20.0979 20.066 19.1429 20.535 17.9339C20.798 17.2339 20.939 16.4959 20.954 15.7479C20.997 14.7859 21.01 14.4809 21.01 12.0379C21.01 9.59488 21.01 9.28488 20.954 8.32788C20.941 7.56988 20.801 6.81888 20.533 6.11088ZM19.315 15.6429C19.308 16.2189 19.204 16.7899 19.004 17.3309C18.699 18.1179 18.078 18.7399 17.292 19.0419C16.757 19.2409 16.193 19.3449 15.622 19.3529C14.672 19.3969 14.404 19.4079 11.968 19.4079C9.52995 19.4079 9.28095 19.4079 8.31295 19.3529C7.74395 19.3459 7.17795 19.2409 6.64395 19.0419C5.85495 18.7409 5.22995 18.1189 4.92495 17.3309C4.72895 16.7969 4.62295 16.2319 4.61395 15.6619C4.57095 14.7119 4.56095 14.4439 4.56095 12.0079C4.56095 9.57088 4.56095 9.32188 4.61395 8.35288C4.62095 7.77688 4.72495 7.20688 4.92495 6.66588C5.22995 5.87688 5.85495 5.25588 6.64395 4.95388C7.17795 4.75588 7.74395 4.65088 8.31295 4.64288C9.26395 4.59988 9.53095 4.58788 11.968 4.58788C14.405 4.58788 14.655 4.58788 15.622 4.64288C16.193 4.64988 16.757 4.75488 17.292 4.95388C18.078 5.25688 18.699 5.87888 19.004 6.66588C19.2 7.19988 19.306 7.76488 19.315 8.33488C19.358 9.28588 19.369 9.55288 19.369 11.9899C19.369 14.4259 19.369 14.6879 19.326 15.6439H19.315V15.6429Z"
+                    fill="currentColor" />
+                </svg>
+              </a></li>
+            <li><a class="socials__link" href="tel:+380662105690" target="_blank" aria-label="facebook">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12.001 2.00195C6.47895 2.00195 2.00195 6.47895 2.00195 12.001C2.00195 16.991 5.65795 21.127 10.439 21.88V14.892H7.89895V12.001H10.439V9.79795C10.439 7.28995 11.932 5.90695 14.215 5.90695C15.309 5.90695 16.455 6.10195 16.455 6.10195V8.56095H15.191C13.951 8.56095 13.563 9.33295 13.563 10.124V11.999H16.334L15.891 14.89H13.563V21.878C18.344 21.129 22 16.992 22 12.001C22 6.47895 17.523 2.00195 12.001 2.00195Z"
+                    fill="currentColor" />
+                </svg>
+              </a></li>
+            <li><a class="socials__link" href="mailto:info@discorb.com.ua" target="_blank" aria-label="youtube">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M21.5928 7.20301C21.3628 6.34501 20.6878 5.66801 19.8308 5.43701C18.2648 5.00701 11.9998 5.00001 11.9998 5.00001C11.9998 5.00001 5.73584 4.99301 4.16884 5.40401C3.32884 5.63301 2.63484 6.32501 2.40284 7.18201C1.98984 8.74801 1.98584 11.996 1.98584 11.996C1.98584 11.996 1.98184 15.26 2.39184 16.81C2.62184 17.667 3.29684 18.344 4.15484 18.575C5.73684 19.005 11.9848 19.012 11.9848 19.012C11.9848 19.012 18.2498 19.019 19.8158 18.609C20.6718 18.379 21.3498 17.703 21.5828 16.846C21.9968 15.281 21.9998 12.034 21.9998 12.034C21.9998 12.034 22.0198 8.76901 21.5928 7.20301ZM9.99584 15.005L10.0008 9.00501L15.2078 12.01L9.99584 15.005Z"
+                    fill="currentColor" />
+                </svg>
+              </a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="runtime.bundle.js"> </script>
+    <script src="vendor.js"> </script>
+    <script src="video.bundle.js"> </script>
+    <script src="607.bundle.js"> </script>
+    <script src="index.1.bundle.js"> </script>
+  </body>
+</html>

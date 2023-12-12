@@ -80,11 +80,25 @@
 
   //.menu-section__header 
   &__header {
+    text-align: left;
+
     @include viewport-tablet-min {
       padding-top: px-to-rem(100);
     }
     @include viewport-phone {
       padding-top: px-to-rem(58);
+    }
+
+    @at-root .menu-section.shop-page & {
+      @include viewport-tablet-min {
+        padding-top: px-to-rem(30);
+        margin-bottom: px-to-rem(76);
+      }
+
+      @include viewport-phone {
+        padding-top: px-to-rem(28);
+        margin-bottom: px-to-rem(32);
+      }
     }
   }
 

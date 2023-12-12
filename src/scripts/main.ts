@@ -3,6 +3,7 @@ import anchorsInit from './anchor/init';
 import vevet from './config/vevet';
 import fadeContentInit from './fadeContent/init';
 import fancyboxInit from './fancybox/init';
+import headerEvents from './headerEvents/init';
 import isViewedHandler, { isVideoViewedHandler } from './isViewedHandler/init';
 import initPopups from './popup/init';
 import projectToggle from './projectToggle/init';
@@ -29,36 +30,9 @@ export const init = () => {
     const { containerArray, stateArray } = initScrollSections();
     scrollSectionState.containerArray = containerArray;
     scrollSectionState.stateArray = stateArray;
-  } else {
-    const header = document.querySelector<HTMLElement>('.header');
-    const footer = document.querySelector<HTMLElement>('.footer');
-    // const headerHeight = header ? header.offsetHeight : 0;
-    let isScrolled = false;
-
-    if (header || footer) {
-      if (window.scrollY > 20) {
-        header?.classList.add('scrolled');
-        footer?.classList.add('scrolled');
-        isScrolled = true;
-      }
-
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 20 && !isScrolled) {
-          header?.classList.add('scrolled');
-          footer?.classList.add('scrolled');
-          isScrolled = true;
-          return;
-        }
-
-        if (window.scrollY <= 20 && isScrolled) {
-          header?.classList.remove('scrolled');
-          footer?.classList.remove('scrolled');
-          isScrolled = false;
-        }
-      });
-    }
   }
 
+  headerEvents();
   // console.log(scrollSectionState);
 
   accordionInit(scrollSectionState);

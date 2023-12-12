@@ -34,7 +34,9 @@
     },
   ];
 
-footer.footer(class=`${isFooterNearSeo ? 'near-seo__below' : ''}`)
+footer.footer(
+  class=`${isFooterNearSeo ? 'near-seo__below' : ''} ${isShopPage ? 'shop-page' : ''}`
+)
   ._container
     .footer__wrapper
       p.footer__copyright © 2023 Copyright 2023 Sandor Gal. All Rights Reserved.
