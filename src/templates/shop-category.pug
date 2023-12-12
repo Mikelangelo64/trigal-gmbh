@@ -35,7 +35,11 @@ section.shop-category.section.section-shop.first-section
             a.shop-category-list__item(href='#')
               span.shop-category-list__media
                 span.shop-category-list__media__container
-                  img(src=require(`${item.media}`), alt=`${item.title}`)
+                  img(
+                    src=require(`${item.media}`),
+                    alt=`${item.title}`,
+                    loading='lazy'
+                  )
 
               span.shop-category-list__content
                 span.shop-category-list__title= item.title

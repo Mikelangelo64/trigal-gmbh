@@ -1,0 +1,95 @@
+-
+  const shopCatalogList = [
+    {
+      href: '#',
+      vendor: 'ID: 252521',
+      title: 'Отбойный молоток 25 дж Bosch GSH11EE',
+      media: '@/assets/img/shop/catalog/catalog-1.jpg',
+      priceNew: '20 EURO',
+      priceCurrent: '20 EURO',
+    },
+    {
+      href: '#',
+      vendor: 'ID: 252521',
+      title: 'Отбойный молоток 25 дж Bosch GSH11EE',
+      media: '@/assets/img/shop/catalog/catalog-1.jpg',
+      priceNew: '',
+      priceCurrent: '20 EURO',
+    },
+    {
+      href: '#',
+      vendor: 'ID: 252521',
+      title: 'Отбойный молоток 25 дж Bosch GSH11EE',
+      media: '@/assets/img/shop/catalog/catalog-1.jpg',
+      priceNew: '',
+      priceCurrent: '20 EURO',
+    },
+    {
+      href: '#',
+      vendor: 'ID: 252521',
+      title: 'Отбойный молоток 25 дж Bosch GSH11EE',
+      media: '@/assets/img/shop/catalog/catalog-1.jpg',
+      priceNew: '',
+      priceCurrent: '20 EURO',
+    },
+    {
+      href: '#',
+      vendor: 'ID: 252521',
+      title: 'Отбойный молоток  25 дж Bosch GSH11EE 25 дж Bosch GSH11EE 25 дж Bosch GSH11EE',
+      media: '@/assets/img/shop/catalog/catalog-1.jpg',
+      priceNew: '',
+      priceCurrent: '20 EURO',
+    },
+    {
+      href: '#',
+      vendor: 'ID: 252521',
+      title: 'Отбойный молоток 25 дж Bosch GSH11EE',
+      media: '@/assets/img/shop/catalog/catalog-1.jpg',
+      priceNew: '',
+      priceCurrent: '20 EURO',
+    },
+  ];
+
+section.shop-catalog.section.section-shop.first-section
+  .section-bg
+    .section-bg-lines
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+
+  ._container.section__container
+    .shop-catalog__wrapper
+      .shop-catalog__header.section-header
+        h2.section-header__title Аренда строительного оборудования Гамбург
+
+      .shop-catalog__content
+        .shop-catalog-filter filter container
+
+        ul.shop-catalog-list
+          each item in shopCatalogList
+            li
+              .shop-catalog-list__item
+                a.shop-catalog-list__media(href=`${item.href}`)
+                  span.shop-catalog-list__media__container
+                    img(
+                      src=require(`${item.media}`),
+                      alt=`${item.title}`,
+                      loading='lazy'
+                    )
+
+                .shop-catalog-list__content
+                  p.shop-catalog-list__vendor= item.vendor
+
+                  a.shop-catalog-list__title(href=`${item.href}`)= item.title
+
+                  .shop-catalog-list-price
+                    p.shop-catalog-list-price__old!= `от <span>${item.priceCurrent}</span> / сутки`
+
+                    if item.priceNew && item.priceNew !== ''
+                      p.shop-catalog-list-price__new!= `от <span>${item.priceNew}</span> / сутки`
+
+                  a.shop-catalog-list__action.button-hollow(
+                    href=`${item.href}`
+                  )
+                    span Забронировать

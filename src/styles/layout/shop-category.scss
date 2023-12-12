@@ -5,7 +5,7 @@
 
     > * + * {
       @include viewport-tablet-min {
-        margin-left: px-to-rem(42);
+        margin-top: px-to-rem(42);
       }
     
       @include viewport-phone {

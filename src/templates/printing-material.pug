@@ -54,6 +54,10 @@ section.printing-material.section
           li.printing-material-list__item
             .printing-material-list__media
               .printing-material-list__media__container
-                img(src=require(`${item.image}`), alt=`${item.title}`) 
+                img(
+                  src=require(`${item.image}`),
+                  alt=`${item.title}`,
+                  loading='lazy'
+                ) 
 
             p.printing-material-list__title!= item.title

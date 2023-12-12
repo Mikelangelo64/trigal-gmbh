@@ -25,17 +25,17 @@ section,
     padding: px-to-rem(60) 0;
   }
 
-  &.section-shop {
-    @include viewport-desktop {
-      padding: px-to-rem(120) 0;
-    }
-    @include viewport-tablet {
-      padding: px-to-rem(100) 0;
-    }
-    @include viewport-phone {
-      padding: px-to-rem(60) 0;
-    }
-  }
+  // &.section-shop {
+  //   @include viewport-desktop {
+  //     padding: px-to-rem(120) 0;
+  //   }
+  //   @include viewport-tablet {
+  //     padding: px-to-rem(100) 0;
+  //   }
+  //   @include viewport-phone {
+  //     padding: px-to-rem(60) 0;
+  //   }
+  // }
 
   &.first-section {
     @include viewport-tablet-min {
