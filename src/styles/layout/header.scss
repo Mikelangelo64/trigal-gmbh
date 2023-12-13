@@ -418,7 +418,7 @@
     position: relative;
     width: 100%;
 
-    @include transition((opacity 0.4s, transform 0.4s));
+    @include transition((opacity 0.4s, margin 0.4s));
 
     &::before {
       content: '';
@@ -443,14 +443,24 @@
       }
     }
 
+    &::after {
+      content: '';
+      display: block;
+    }
+
     > * {
       position: relative;
     }
 
     @at-root .header.scroll-down & {
-      transform: translate(0, -100%);
+      // transform: translate(0, -100%);
+      margin-top: calc(-1 * var(--additional-header-height, #{px-to-rem(44)}));
       opacity: 0;
       pointer-events: none;
+
+      &::after {
+        margin-top: -100%;
+      }
     }
   }
 }
