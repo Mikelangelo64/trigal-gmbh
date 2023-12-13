@@ -53,7 +53,7 @@ const grabHandler = (containerDom: HTMLElement) => {
     evt.preventDefault();
 
     const x = evt.pageX - container.offsetLeft;
-    const walk = (x - startX) * 0.8;
+    const walk = (x - startX) * 2;
     progress.target = scrollLeft - walk;
     frame.play();
   });

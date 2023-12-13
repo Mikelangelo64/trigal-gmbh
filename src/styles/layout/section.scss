@@ -35,6 +35,10 @@ section,
     @include viewport-phone {
       padding: px-to-rem(50) 0;
     }
+
+    &.contacts {
+      padding-bottom: px-to-rem(86);
+    }
   }
 
   &.first-section {
