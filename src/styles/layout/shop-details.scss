@@ -1,0 +1,209 @@
+.shop-details {
+  
+  //.shop-details__wrapper 
+  &__wrapper {
+    width: 100%;
+
+    > * + * {
+      margin-top: px-to-rem(38);
+    }
+  }
+
+  //.shop-details__header 
+  &__header {
+    --padding-navigation: #{px-to-rem(18)};
+
+    border-top: 0.4px solid rgba(var(--color-white--rgb), 0.48);
+    border-bottom: 0.4px solid rgba(var(--color-white--rgb), 0.48);
+  }
+  
+  //.shop-details-navigation 
+  &-navigation {
+    padding: var(--padding-navigation) 0;
+    // width: 100%;
+
+    //.shop-details-navigation__inner 
+    &__inner {    
+      position: relative;
+      z-index: 0;
+
+      > * + * {
+        @include viewport-desktop {
+          margin-left: px-to-rem(64);
+        }
+        @include viewport-tablet {
+          margin-left: px-to-rem(54);
+        }
+        @include viewport-phone {
+          margin-left: px-to-rem(46);
+        }
+      }
+    }
+
+    //.shop-details-navigation__line 
+    &__line {
+      bottom: calc(-1 * (var(--padding-navigation)));
+      margin: 0;
+    }
+    
+    //.shop-details-navigation__button 
+    &__button {
+      @include reset-button;
+      position: relative;
+      z-index: 0;
+
+      display: block;
+      @include transition(color 0.4s);
+
+      font-weight: 600;
+      line-height: 178%;
+      font-size: px-to-rem(16);
+
+      color: var(--color-white);
+
+      &.active {
+        color: var(--color-red);
+      }
+    }
+  }
+  
+  //.shop-details-content 
+  &-content {
+    width: 100%;
+
+    //.shop-details-content__item 
+    &__item {
+      width: 100%;
+    }
+  }
+  
+  //.shop-details__info__container 
+  &__info__container {
+    display: grid;
+
+    @include viewport-desktop {
+      grid-template-columns: repeat(2, 1fr);
+      gap: px-to-rem(54) px-to-rem(86);
+    }
+
+    @include viewport-tablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: px-to-rem(54) px-to-rem(60);
+    }
+
+    @include viewport-phone {
+      grid-template-columns: 1fr;
+      gap: px-to-rem(46);
+    }
+
+    > * {
+      &:only-child {
+        @include viewport-tablet-min {
+          // background-color: red;
+          grid-column-end: span 2;
+        }
+      }
+    }
+  }
+  
+  //.shop-details-info 
+  &-info {
+    width: 100%;
+
+    > * + * {
+      margin-top: px-to-rem(20);
+    }
+
+    //.shop-details-info__title 
+    &__title {
+      font-weight: 700;
+      line-height: 178%;
+      font-size: px-to-rem(16);
+    }
+    
+    //.shop-details-info__list 
+    &__list {
+      width: 100%;
+
+      // &.marked {
+      // }
+
+      > * {
+        + * {
+          border-top: 0.4px solid rgba(var(--color-white--rgb), 0.34);
+          margin-top: px-to-rem(14);
+          padding-top: px-to-rem(14);
+        }
+      }
+    }
+    
+    //.shop-details-info__item 
+    &__item {
+      width: 100%;
+
+      font-weight: 300;
+      line-height: calc(var(--line-height) * 100%);
+      font-size: px-to-rem(14);
+
+      //.shop-details-info__item__inner 
+      &__inner {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        
+        @at-root .shop-details-info__list.marked & {
+          --marker-size: #{px-to-rem(8)};
+          --line-height: 1.78;
+          
+          position: relative;
+          z-index: 0;
+
+          padding-left: calc(var(--marker-size) + px-to-rem(10));
+
+          &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+    
+            width: var(--marker-size);
+            height: var(--marker-size);
+            border: 2px solid var(--color-red);
+            border-radius: 50%;
+    
+            transform: translate(0, calc(0.5em * var(--line-height) - 50%));
+            background-color: transparent;
+            
+            // @at-root .typography.reverse ul li::before {
+            //   background-image: url('@/assets/img/line-white.svg');
+            // }
+          }
+        }
+      }
+
+
+      > * + * {
+        margin-left: px-to-rem(20);
+      }
+    }
+    
+    //.shop-details-info__name 
+    &__name {
+      width: 100%;
+      text-align: left;
+    }
+    
+    //.shop-details-info__value 
+    &__value {
+      width: 100%;
+
+      text-align: right;
+      font-weight: 600;
+
+      &:only-child {
+        text-align: left;
+      }
+    }
+  }
+}

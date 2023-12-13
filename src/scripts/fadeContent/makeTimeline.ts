@@ -1,4 +1,4 @@
-import { Timeline } from 'vevet';
+import { BaseTimeline, Timeline } from 'vevet';
 import { IParentHeight } from './useParentHeight';
 
 interface IMakeTimeline {
@@ -8,7 +8,48 @@ interface IMakeTimeline {
   section: HTMLElement;
   activeHeight: number;
   duration?: number;
+  label?: HTMLElement | null;
+  button?: HTMLElement | null;
+  previousButton?: HTMLElement | null;
 }
+
+const labelTimeline = (
+  labelDom: HTMLElement,
+  button: HTMLElement,
+  previousButton: HTMLElement
+) => {
+  const label = labelDom;
+  const timeline = new BaseTimeline({
+    easing: [0.25, 0.1, 0.25, 1]
+  });
+
+  const rect = button.getBoundingClientRect();
+  const rectPrev = previousButton.getBoundingClientRect();
+  const inner = document.querySelector<HTMLElement>('.fade-section__list');
+
+  if (!inner) {
+    return timeline;
+  }
+
+  const leftShift = inner.offsetLeft;
+  const scrollShift = inner.scrollLeft;
+
+  const prevPos = rectPrev.x - leftShift + scrollShift;
+  const targetPos = rect.x - leftShift + scrollShift;
+
+  const prevWidth = rectPrev.width;
+  const targetWidth = rect.width;
+
+  timeline.addCallback('progress', ({ easing }) => {
+    label.style.transform = `translate(${
+      prevPos + easing * (targetPos - prevPos)
+    }px, 0)`;
+
+    label.style.width = `${prevWidth + easing * (targetWidth - prevWidth)}px`;
+  });
+
+  return timeline;
+};
 
 const makeTimeline = ({
   showItem: showItemProp,
@@ -16,7 +57,10 @@ const makeTimeline = ({
   parentHeight,
   section: sectionProp,
   activeHeight,
-  duration = 600
+  duration = 600,
+  label,
+  button,
+  previousButton
 }: IMakeTimeline) => {
   const showItem = showItemProp;
   const hideItem = hideItemProp;
@@ -24,6 +68,7 @@ const makeTimeline = ({
 
   const timeline = new Timeline({
     duration,
+    shouldDestroyOnEnd: true,
     easing: [0.25, 0.1, 0.25, 1]
   });
 
@@ -47,6 +92,11 @@ const makeTimeline = ({
     timeline.destroy();
     parentHeight.reset();
   });
+
+  if (label && button && previousButton) {
+    const nestedTm = labelTimeline(label, button, previousButton);
+    timeline.addNestedTimeline(nestedTm);
+  }
 
   timeline.play();
 };

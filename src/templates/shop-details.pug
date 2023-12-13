@@ -1,0 +1,299 @@
+-
+  const detailsArray = [
+    {
+      isActive: 'true',
+      data: '1',
+      type: 'Спецификации',
+
+      content: {
+        type: 'list',
+        listArray: [
+          {
+            title: 'Подробности',
+            isMarked: 'false',
+            list: [
+              {
+                name: 'Держатель инструмента',
+                value: 'Паспорт безопасности плюс'
+              },
+              {
+                name: 'Вес (кг)',
+                value: '3.3 кг'
+              },
+              {
+                name: 'Время зарядки аккумулятора 100% (мин)',
+                value: '35'
+              },
+            ],
+          },
+          {
+            title: 'Характеристики',
+            isMarked: 'true',
+            list: [
+              {
+                name: 'Сверление и забивание бетона и каменной кладки',
+                value: ''
+              },
+              {
+                name: 'Переодическое сверление древесины и стали с дополнительным адаптером для сверлильной головки',
+                value: ''
+              },
+              {
+                name: '',
+                value: ''
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      isActive: 'false',
+      data: '2',
+      type: 'Category 2',
+
+      content: {
+        type: 'list',
+        listArray: [
+          {
+            title: 'Характеристики',
+            isMarked: 'false',
+            list: [
+              {
+                name: 'Сверление и забивание бетона и каменной кладки',
+                value: ''
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      isActive: 'false',
+      data: '3',
+      type: 'Category 3',
+
+      content: {
+        type: 'default',
+        listArray: [
+        ],
+      },
+    },
+    {
+      isActive: 'false',
+      data: '4',
+      type: 'Category 4',
+
+      content: {
+        type: 'list',
+        listArray: [
+          {
+            title: 'Характеристики',
+            isMarked: 'false',
+            list: [
+              {
+                name: 'Сверление и забивание бетона и каменной кладки',
+                value: ''
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      isActive: 'false',
+      data: '5',
+      type: 'Category 5',
+
+      content: {
+        type: 'default',
+        listArray: [
+        ],
+      },
+    },
+    {
+      isActive: 'false',
+      data: '6',
+      type: 'Category 6',
+
+      content: {
+        type: 'list',
+        listArray: [
+          {
+            title: 'Характеристики',
+            isMarked: 'false',
+            list: [
+              {
+                name: 'Сверление и забивание бетона и каменной кладки',
+                value: ''
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      isActive: 'false',
+      data: '7',
+      type: 'Category 7',
+
+      content: {
+        type: 'default',
+        listArray: [
+        ],
+      },
+    },
+    {
+      isActive: 'false',
+      data: '8',
+      type: 'Category 8',
+
+      content: {
+        type: 'list',
+        listArray: [
+          {
+            title: 'Характеристики',
+            isMarked: 'false',
+            list: [
+              {
+                name: 'Сверление и забивание бетона и каменной кладки',
+                value: ''
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      isActive: 'false',
+      data: '9',
+      type: 'Category 9',
+
+      content: {
+        type: 'default',
+        listArray: [
+        ],
+      },
+    },
+    {
+      isActive: 'false',
+      data: '10',
+      type: 'Category 10',
+
+      content: {
+        type: 'list',
+        listArray: [
+          {
+            title: 'Характеристики',
+            isMarked: 'false',
+            list: [
+              {
+                name: 'Сверление и забивание бетона и каменной кладки',
+                value: ''
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      isActive: 'false',
+      data: '11',
+      type: 'Category 11',
+
+      content: {
+        type: 'default',
+        listArray: [
+        ],
+      },
+    },
+    {
+      isActive: 'false',
+      data: '12',
+      type: 'Category 12',
+
+      content: {
+        type: 'list',
+        listArray: [
+          {
+            title: 'Характеристики',
+            isMarked: 'false',
+            list: [
+              {
+                name: 'Сверление и забивание бетона и каменной кладки',
+                value: ''
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      isActive: 'false',
+      data: '13',
+      type: 'Category 13',
+
+      content: {
+        type: 'default',
+        listArray: [
+        ],
+      },
+    },
+  ];
+
+.shop-details.section.section-shop
+  .section-bg
+    .section-bg-lines
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+      .section-bg-lines__item
+
+  ._container.section__container
+    .shop-details__wrapper.fade-section
+      .shop-details__header
+        .fade-section__list.shop-details-navigation.grab-desktop
+          ul.shop-details-navigation__inner.grab-desktop__inner
+            each item in detailsArray
+              li
+                button.fade-section__button.shop-details-navigation__button(
+                  class=`${item.isActive === 'true' ? 'active' : ''}`,
+                  data-item=`${item.data}`,
+                  aria-label=`${item.type}`
+                )
+                  span= item.type
+
+            .fade-section__line.shop-details-navigation__line(
+              aria-hidden='true'
+            )
+
+      .shop-details-content
+        .fade-section-content
+          each item, index in detailsArray
+            .fade-section-content__item(
+              class=`${item.isActive !== 'true' ? 'unactive' : ''}`,
+              data-item=`${item.data}`
+            )
+              .shop-details-content__item
+                case item.content.type 
+                  when 'list'
+                    .shop-details__info__container
+                      each list in item.content.listArray 
+                        .shop-details-info
+                          p.shop-details-info__title= list.title
+
+                          ul.shop-details-info__list(
+                            class=`${list.isMarked && list.isMarked === 'true' ? 'marked' : ''}`
+                          )
+                            each row in list.list
+                              if row.name && row.name !== '' || row.value && row.value !== ''
+                                li.shop-details-info__item
+                                  .shop-details-info__item__inner
+                                    if row.name && row.name !== ''
+                                      p.shop-details-info__name= row.name
+
+                                    if row.value && row.value !== ''
+                                      p.shop-details-info__value= row.value
+
+                  default
+                    p default

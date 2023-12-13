@@ -1,5 +1,11 @@
 import useParentHeight, { IParentHeight } from './useParentHeight';
 import makeTimeline from './makeTimeline';
+import {
+  setLabelPosition,
+  setLabelWidth,
+  updateLabelValue
+} from './lineHelper';
+import debounce from '../config/debounce';
 
 interface IStateItem {
   key: string;
@@ -53,9 +59,29 @@ const initFadeSection = (section: HTMLElement, activeKey: string = '1') => {
     return;
   }
 
+  const label = section.querySelector<HTMLElement>('.fade-section__line');
+
   state.active.button = section.querySelector(
     '.fade-section__button.active'
   ) as HTMLElement;
+
+  if (label) {
+    setLabelPosition(label, state.active.button);
+    setLabelWidth(label, state.active.button);
+
+    window.addEventListener(
+      'resize',
+      debounce({
+        callback: () => {
+          if (!state.active.button) {
+            return;
+          }
+
+          updateLabelValue(label, state.active.button);
+        }
+      })
+    );
+  }
 
   buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -99,7 +125,10 @@ const initFadeSection = (section: HTMLElement, activeKey: string = '1') => {
         hideItem,
         parentHeight: state.parent.parentHeight,
         section,
-        activeHeight: state.parent.activeHeight
+        activeHeight: state.parent.activeHeight,
+        label: label,
+        button,
+        previousButton: state.prev.button
       });
     });
   });

@@ -3,6 +3,7 @@ import anchorsInit from './anchor/init';
 import vevet from './config/vevet';
 import fadeContentInit from './fadeContent/init';
 import fancyboxInit from './fancybox/init';
+import grabDesktopInit from './grabDesktop/init';
 import headerEvents from './headerEvents/init';
 import isViewedHandler, { isVideoViewedHandler } from './isViewedHandler/init';
 import initPopups from './popup/init';
@@ -32,6 +33,7 @@ export const init = () => {
     scrollSectionState.stateArray = stateArray;
   }
 
+  grabDesktopInit();
   headerEvents();
   // console.log(scrollSectionState);
 

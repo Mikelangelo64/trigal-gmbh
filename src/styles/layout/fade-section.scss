@@ -13,6 +13,20 @@
   // //.fade-section__button 
   // &__button {
   // }
+
+  //.fade-section__line 
+  &__line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+
+    width: 1px;
+    height: 4px;
+
+    will-change: transform, width;
+    background-color: var(--color-red);
+  }
   
   //.fade-section-content 
   &-content {
